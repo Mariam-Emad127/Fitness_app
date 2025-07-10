@@ -1,5 +1,6 @@
  import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/feature/login/ui/login.dart';
+import 'package:fitness/feature/login/ui/login_with_email.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -9,8 +10,11 @@ class AppRouter {
 
   switch (setting.name){
 case Routes.loginScreen:
-return MaterialPageRoute(builder: (BuildContext context) { return Login(); });
+return MaterialPageRoute(builder: (_) =>Login());
 
+
+case Routes.loginWithEmailScreen:
+return MaterialPageRoute(builder: (BuildContext context) { return LoginWithEmail(); });
       default:
         return null;
    } 

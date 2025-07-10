@@ -2,9 +2,12 @@ import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginWithGoogle extends StatelessWidget {
-  const LoginWithGoogle({super.key});
+  final String svg;
+ final String title;
+  const LoginWithGoogle({super.key, required this.svg, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,8 @@ decoration: BoxDecoration(
 child: Row(
   mainAxisAlignment: MainAxisAlignment.center,
   children: [
-  Text( "Login with google",style: TextStyles.font15WhiteMedium)
+    SvgPicture.asset(svg,height: 20,),
+  Text( title,style: TextStyles.font15WhiteMedium)
 ],),
 
     );
