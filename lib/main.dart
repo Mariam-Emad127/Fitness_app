@@ -1,13 +1,16 @@
-import 'package:fitness/feature/login/ui/login.dart';
-import 'package:flutter/material.dart';
+import 'package:fitness/core/routing/app_router.dart';
+import 'package:fitness/core/routing/routes.dart';
+ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp(appRouter: AppRouter(),));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+    final AppRouter appRouter;
+
+  const MyApp({super.key, required this.appRouter});
 
   // This widget is the root of your application.
   @override
@@ -21,7 +24,9 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const Login(),
+       // home: const Login(),
+        initialRoute: Routes.loginScreen,
+        onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );
   }
