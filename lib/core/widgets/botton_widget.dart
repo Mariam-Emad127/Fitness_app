@@ -16,7 +16,7 @@ class BottonWidget extends StatelessWidget {
       child: Container(    alignment: Alignment.center,
        // margin: EdgeInsets.all(50),
       height: 45.h,
-      width: 330.w,
+      width: 345.w,
       decoration: BoxDecoration(
         color: ColorsManager.mainYellow,
         borderRadius: BorderRadius.circular(20)),
