@@ -43,6 +43,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                   ),
                   AppTextFormField(
                       hintText: "Email",
+                      inputTextStyle: TextStyle(color: Colors.white),
                       controller: context.read<LoginCubit>().email,
                       validator: (val) {
                         if (val == null || val.isEmpty) {
@@ -53,7 +54,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                     height: 20.h,
                   ),
                   AppTextFormField(
-                      hintText: "Password",
+                       hintText: "Password",
                       controller: context.read<LoginCubit>().password,
                       validator: (val) {
                         if (val == null || val.isEmpty) {

@@ -27,7 +27,10 @@ body: SafeArea(child: Center(
       style: TextStyles.font12GrayRegular,),
     
         SizedBox(height:40.h,),
-                        AppTextFormField(hintText:  "Name", validator: (val){} ),
+                        AppTextFormField(hintText:  "Name", validator: (val){
+
+                          
+                        } ),
                           SizedBox(height:20.h,),
                 AppTextFormField(hintText:  "Email", validator: (val){} ),
                           SizedBox(height:20.h,),
