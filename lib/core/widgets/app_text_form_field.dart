@@ -33,6 +33,7 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+     // style: TextStyle(color: Colors.white),
       controller: controller,
       decoration: InputDecoration(
         isDense: true,
@@ -69,13 +70,17 @@ class AppTextFormField extends StatelessWidget {
           borderRadius: BorderRadius.circular(16.0),
         ),
         hintStyle: hintStyle ?? TextStyles.font14LightGrayRegular,
+        
         hintText: hintText,
         suffixIcon: suffixIcon,
         fillColor: backgroundColor ?? ColorsManager.darkBlue,
         filled: true,
       ),
       obscureText: isObscureText ?? false,
-      style: TextStyles.font14DarkBlueMedium,
+      style:
+      
+       TextStyles.font15WhiteMedium,
+       
       validator: (value) {
         return validator(value);
       },

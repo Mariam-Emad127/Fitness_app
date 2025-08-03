@@ -26,13 +26,7 @@ if(state is LoginLoading)  {
             );
           }else if(state is LoginSucess){
             print( "dddddddddddddddd");
-  //  loginResponse 
-            Navigator.pop(context);
-           // Navigator.pushNamed(
-              //context,
-              //Routes.homeScreen,
-            //);
-
+             Navigator.pop(context);
           }else{
              Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(
