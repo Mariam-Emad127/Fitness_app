@@ -22,7 +22,8 @@ class DontHaveAccountText extends StatelessWidget {
             style: TextStyles.font13BlueSemiBold,
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-               Navigator.pushReplacementNamed(context,Routes.signupScreen) ;
+                 Navigator.pushNamed(context, Routes.signupScreen);
+               //Navigator.of(context).pushReplacementNamed(Routes.signupScreen) ;
               },
           ),
         ],
