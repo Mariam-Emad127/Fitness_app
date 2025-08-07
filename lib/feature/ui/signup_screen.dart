@@ -9,10 +9,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
+ final ValueNotifier<bool> clicked = ValueNotifier (false);
+
+    SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+ 
     return Scaffold(
       backgroundColor: ColorsManager.darkGray,
       body: SafeArea(
@@ -64,14 +67,17 @@ class SignupScreen extends StatelessWidget {
                 SizedBox(
                   height: 20.h,
                 ),
-                Remmeberme(),
+                Remmeberme(clicked: clicked,  ),
                 BottonWidget(
                   onTap: () {
-                    if (context
+                     // clicked==true?
+                    if (
+                   
+                      context
                         .read<SignUpCubit>()
                         .formKey
                         .currentState!
-                        .validate()) {
+                        .validate()& clicked.value==true) {
                       context
                           .read<SignUpCubit>()
                           .createUserWithEmailAndPassword(
@@ -80,12 +86,12 @@ class SignupScreen extends StatelessWidget {
                                   context.read<SignUpCubit>().password.text,
                               username:   context.read<SignUpCubit>().username.text);
                     }
-                    ;
+                    print("#######$clicked");
                   },
                   title: "Create an Account ",
                 ),
-                /*
-                BlocListener(
+                 
+                BlocListener<SignUpCubit,SignUpState>(
                     listenWhen: (previous, current) =>
                         current is SignUpLoading ||
                         current is SignUpFailuier ||
@@ -112,9 +118,11 @@ class SignupScreen extends StatelessWidget {
                           ),
                         );
                       }
-                    })
+                    },
+                    child: Container(),
+                    )
              
-             */
+             
               ],
             ),
           ),

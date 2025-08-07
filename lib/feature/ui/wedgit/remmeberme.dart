@@ -1,26 +1,42 @@
 import 'package:fitness/core/theming/color.dart';
- import 'package:flutter/material.dart';
- 
+import 'package:flutter/material.dart';
+  
 class Remmeberme extends StatefulWidget {
-  const Remmeberme({super.key});
+final ValueNotifier<bool> clicked ;//= ValueNotifier; (false);
+
+    //  bool clicked;//=false;
+
+    Remmeberme({super.key, 
+   required this.clicked
+    });
 
   @override
   State<Remmeberme> createState() => _RemmebermeState();
 }
 
 class _RemmebermeState extends State<Remmeberme> {
-  bool checked=false;
+
   @override
   Widget build(BuildContext context) {
-    return   
+
+     return   
               Row(
                 children: [
                   Checkbox(
-                    value: checked,
+                    value:  widget.clicked.value,
                     onChanged: (newvalue) {
                       setState(() {
-                        checked = newvalue!;
+                       //clicked=!clicked;
+                     //  widget.clicked = !widget.clicked;
+                     //  widget.clicked.value==!(widget.clicked.value);
+                            widget.clicked.value  = newvalue ?? false;
+
+                       newvalue== widget.clicked;
+                      //clicked=!clicked;
                       });
+                      print("kkkkkkkkkkkk$newvalue");
+                      print(widget.clicked);
+                     // print( clicked);
                     },
                   ),
                   Text("I agree terms & condations",style: TextStyle(color: ColorsManager.lightGray,))
