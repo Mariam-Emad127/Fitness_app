@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
        // home: const Login(),
-        initialRoute: Routes.loginScreen,
+        initialRoute: Routes.userProfile,
         onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );
