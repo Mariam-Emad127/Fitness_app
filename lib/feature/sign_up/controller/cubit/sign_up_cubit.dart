@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 part 'sign_up_state.dart';
 part 'sign_up_cubit.freezed.dart';
@@ -12,7 +13,10 @@ class SignUpCubit extends Cubit<SignUpState> {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
   final TextEditingController username = TextEditingController();
-  SignUpCubit() : super(SignUpState.initial());
+//final GoogleSignIn _googleSignIn = GoogleSignIn.instance ;
+
+//final GoogleSignIn _googleSignIn = GoogleSignIn.( );
+    SignUpCubit() : super(SignUpState.initial());
 
 
   Future<void> createUserWithEmailAndPassword({
@@ -63,5 +67,7 @@ class SignUpCubit extends Cubit<SignUpState> {
       emit(SignUpState.signUpFailuier(e.toString()));
     }
   }
+ 
 
 }
+ 
