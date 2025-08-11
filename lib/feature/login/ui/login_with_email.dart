@@ -62,9 +62,12 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                         }
         
                       }),
+                  SizedBox(height: 15,),
+                  Text( "Forget Password",style: TextStyles.font13DarkBlueMedium,),
                   SizedBox(
                     height: 20.h,
                   ),
+
                   BottonWidget(
                     onTap: () {
         if(context.read<LoginCubit>().formKey.currentState!.validate()){

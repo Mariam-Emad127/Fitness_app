@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AppRouter {
   Route? onGenerateRoute(RouteSettings setting) {
     // Route? onGenerateRoute(RouteSettings settings) {
-   // final arrgument = setting.arguments;
+    // final arrgument = setting.arguments;
 
     switch (setting.name) {
       case Routes.signupScreen:
@@ -22,7 +22,11 @@ class AppRouter {
                 ));
 
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => Login());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => LoginCubit(),
+                  child: Login(),
+                ));
 
       case Routes.loginWithEmailScreen:
         return MaterialPageRoute(builder: (_) {
@@ -32,8 +36,8 @@ class AppRouter {
           );
         });
 
-case Routes.userProfile:
-return MaterialPageRoute(builder:  (_)=>UserProfile());
+      case Routes.userProfile:
+        return MaterialPageRoute(builder: (_) => UserProfile());
       default:
         return null;
     }

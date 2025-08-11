@@ -27,7 +27,7 @@ class TextStyles {
   static TextStyle font13DarkBlueMedium = TextStyle(
     fontSize: 13.sp,
     fontWeight: FontWeightHelper.medium,
-    color: ColorsManager.darkBlue,
+    color: ColorsManager.mainYellow,
   );
 
   static TextStyle font13DarkBlueRegular = TextStyle(
