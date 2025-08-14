@@ -6,17 +6,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class BottonWidget extends StatelessWidget {
  final void Function() onTap;
  final String title;
-  const BottonWidget({super.key, required this.onTap, required this.title});
+ final double width;
+  const BottonWidget({super.key, required this.onTap, required this.title, required this.width});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap:  onTap,
 
-      child: Container(    alignment: Alignment.center,
+      child: Container(  
+          alignment: Alignment.center,
        // margin: EdgeInsets.all(50),
       height: 45.h,
-      width: 345.w,
+      width: width.w,//345.w,
       decoration: BoxDecoration(
         color: ColorsManager.mainYellow,
         borderRadius: BorderRadius.circular(20)),

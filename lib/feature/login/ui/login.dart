@@ -37,7 +37,7 @@ body: SingleChildScrollView(
   OrDiver(),
   BottonWidget(onTap: () {
     Navigator.pushNamed(context, Routes.loginWithEmailScreen);
-  }, title:  "Login with Email",),
+  }, title:  "Login with Email", width: 345,),
   SizedBox(height: 50,),
   DontHaveAccountText(),
    ],),

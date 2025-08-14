@@ -77,7 +77,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
         
                     };
                     },
-                    title: "Login ",
+                    title: "Login ", width: 345,
                   ),
                     Loginbloclistener()
         

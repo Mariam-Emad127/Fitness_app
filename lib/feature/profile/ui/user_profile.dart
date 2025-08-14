@@ -1,5 +1,7 @@
+import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
+import 'package:fitness/core/widgets/botton_widget.dart';
  import 'package:fitness/feature/profile/ui/widget/appBar_widget.dart';
 import 'package:fitness/feature/profile/ui/widget/info.dart';
 import 'package:fitness/feature/profile/ui/widget/setting_wedgit.dart';
@@ -13,19 +15,18 @@ class UserProfile extends StatefulWidget {
 }
 
 class _UserProfileState extends State<UserProfile> {
+  bool light =true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsManager.darkGray,
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(  8.0),
         child: SizedBox(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-          children: [AppbarWidget(),
- SizedBox(height: 15,),
-CircleAvatar(
+           children: [AppbarWidget(),
+ CircleAvatar(
   radius: 40,
   backgroundColor: ColorsManager.mainYellow,
   child: Padding(
@@ -34,8 +35,12 @@ CircleAvatar(
      Image.network(
       "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg")),
   ),
+
 ),
-SizedBox(height: 10,),
+SizedBox(height:  5,),
+Text("name",style: TextStyles.font15WhiteMedium,),
+Text( "Name@gmail.com",style: TextStyles.font15WhiteMedium,),
+SizedBox(height: 5,),
 Row(
   mainAxisAlignment: MainAxisAlignment.center,
   children: [
@@ -46,17 +51,26 @@ Info(iconData: Icons.photo_size_select_actual_rounded,  number: '22',  info: 'ag
 
 ],),
     SizedBox(height: 10,),
-    SettingWedgit(title: 'Edit Profile', iconData: Icons.person,),
+    InkWell(
+      onTap: (){Navigator.pushNamed(context, Routes.edieProfile);},
+      child: SettingWedgit(title: 'Edit Profile', iconData: Icons.person,)),
     SizedBox(height: 10,),
  Container(
-       
+       width: 325,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
         color: ColorsManager.lightGray,),
       
       child: ListTile(
         leading: Icon(Icons.notification_add,size: 25,color: ColorsManager.mainYellow,),
         title:Text( "Notification",style: TextStyles.font16WhiteMedium,),
-        trailing:Switch(value:  true, onChanged:(value){!value;},activeColor: ColorsManager.mainYellow,)
+        trailing:SizedBox(
+          height: 18,
+          width: 30,
+          child: Switch(value:  light, onChanged:(value){
+            setState(() {
+            light=value;  
+            });
+            },activeColor: ColorsManager.mainYellow,))
       
       ) ,
         ),
@@ -65,7 +79,7 @@ Info(iconData: Icons.photo_size_select_actual_rounded,  number: '22',  info: 'ag
     
      SizedBox(height: 5,),
     SettingWedgit(title: 'Setting', iconData: Icons.settings,),
-    
+    BottonWidget(onTap: () {  },  title: 'Logout', width: 325,)
           
           ],
         )),

@@ -88,7 +88,7 @@ class SignupScreen extends StatelessWidget {
                     }
                     print("#######$clicked");
                   },
-                  title: "Create an Account ",
+                  title: "Create an Account ", width: 345,
                 ),
                  
                 BlocListener<SignUpCubit,SignUpState>(

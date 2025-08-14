@@ -2,6 +2,7 @@ import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/feature/login/controller/cubit/login_cubit.dart';
 import 'package:fitness/feature/login/ui/login.dart';
 import 'package:fitness/feature/login/ui/login_with_email.dart';
+import 'package:fitness/feature/profile/ui/edit_profile.dart';
 import 'package:fitness/feature/profile/ui/user_profile.dart';
 import 'package:fitness/feature/sign_up/controller/cubit/sign_up_cubit.dart';
 import 'package:fitness/feature/ui/signup_screen.dart';
@@ -38,6 +39,9 @@ class AppRouter {
 
       case Routes.userProfile:
         return MaterialPageRoute(builder: (_) => UserProfile());
+     
+      case Routes.edieProfile:
+        return MaterialPageRoute(builder: (_) => EditProfile());
       default:
         return null;
     }
