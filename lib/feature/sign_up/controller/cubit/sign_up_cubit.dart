@@ -3,8 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-
+ 
 part 'sign_up_state.dart';
 part 'sign_up_cubit.freezed.dart';
 
@@ -18,7 +17,8 @@ class SignUpCubit extends Cubit<SignUpState> {
 //final GoogleSignIn _googleSignIn = GoogleSignIn.( );
     SignUpCubit() : super(SignUpState.initial());
 
-
+          final  cred =FirebaseAuth.instance.currentUser;
+         
   Future<void> createUserWithEmailAndPassword({
     required String email,
     required String password,
@@ -35,17 +35,21 @@ class SignUpCubit extends Cubit<SignUpState> {
           email: email,
           password: password,
         );
-        await FirebaseFirestore.instance
+          await FirebaseFirestore.instance
             .collection("users")
             .doc(credential.user!.uid)
             .set({
           "username": username,
-          "uid": credential.user!.uid,
+          "uid": cred !.uid,
           "email": email,
-          "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg"
+          "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg",
+          "weight":"_",
+          "hight":"_",
+          "age":"_"
           // Add other fields if needed
         });
 
+//  await storeData(username,credential );
         emit( SignUpState.signUpSucees()); // Emit success state
       } else {
         throw Exception('All fields are required.');
@@ -67,7 +71,30 @@ class SignUpCubit extends Cubit<SignUpState> {
       emit(SignUpState.signUpFailuier(e.toString()));
     }
   }
- 
+ /*
+ Future <void> storeData(String username, UserCredential credential)async{
+try{
+     await FirebaseFirestore.instance
+            .collection("users")
+            .doc(credential)
+            .set({
+          "username": username,
+          "uid": cred !.uid,
+          "email": email,
+          "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg",
+          "weight":"_",
+          "hight":"_",
+          "age":"_"
+          // Add other fields if needed
+        });
 
+
+}catch(e){
+
+  print("rrrrrrrrrrrrrrr$e");
+}
+
+ }
+*/
 }
  
