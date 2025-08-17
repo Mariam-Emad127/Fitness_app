@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+//import 'package:google_sign_in/google_sign_in.dart';
  
 part 'login_state.dart';
 part 'login_cubit.freezed.dart';
@@ -30,9 +30,9 @@ class LoginCubit extends Cubit<LoginState> {
    }
 
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+//  final FirebaseAuth _auth = FirebaseAuth.instance;
  
- 
+ /*
 Future<void> signInWithGoogle() async {
   try {
     // 1️⃣ تسجيل الدخول بجوجل
@@ -67,7 +67,7 @@ Future<void> signInWithGoogle() async {
     debugPrint("⚠️ خطأ في Google Sign-In: $e");
   }
 }
-
+*/
 
 /*
  Future<void>  signInWithGoogle() async {

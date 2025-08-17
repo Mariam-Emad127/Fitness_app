@@ -4,7 +4,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'sign_up_cubit.dart';
+part of 'get_user_info_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,11 +14,11 @@ part of 'sign_up_cubit.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$SignUpState {
+mixin _$GetUserInfoState {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is SignUpState);
+        (other.runtimeType == runtimeType && other is GetUserInfoState);
   }
 
   @override
@@ -26,18 +26,19 @@ mixin _$SignUpState {
 
   @override
   String toString() {
-    return 'SignUpState()';
+    return 'GetUserInfoState()';
   }
 }
 
 /// @nodoc
-class $SignUpStateCopyWith<$Res> {
-  $SignUpStateCopyWith(SignUpState _, $Res Function(SignUpState) __);
+class $GetUserInfoStateCopyWith<$Res> {
+  $GetUserInfoStateCopyWith(
+      GetUserInfoState _, $Res Function(GetUserInfoState) __);
 }
 
 /// @nodoc
 
-class _Initial implements SignUpState {
+class _Initial implements GetUserInfoState {
   const _Initial();
 
   @override
@@ -51,19 +52,19 @@ class _Initial implements SignUpState {
 
   @override
   String toString() {
-    return 'SignUpState.initial()';
+    return 'GetUserInfoState.initial()';
   }
 }
 
 /// @nodoc
 
-class SignUpLoading implements SignUpState {
-  const SignUpLoading();
+class GetUserInfoSucess implements GetUserInfoState {
+  const GetUserInfoSucess();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is SignUpLoading);
+        (other.runtimeType == runtimeType && other is GetUserInfoSucess);
   }
 
   @override
@@ -71,49 +72,29 @@ class SignUpLoading implements SignUpState {
 
   @override
   String toString() {
-    return 'SignUpState.signUpLoading()';
+    return 'GetUserInfoState.getUserInfoSucess()';
   }
 }
 
 /// @nodoc
 
-class SignUpSucees implements SignUpState {
-  const SignUpSucees();
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is SignUpSucees);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  String toString() {
-    return 'SignUpState.signUpSucees()';
-  }
-}
-
-/// @nodoc
-
-class SignUpFailuier implements SignUpState {
-  const SignUpFailuier(this.message);
+class GetUserInfoFailure implements GetUserInfoState {
+  const GetUserInfoFailure(this.message);
 
   final String message;
 
-  /// Create a copy of SignUpState
+  /// Create a copy of GetUserInfoState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  $SignUpFailuierCopyWith<SignUpFailuier> get copyWith =>
-      _$SignUpFailuierCopyWithImpl<SignUpFailuier>(this, _$identity);
+  $GetUserInfoFailureCopyWith<GetUserInfoFailure> get copyWith =>
+      _$GetUserInfoFailureCopyWithImpl<GetUserInfoFailure>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SignUpFailuier &&
+            other is GetUserInfoFailure &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -122,40 +103,60 @@ class SignUpFailuier implements SignUpState {
 
   @override
   String toString() {
-    return 'SignUpState.signUpFailuier(message: $message)';
+    return 'GetUserInfoState.getUserInfoFailure(message: $message)';
   }
 }
 
 /// @nodoc
-abstract mixin class $SignUpFailuierCopyWith<$Res>
-    implements $SignUpStateCopyWith<$Res> {
-  factory $SignUpFailuierCopyWith(
-          SignUpFailuier value, $Res Function(SignUpFailuier) _then) =
-      _$SignUpFailuierCopyWithImpl;
+abstract mixin class $GetUserInfoFailureCopyWith<$Res>
+    implements $GetUserInfoStateCopyWith<$Res> {
+  factory $GetUserInfoFailureCopyWith(
+          GetUserInfoFailure value, $Res Function(GetUserInfoFailure) _then) =
+      _$GetUserInfoFailureCopyWithImpl;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class _$SignUpFailuierCopyWithImpl<$Res>
-    implements $SignUpFailuierCopyWith<$Res> {
-  _$SignUpFailuierCopyWithImpl(this._self, this._then);
+class _$GetUserInfoFailureCopyWithImpl<$Res>
+    implements $GetUserInfoFailureCopyWith<$Res> {
+  _$GetUserInfoFailureCopyWithImpl(this._self, this._then);
 
-  final SignUpFailuier _self;
-  final $Res Function(SignUpFailuier) _then;
+  final GetUserInfoFailure _self;
+  final $Res Function(GetUserInfoFailure) _then;
 
-  /// Create a copy of SignUpState
+  /// Create a copy of GetUserInfoState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   $Res call({
     Object? message = null,
   }) {
-    return _then(SignUpFailuier(
+    return _then(GetUserInfoFailure(
       null == message
           ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
+  }
+}
+
+/// @nodoc
+
+class GetUserInfoLoading implements GetUserInfoState {
+  const GetUserInfoLoading();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is GetUserInfoLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'GetUserInfoState.getUserInfoLoading()';
   }
 }
 

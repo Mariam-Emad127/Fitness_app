@@ -17,7 +17,7 @@ class SignUpCubit extends Cubit<SignUpState> {
 //final GoogleSignIn _googleSignIn = GoogleSignIn.( );
     SignUpCubit() : super(SignUpState.initial());
 
-          final  cred =FirebaseAuth.instance.currentUser;
+         // final  cred =FirebaseAuth.instance.currentUser;
          
   Future<void> createUserWithEmailAndPassword({
     required String email,
@@ -39,8 +39,8 @@ class SignUpCubit extends Cubit<SignUpState> {
             .collection("users")
             .doc(credential.user!.uid)
             .set({
-          "username": username,
-          "uid": cred !.uid,
+          "name": username,
+          "uid": credential.user!.uid,
           "email": email,
           "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg",
           "weight":"_",

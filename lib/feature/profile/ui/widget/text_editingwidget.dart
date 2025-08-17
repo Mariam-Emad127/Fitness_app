@@ -6,14 +6,15 @@ import 'package:flutter/material.dart';
 class TextEditingwidget extends StatefulWidget {
   final String initialText;
   final String secondText;
-  const TextEditingwidget({super.key, required this.initialText, required this.secondText,     });
+      final TextEditingController controller ;//= TextEditingController();
+
+  const TextEditingwidget({super.key, required this.initialText, required this.secondText, required this.controller,     });
 
   @override
   State<TextEditingwidget> createState() => _TextEditingwidgetState();
 }
 
 class _TextEditingwidgetState extends State<TextEditingwidget> {
-    final TextEditingController _controller = TextEditingController();
    bool _isEditing = false;
    String initialText = "Initial Text";
 
@@ -28,7 +29,7 @@ class _TextEditingwidgetState extends State<TextEditingwidget> {
       },
       child: _isEditing
           ? TextField(
-               controller: _controller,
+               controller: widget.controller,
                cursorHeight:45,
                style: TextStyles.font13DarkBlueMedium,
               decoration: InputDecoration(
@@ -43,7 +44,7 @@ class _TextEditingwidgetState extends State<TextEditingwidget> {
               ),
               onSubmitted: (_) {
                 setState(() {
-                  initialText = _controller.text;
+                  initialText =widget.controller.text;
                   _isEditing = false;
                 });
               },

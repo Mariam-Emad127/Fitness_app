@@ -2,13 +2,11 @@ import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/core/widgets/botton_widget.dart';
-import 'package:fitness/feature/login/controller/cubit/login_cubit.dart';
-import 'package:fitness/feature/login/ui/widget/dont_have_account_text.dart';
+ import 'package:fitness/feature/login/ui/widget/dont_have_account_text.dart';
  import 'package:fitness/feature/login/ui/widget/login_with_google.dart';
 import 'package:fitness/feature/login/ui/widget/or_diver.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -29,7 +27,7 @@ body: SingleChildScrollView(
       SizedBox(height:40.h,),
   InkWell(
     onTap: ()async{ 
-     await context.read<LoginCubit>().signInWithGoogle();
+    // await context.read<LoginCubit>().signInWithGoogle();
      },
     child: LoginWithGoogle(svg:  "assets/SVG/icons8-google.svg", title: "  Login with Google",)),
    SizedBox(height:10.h,),
