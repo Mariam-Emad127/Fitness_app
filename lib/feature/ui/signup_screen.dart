@@ -1,3 +1,4 @@
+import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/core/widgets/app_text_form_field.dart';
@@ -107,8 +108,8 @@ class SignupScreen extends StatelessWidget {
                           ),
                         );
                       } else if (state is SignUpSucees) {
-                        print("dddddddddddddddd");
-                      } else {
+                        Navigator.pushNamed(context,Routes.userProfile);
+                       } else {
                         Navigator.pop(context);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(

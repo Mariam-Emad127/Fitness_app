@@ -71,11 +71,11 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                   BottonWidget(
                     onTap: () {
         if(context.read<LoginCubit>().formKey.currentState!.validate()){
-        
+        try{
         context.read<LoginCubit>().signInWithEmailAndPassword(email: context.read<LoginCubit>().email.text, 
         password: context.read<LoginCubit>().password.text);
-        
-                    };
+        }catch(e){Text("$e");}
+                    } 
                     },
                     title: "Login ", width: 345,
                   ),

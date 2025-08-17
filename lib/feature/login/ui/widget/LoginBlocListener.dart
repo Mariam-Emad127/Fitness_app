@@ -1,3 +1,4 @@
+import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/feature/login/controller/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +26,11 @@ if(state is LoginLoading)  {
               ),
             );
           }else if(state is LoginSucess){
-            print( "dddddddddddddddd");
-             Navigator.pop(context);
+ Navigator.pushNamed(context,Routes.userProfile);
+           //  Navigator.pop(context);
+          }else if(state is LoginFailure){
+
+Text("${state.message}");
           }else{
              Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(
