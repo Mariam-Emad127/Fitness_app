@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/feature/login/controller/cubit/login_cubit.dart';
