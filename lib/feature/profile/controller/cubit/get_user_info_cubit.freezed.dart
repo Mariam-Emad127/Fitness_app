@@ -59,20 +59,64 @@ class _Initial implements GetUserInfoState {
 /// @nodoc
 
 class GetUserInfoSucess implements GetUserInfoState {
-  const GetUserInfoSucess();
+  const GetUserInfoSucess(this.user);
+
+  final UserModel user;
+
+  /// Create a copy of GetUserInfoState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetUserInfoSucessCopyWith<GetUserInfoSucess> get copyWith =>
+      _$GetUserInfoSucessCopyWithImpl<GetUserInfoSucess>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is GetUserInfoSucess);
+        (other.runtimeType == runtimeType &&
+            other is GetUserInfoSucess &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, user);
 
   @override
   String toString() {
-    return 'GetUserInfoState.getUserInfoSucess()';
+    return 'GetUserInfoState.getUserInfoSucess(user: $user)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GetUserInfoSucessCopyWith<$Res>
+    implements $GetUserInfoStateCopyWith<$Res> {
+  factory $GetUserInfoSucessCopyWith(
+          GetUserInfoSucess value, $Res Function(GetUserInfoSucess) _then) =
+      _$GetUserInfoSucessCopyWithImpl;
+  @useResult
+  $Res call({UserModel user});
+}
+
+/// @nodoc
+class _$GetUserInfoSucessCopyWithImpl<$Res>
+    implements $GetUserInfoSucessCopyWith<$Res> {
+  _$GetUserInfoSucessCopyWithImpl(this._self, this._then);
+
+  final GetUserInfoSucess _self;
+  final $Res Function(GetUserInfoSucess) _then;
+
+  /// Create a copy of GetUserInfoState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(GetUserInfoSucess(
+      null == user
+          ? _self.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+    ));
   }
 }
 
