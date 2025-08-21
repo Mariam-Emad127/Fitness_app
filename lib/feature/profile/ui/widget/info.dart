@@ -38,7 +38,7 @@ width: 95,
     ],),
     Row(
       //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [Text( number,style: TextStyles.font20WhiteMedium,),
+      children: [//Text( number,style: TextStyles.font20WhiteMedium,),
     Text(measurement ,style: TextStyles.font15WhiteMedium,),
     ],)
     ],),

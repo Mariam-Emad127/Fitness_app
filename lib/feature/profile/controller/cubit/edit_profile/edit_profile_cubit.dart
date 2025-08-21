@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,7 +15,9 @@ class EditProfileCubit extends Cubit<EditProfileState> {
   final TextEditingController ageController = TextEditingController();
   EditProfileCubit() : super(EditProfileState.initial());
   final auth=FirebaseAuth.instance.currentUser!.uid;
-Future<void>saveEdit(String? name,String ?age,String ?weight,String ?height)async{
+
+Future<void>saveEdit(   String  name,String ?age,String ?weight,String ?height)async{
+  emit(EditLoading());
 FirebaseFirestore.instance.collection( "users").doc(auth).update({
 "username":name,
 "height":height,
@@ -24,8 +26,22 @@ FirebaseFirestore.instance.collection( "users").doc(auth).update({
 } );
 
 
+  emit(EditSucsecc());
 
 }
+
+
+/*
+Future<void>saveEdit(   String  name,String ?age,String ?weight,String ?height)async{
+FirebaseFirestore.instance.collection( "users").doc(auth).update({
+"username":name,
+"height":height,
+"weight":weight,
+"age":age
+} );
+
+}
+*/
 
 
 }
