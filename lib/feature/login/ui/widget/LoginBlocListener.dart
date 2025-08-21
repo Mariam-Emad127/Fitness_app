@@ -1,5 +1,6 @@
-// ignore: file_names
-import 'package:fitness/core/routing/routes.dart';
+ // ignore_for_file: file_names
+
+ import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/feature/login/controller/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +32,7 @@ if(state is LoginLoading)  {
            //  Navigator.pop(context);
           }else if(state is LoginFailure){
 
-Text("${state.message}");
-          }else{
+           }else{
              Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

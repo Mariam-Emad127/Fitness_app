@@ -3,7 +3,7 @@ import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/core/widgets/botton_widget.dart';
 import 'package:fitness/core/widgets/string.dart';
-import 'package:fitness/feature/profile/controller/cubit/get_user_info_cubit.dart';
+import 'package:fitness/feature/profile/controller/get_user_Info/get_user_info_cubit.dart';
 import 'package:fitness/feature/profile/ui/widget/appBar_widget.dart';
 import 'package:fitness/feature/profile/ui/widget/info.dart';
 import 'package:fitness/feature/profile/ui/widget/setting_wedgit.dart';
@@ -69,19 +69,19 @@ else if(state is GetUserInfoSucess){
                               iconData: Icons.line_weight,
                               number: state.user.weight,
                               info: 'Weight',
-                              measurement: 'kg',
+                              measurement: '${state.user.weight} kg',
                             ),
                             Info(
                               iconData: Icons.height,
                               number: state.user.height,
                               info: 'Height',
-                              measurement: 'Fit',
+                              measurement: '${state.user.height}  Fit',
                             ),
                             Info(
                               iconData: Icons.photo_size_select_actual_rounded,
                               number: state.user.age,
                               info: 'age    ',
-                              measurement: 'years',
+                              measurement:  '${state.user.age} years',
                             )
                           ],
                         ),
