@@ -2,7 +2,6 @@ import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/core/widgets/botton_widget.dart';
 import 'package:fitness/feature/profile/controller/cubit/edit_profile/edit_profile_cubit.dart';
 import 'package:fitness/feature/profile/controller/get_user_Info/get_user_info_cubit.dart';
-import 'package:fitness/feature/profile/data/models/user.dart';
 import 'package:fitness/feature/profile/ui/widget/text_editingwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

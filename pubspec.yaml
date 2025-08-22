@@ -36,6 +36,7 @@ dependencies:
   retrofit: ^4.4.2
   build_runner: ^2.4.14
   #google_sign_in: ^6.3.0
+  supabase_flutter: ^2.9.1
 
   animated_bottom_navigation_bar: ^1.4.0
 

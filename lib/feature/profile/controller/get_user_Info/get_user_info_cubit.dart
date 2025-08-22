@@ -23,28 +23,7 @@ await  FirebaseFirestore.instance
         final user = snap.docs.map((e) => UserModel.fromJson(e.data())).single;
         emit(GetUserInfoState.getUserInfoSucess(user));
       });
-      
+
 }
-
-  /*
-
-
-  Future<void> getUserData( )async{
-    UserModel userData;
-    try{
-      emit(GetUserInfoState.getUserInfoLoading());
-      var user=await FirebaseFirestore.instance.collection( "users") 
-      .where("uid",isEqualTo: FirebaseAuth.instance.currentUser!.uid).get();
-userData= user.docs.map((doc)=>
-   UserModel.fromJson(doc.data())).single;
  
-       emit(GetUserInfoState.getUserInfoSucess( userData )
-        );
-    }catch(h){
-      emit(GetUserInfoState.getUserInfoFailure(h.toString()));
-     // print("222222222$h");
-     }
-  }
-
-*/
 }
