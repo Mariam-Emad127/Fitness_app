@@ -1,15 +1,21 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness/core/routing/app_router.dart';
 import 'package:fitness/core/routing/routes.dart';
+import 'package:fitness/core/widgets/string.dart';
 import 'package:fitness/firebase_options.dart';
  import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main()async {
     WidgetsFlutterBinding.ensureInitialized();
    Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   ); 
+   Supabase.initialize(
+    url: 'https://zsbjdsxlzxhtkqmjwwmm.supabase.co',
+   anonKey:AppStrings.supabaseKey);
+
   runApp(MyApp(appRouter: AppRouter(),));
 }
 
