@@ -1,10 +1,8 @@
-import 'package:fitness/core/routing/routes.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-//import 'package:google_sign_in/google_sign_in.dart';
+ //import 'package:google_sign_in/google_sign_in.dart';
  
 part 'login_state.dart';
 part 'login_cubit.freezed.dart';
@@ -32,14 +30,7 @@ class LoginCubit extends Cubit<LoginState> {
 
    }
 
-    Future<String?> checkUserLoggedIn() async {
-  final prefs = await SharedPreferences.getInstance();
-  //bool? isLoggedIn = prefs.getBool("isLoggedIn");
-String user=FirebaseAuth.instance.currentUser!.uid;
-prefs.setString("user", user);
  
-}
-  
 
 //  final FirebaseAuth _auth = FirebaseAuth.instance;
  

@@ -87,8 +87,7 @@ class SignupScreen extends StatelessWidget {
                                   context.read<SignUpCubit>().password.text,
                               username:   context.read<SignUpCubit>().username.text);
                     }
-                    print("#######$clicked");
-                  },
+                   },
                   title: "Create an Account ", width: 345,
                 ),
                  

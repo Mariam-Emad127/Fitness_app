@@ -6,7 +6,7 @@ final ValueNotifier<bool> clicked ;//= ValueNotifier; (false);
 
     //  bool clicked;//=false;
 
-    Remmeberme({super.key, 
+    const Remmeberme({super.key, 
    required this.clicked
     });
 
@@ -34,8 +34,8 @@ class _RemmebermeState extends State<Remmeberme> {
                        newvalue== widget.clicked;
                       //clicked=!clicked;
                       });
-                      print("kkkkkkkkkkkk$newvalue");
-                      print(widget.clicked);
+                      //print("kkkkkkkkkkkk$newvalue");
+                      //print(widget.clicked);
                      // print( clicked);
                     },
                   ),
