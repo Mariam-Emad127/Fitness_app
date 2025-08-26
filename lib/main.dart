@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness/app.dart';
+import 'package:fitness/core/helper/constant.dart';
 import 'package:fitness/core/routing/app_router.dart';
 import 'package:fitness/core/widgets/string.dart';
 import 'package:fitness/firebase_options.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
  import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
@@ -16,21 +19,24 @@ void main() async {
   await Supabase.initialize(
       url: 'https://zsbjdsxlzxhtkqmjwwmm.supabase.co',
       anonKey: AppStrings.supabaseKey);
-
+await checkIfLoggedInUser();
  
 
   runApp(MyApp(
     appRouter: AppRouter(),
   ));
 }
-/*
+ 
 checkIfLoggedInUser() async {
-  String? userToken =
-      await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
-  if (!userToken.isNullOrEmpty()) {
-    isLoggedInUser = true;
-  } else {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+       String ? user=FirebaseAuth.instance.currentUser?.uid;
+  prefs.setString("user",user??"" );
+        user = prefs.getString("user");
+ 
+  if (user==""||user==null  ) {
     isLoggedInUser = false;
+  } else {
+    isLoggedInUser = true;
   }
+
 }
-*/

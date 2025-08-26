@@ -2,9 +2,9 @@ import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/core/widgets/botton_widget.dart';
-import 'package:fitness/core/widgets/string.dart';
-import 'package:fitness/feature/profile/controller/get_user_Info/get_user_info_cubit.dart';
+ import 'package:fitness/feature/profile/controller/get_user_Info/get_user_info_cubit.dart';
 import 'package:fitness/feature/profile/ui/widget/appBar_widget.dart';
+import 'package:fitness/feature/profile/ui/widget/image_widget.dart';
 import 'package:fitness/feature/profile/ui/widget/info.dart';
 import 'package:fitness/feature/profile/ui/widget/setting_wedgit.dart';
 import 'package:flutter/material.dart';
@@ -39,15 +39,7 @@ else if(state is GetUserInfoSucess){
                          Column(
                       children: [
                         AppbarWidget(),
-                        CircleAvatar(
-                          radius: 40,
-                          backgroundColor: ColorsManager.mainYellow,
-                          child: Padding(
-                            padding: const EdgeInsets.all(2), // Border radius
-                            child: ClipOval(
-                                child: Image.network(AppStrings.unknowmimage)),
-                           ),
-                        ),
+                      ImageWidget(),            
                         SizedBox(
                           height: 5,
                         ),
@@ -138,7 +130,9 @@ else if(state is GetUserInfoSucess){
                           iconData: Icons.settings,
                         ),
                         BottonWidget(
-                          onTap: () {},
+                          onTap: () {context.read<GetUserInfoCubit>().signOut();
+                          Navigator.pushReplacementNamed(context, Routes.loginScreen);
+                          },
                           title: 'Logout',
                           width: 325,
                         )

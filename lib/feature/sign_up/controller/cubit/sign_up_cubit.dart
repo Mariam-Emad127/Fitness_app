@@ -62,13 +62,11 @@ class SignUpCubit extends Cubit<SignUpState> {
       } else if (e.code == 'email-already-in-use') {
          emit(SignUpState.signUpFailuier('The account already exists for that email.'));
       } else {
-        print(e.message);
-        emit(SignUpState.signUpFailuier(e.message ?? 'An unknown error occurred.'));
+         emit(SignUpState.signUpFailuier(e.message ?? 'An unknown error occurred.'));
       }
     } catch (e) {
       // Handle general errors
-      print('Error: $e');
-      emit(SignUpState.signUpFailuier(e.toString()));
+       emit(SignUpState.signUpFailuier(e.toString()));
     }
   }
  /*

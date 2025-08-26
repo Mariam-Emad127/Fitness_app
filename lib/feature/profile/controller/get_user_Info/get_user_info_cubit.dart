@@ -7,6 +7,7 @@ import 'package:fitness/feature/profile/data/models/user.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'get_user_info_state.dart';
@@ -27,7 +28,7 @@ class GetUserInfoCubit extends Cubit<GetUserInfoState> {
       emit(GetUserInfoState.getUserInfoSucess(user));
     });
   }
-/*
+
   final supabase = Supabase.instance.client;
   Future<String> uploadProfileImageToSupabase(
       {required File file,
@@ -52,7 +53,7 @@ class GetUserInfoCubit extends Cubit<GetUserInfoState> {
     }
 
   }
-*/
+ 
 //Future<File?> picimage() async {
 Future<File?> picimage() async {
     var pickfile = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -62,7 +63,13 @@ if(pickfile!=null){
      return file;
   
   }
+  return null;
   }
  
+ Future<void> signOut()async{
+   await FirebaseAuth.instance.signOut();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+   await prefs.remove("user");
+ }
   
 }
