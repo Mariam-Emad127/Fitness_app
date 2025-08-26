@@ -1,48 +1,36 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:fitness/app.dart';
 import 'package:fitness/core/routing/app_router.dart';
-import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/widgets/string.dart';
 import 'package:fitness/firebase_options.dart';
- import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter/material.dart';
+ import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main()async {
-    WidgetsFlutterBinding.ensureInitialized();
-   Firebase.initializeApp(
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await  Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-  ); 
-   Supabase.initialize(
-    url: 'https://zsbjdsxlzxhtkqmjwwmm.supabase.co',
-   anonKey:AppStrings.supabaseKey);
+  );
+  
+  await Supabase.initialize(
+      url: 'https://zsbjdsxlzxhtkqmjwwmm.supabase.co',
+      anonKey: AppStrings.supabaseKey);
 
-  runApp(MyApp(appRouter: AppRouter(),));
+ 
+
+  runApp(MyApp(
+    appRouter: AppRouter(),
+  ));
 }
-
-class MyApp extends StatelessWidget {
-    final AppRouter appRouter;
-
-  const MyApp({super.key, required this.appRouter});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-        
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-       // home: const Login(),
-        initialRoute: Routes.loginScreen,
-        onGenerateRoute: appRouter.onGenerateRoute,
-      ),
-    );
+/*
+checkIfLoggedInUser() async {
+  String? userToken =
+      await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+  if (!userToken.isNullOrEmpty()) {
+    isLoggedInUser = true;
+  } else {
+    isLoggedInUser = false;
   }
 }
-
- 
- 
+*/

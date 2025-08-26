@@ -37,7 +37,9 @@ dependencies:
   build_runner: ^2.4.14
   #google_sign_in: ^6.3.0
   supabase_flutter: ^2.9.1
-
+  image_picker: ^1.2.0
+  shared_preferences: ^2.5.3
+  app_links: ^6.3.0
   animated_bottom_navigation_bar: ^1.4.0
 
   # The following adds the Cupertino Icons font to your application.
