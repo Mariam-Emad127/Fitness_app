@@ -18,7 +18,11 @@ void main() async {
   
   await Supabase.initialize(
       url: 'https://zsbjdsxlzxhtkqmjwwmm.supabase.co',
-      anonKey: AppStrings.supabaseKey);
+      anonKey: AppStrings.supabaseKey,
+       authOptions: FlutterAuthClientOptions(
+        detectSessionInUri: false,
+      ),
+      );
 await checkIfLoggedInUser();
  
 
