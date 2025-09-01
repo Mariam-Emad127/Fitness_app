@@ -1,4 +1,5 @@
 import 'package:fitness/core/routing/routes.dart';
+import 'package:fitness/feature/home/ui/home.dart';
 import 'package:fitness/feature/login/controller/cubit/login_cubit.dart';
 import 'package:fitness/feature/login/ui/login.dart';
 import 'package:fitness/feature/login/ui/login_with_email.dart';
@@ -59,6 +60,13 @@ class AppRouter {
                   ],
                   child: EditProfile(),
                 ));
+
+
+                ///home
+           case Routes.home:
+        return MaterialPageRoute(
+            builder: (_) => Home());
+
       default:
         return null;
     }

@@ -6,36 +6,38 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class ImageWidget extends StatefulWidget {
+ 
  final String image;
   const ImageWidget({super.key,  required this.image});
+ 
 
   @override
   State<ImageWidget> createState() => _ImageWidgetState();
 }
 
 class _ImageWidgetState extends State<ImageWidget> {
-    final supabase = Supabase.instance.client;
+ 
+  final supabase = Supabase.instance.client;
   final String uid = FirebaseAuth.instance.currentUser!.uid;
-  String fileName=DateTime.now().microsecond.toString();
-  
+  String fileName = DateTime.now().microsecond.toString();
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()async{
-      
-      // await picimage();}catch(r){print("vvvvvvvvvvvvv$r");}
-      context.read<GetUserInfoCubit>().picimage();
+      onTap: () async {
+        context.read<GetUserInfoCubit>().picimage();
 
-setState(() {
-  
-});
+        setState(() {});
+ 
       },
       child: CircleAvatar(
         radius: 40,
         backgroundColor: ColorsManager.mainYellow,
         child: Padding(
           padding: const EdgeInsets.all(2), // Border radius
-          child: ClipOval(child: Image.network( widget.image )),
+ 
+          child: ClipOval(child: Image.network(widget.image)),
+ 
         ),
       ),
     );

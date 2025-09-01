@@ -39,7 +39,7 @@ else if(state is GetUserInfoSucess){
                          Column(
                       children: [
                         AppbarWidget(),
-                      ImageWidget(image: state.user.photo),            
+                        ImageWidget(image: state.user.photo,), 
                         SizedBox(
                           height: 5,
                         ),
