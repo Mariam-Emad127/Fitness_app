@@ -2,12 +2,16 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
+import 'package:fitness/feature/home/ui/widget/floating_widget.dart';
 import 'package:fitness/feature/home/ui/widget/nav.dart';
+import 'package:fitness/feature/profile/controller/cubit/edit_profile/edit_profile_cubit.dart';
+import 'package:fitness/feature/profile/controller/get_user_Info/get_user_info_cubit.dart';
 import 'package:fitness/feature/profile/ui/edit_profile.dart';
 import 'package:fitness/feature/profile/ui/user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
- 
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -17,7 +21,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
   final autoSizeGroup = AutoSizeGroup();
-  var _bottomNavIndex = 0;  
+  var _bottomNavIndex = 0;
   late AnimationController _fabAnimationController;
   late AnimationController _borderRadiusAnimationController;
   late Animation<double> fabAnimation;
@@ -33,10 +37,22 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     Icons.brightness_7,
   ];
   final List<Widget> _pages = [
-    Home(),
-    Home(),
     EditProfile(),
     UserProfile(),
+    BlocProvider(
+      create: (context) => EditProfileCubit(),
+      child: EditProfile(),
+    ),
+    BlocProvider(
+      create: (context) => EditProfileCubit(),
+      child: EditProfile(),
+    ),
+    /*  
+      BlocProvider<GetUserInfoCubit>(
+      create: (context) => GetUserInfoCubit(),
+      child: UserProfile(),
+    ),
+    */
   ];
   @override
   void initState() {
@@ -78,7 +94,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       () => _borderRadiusAnimationController.forward(),
     );
   }
-  
+
   bool onScrollNotification(ScrollNotification notification) {
     if (notification is UserScrollNotification &&
         notification.metrics.axis == Axis.vertical) {
@@ -100,35 +116,25 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
+    return Scaffold(
       backgroundColor: ColorsManager.darkGray,
       extendBody: true,
-   
-      body: NotificationListener<ScrollNotification>(
-        onNotification: onScrollNotification,  
-       child:NavigationScreen(iconList[_bottomNavIndex]),
-      ),
-      floatingActionButton: FloatingActionButton(
-          shape: const CircleBorder(),
-        backgroundColor: ColorsManager.mainYellow,
-        child: Icon(
-          Icons.brightness_3,
-          color: ColorsManager.darkGray//AppTheme.colorGray,
-        ),
-        onPressed: () {
-          _fabAnimationController.reset();
-          _borderRadiusAnimationController.reset();
-          _borderRadiusAnimationController.forward();
-          _fabAnimationController.forward();
-        },
-      ),
+      body: /*PageView(
+children: [_pages[0]],
+
+      ),*/
+
+          NotificationListener<ScrollNotification>(
+              onNotification: onScrollNotification,
+              child: //NavigationScreen(iconList[_bottomNavIndex]),
+                  _pages[_bottomNavIndex] //
+              ),
+      floatingActionButton: FloatingWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
         itemCount: iconList.length,
         tabBuilder: (int index, bool isActive) {
-          final color = isActive
-              ?   Colors.amberAccent 
-              :  ColorsManager.lightBlue; 
+          final color = isActive ? Colors.amberAccent : ColorsManager.lightBlue;
           return Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -152,9 +158,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             ],
           );
         },
-        backgroundColor: ColorsManager.darkBlue, 
+        backgroundColor: ColorsManager.darkBlue,
         activeIndex: _bottomNavIndex,
-        splashColor: Colors.indigo, 
+        splashColor: Colors.indigo,
         notchAndCornersAnimation: borderRadiusAnimation,
         splashSpeedInMilliseconds: 300,
         notchSmoothness: NotchSmoothness.defaultEdge,
@@ -167,10 +173,29 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           offset: Offset(0, 1),
           blurRadius: 12,
           spreadRadius: 0.5,
-         ),
+        ),
       ),
     );
   }
 }
  
  
+    /*
+         (index){
+  switch(index){
+      case 0:
+        Navigator.pushNamed(context, Routes.loginScreen);
+        break;
+      case 1:
+        Navigator.pushNamed(context, Routes.edieProfile);
+          case 2:
+                  Navigator.pushNamed(context, Routes.userProfile);
+        break;
+         
+                   case 3:
+                //  Navigator.pushNamed(context, );
+        break;
+         
+    }
+ },
+      */

@@ -43,7 +43,7 @@ class AppRouter {
       case Routes.userProfile:
         return MaterialPageRoute(
             builder: (_) => BlocProvider.value(
-                  value:   GetUserInfoCubit()..getUserData(),
+                  value: GetUserInfoCubit()..getUserData(),
                   child: UserProfile(),
                 ));
 
@@ -54,18 +54,27 @@ class AppRouter {
                     BlocProvider(
                       create: (context) => EditProfileCubit(),
                     ),
-                    BlocProvider.value (
-                      value:  GetUserInfoCubit()..getUserData(),
+                    BlocProvider.value(
+                      value: GetUserInfoCubit()..getUserData(),
                     ),
                   ],
                   child: EditProfile(),
                 ));
 
-
-                ///home
-           case Routes.home:
+      ///home
+      case Routes.home:
         return MaterialPageRoute(
-            builder: (_) => Home());
+            builder: (_) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (context) => GetUserInfoCubit()..getUserData(),
+                    ),
+                    BlocProvider(
+                      create: (context) => EditProfileCubit(),
+                    ),
+                  ],
+                  child: Home(),
+                ));
 
       default:
         return null;
