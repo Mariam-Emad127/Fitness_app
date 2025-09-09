@@ -1,12 +1,10 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:fitness/core/routing/routes.dart';
-import 'package:fitness/core/theming/color.dart';
+ import 'package:fitness/core/theming/color.dart';
+import 'package:fitness/feature/exersize_page/ui/exersize_home.dart';
 import 'package:fitness/feature/home/ui/widget/floating_widget.dart';
-import 'package:fitness/feature/home/ui/widget/nav.dart';
-import 'package:fitness/feature/profile/controller/cubit/edit_profile/edit_profile_cubit.dart';
-import 'package:fitness/feature/profile/controller/get_user_Info/get_user_info_cubit.dart';
-import 'package:fitness/feature/profile/ui/edit_profile.dart';
+ import 'package:fitness/feature/profile/controller/cubit/edit_profile/edit_profile_cubit.dart';
+ import 'package:fitness/feature/profile/ui/edit_profile.dart';
 import 'package:fitness/feature/profile/ui/user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -37,7 +35,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     Icons.brightness_7,
   ];
   final List<Widget> _pages = [
-    EditProfile(),
+   ExersizeHome(),
+   // EditProfile(),
     UserProfile(),
     BlocProvider(
       create: (context) => EditProfileCubit(),
@@ -47,12 +46,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       create: (context) => EditProfileCubit(),
       child: EditProfile(),
     ),
-    /*  
-      BlocProvider<GetUserInfoCubit>(
-      create: (context) => GetUserInfoCubit(),
-      child: UserProfile(),
-    ),
-    */
+ 
   ];
   @override
   void initState() {
@@ -115,18 +109,25 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   }
 
   @override
+  void dispose() {
+_borderRadiusAnimationController.dispose();
+_fabAnimationController.dispose();
+_hideBottomBarAnimationController.dispose();
+ 
+
+   // _controller.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsManager.darkGray,
       extendBody: true,
-      body: /*PageView(
-children: [_pages[0]],
-
-      ),*/
+      body: 
 
           NotificationListener<ScrollNotification>(
               onNotification: onScrollNotification,
-              child: //NavigationScreen(iconList[_bottomNavIndex]),
+              child:  
                   _pages[_bottomNavIndex] //
               ),
       floatingActionButton: FloatingWidget(),
@@ -180,22 +181,4 @@ children: [_pages[0]],
 }
  
  
-    /*
-         (index){
-  switch(index){
-      case 0:
-        Navigator.pushNamed(context, Routes.loginScreen);
-        break;
-      case 1:
-        Navigator.pushNamed(context, Routes.edieProfile);
-          case 2:
-                  Navigator.pushNamed(context, Routes.userProfile);
-        break;
-         
-                   case 3:
-                //  Navigator.pushNamed(context, );
-        break;
-         
-    }
- },
-      */
+ 

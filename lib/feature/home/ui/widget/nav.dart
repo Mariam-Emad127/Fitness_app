@@ -57,7 +57,7 @@ class _NavigationScreenState extends State<NavigationScreen>
   @override
   void dispose() {
     _controller.dispose();
-    super.dispose();
+     super.dispose();
   }
 
   @override
