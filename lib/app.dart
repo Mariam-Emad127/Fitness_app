@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
                   ),
-                  initialRoute:isLoggedInUser==true? Routes.exersizeHome:Routes.loginScreen,
+                  initialRoute:Routes.exersizeHome ,//isLoggedInUser==true? Routes.exersizeHome:Routes.loginScreen,
                   onGenerateRoute: appRouter.onGenerateRoute,
                 ));
         
