@@ -123,6 +123,7 @@ _hideBottomBarAnimationController.dispose();
     return Scaffold(
       backgroundColor: ColorsManager.darkGray,
       extendBody: true,
+      /*
       body: 
 
           NotificationListener<ScrollNotification>(
@@ -176,6 +177,8 @@ _hideBottomBarAnimationController.dispose();
           spreadRadius: 0.5,
         ),
       ),
+   
+   */
     );
   }
 }

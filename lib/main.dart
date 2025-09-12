@@ -23,7 +23,8 @@ void main() async {
         detectSessionInUri: false,
       ),
       );
-await checkIfLoggedInUser();
+      
+//await checkIfLoggedInUser();
  
 
   runApp(MyApp(

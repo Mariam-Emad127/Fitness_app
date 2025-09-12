@@ -12,7 +12,8 @@ class ExersizeImage extends StatelessWidget {
         child: SizedBox.fromSize(
           size: Size.fromRadius(100),  
           child: Image.asset(
-            "assets/7fc0e9da-f182-4d2c-a9ec-b6e494c78883.png",
+           "assets/Screenshot 2025-07-10 021942.png",
+           // "assets/7fc0e9da-f182-4d2c-a9ec-b6e494c78883.png",
             fit: BoxFit.fill,
             height: 200,
             width: 90,
