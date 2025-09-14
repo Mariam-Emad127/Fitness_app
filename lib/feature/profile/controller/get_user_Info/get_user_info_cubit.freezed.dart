@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -34,6 +33,217 @@ mixin _$GetUserInfoState {
 class $GetUserInfoStateCopyWith<$Res> {
   $GetUserInfoStateCopyWith(
       GetUserInfoState _, $Res Function(GetUserInfoState) __);
+}
+
+/// Adds pattern-matching-related methods to [GetUserInfoState].
+extension GetUserInfoStatePatterns on GetUserInfoState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(GetUserInfoSucess value)? getUserInfoSucess,
+    TResult Function(GetUserInfoFailure value)? getUserInfoFailure,
+    TResult Function(GetUserInfoLoading value)? getUserInfoLoading,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial(_that);
+      case GetUserInfoSucess() when getUserInfoSucess != null:
+        return getUserInfoSucess(_that);
+      case GetUserInfoFailure() when getUserInfoFailure != null:
+        return getUserInfoFailure(_that);
+      case GetUserInfoLoading() when getUserInfoLoading != null:
+        return getUserInfoLoading(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(GetUserInfoSucess value) getUserInfoSucess,
+    required TResult Function(GetUserInfoFailure value) getUserInfoFailure,
+    required TResult Function(GetUserInfoLoading value) getUserInfoLoading,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return initial(_that);
+      case GetUserInfoSucess():
+        return getUserInfoSucess(_that);
+      case GetUserInfoFailure():
+        return getUserInfoFailure(_that);
+      case GetUserInfoLoading():
+        return getUserInfoLoading(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(GetUserInfoSucess value)? getUserInfoSucess,
+    TResult? Function(GetUserInfoFailure value)? getUserInfoFailure,
+    TResult? Function(GetUserInfoLoading value)? getUserInfoLoading,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial(_that);
+      case GetUserInfoSucess() when getUserInfoSucess != null:
+        return getUserInfoSucess(_that);
+      case GetUserInfoFailure() when getUserInfoFailure != null:
+        return getUserInfoFailure(_that);
+      case GetUserInfoLoading() when getUserInfoLoading != null:
+        return getUserInfoLoading(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(UserModel user)? getUserInfoSucess,
+    TResult Function(String message)? getUserInfoFailure,
+    TResult Function()? getUserInfoLoading,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial();
+      case GetUserInfoSucess() when getUserInfoSucess != null:
+        return getUserInfoSucess(_that.user);
+      case GetUserInfoFailure() when getUserInfoFailure != null:
+        return getUserInfoFailure(_that.message);
+      case GetUserInfoLoading() when getUserInfoLoading != null:
+        return getUserInfoLoading();
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(UserModel user) getUserInfoSucess,
+    required TResult Function(String message) getUserInfoFailure,
+    required TResult Function() getUserInfoLoading,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return initial();
+      case GetUserInfoSucess():
+        return getUserInfoSucess(_that.user);
+      case GetUserInfoFailure():
+        return getUserInfoFailure(_that.message);
+      case GetUserInfoLoading():
+        return getUserInfoLoading();
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(UserModel user)? getUserInfoSucess,
+    TResult? Function(String message)? getUserInfoFailure,
+    TResult? Function()? getUserInfoLoading,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial();
+      case GetUserInfoSucess() when getUserInfoSucess != null:
+        return getUserInfoSucess(_that.user);
+      case GetUserInfoFailure() when getUserInfoFailure != null:
+        return getUserInfoFailure(_that.message);
+      case GetUserInfoLoading() when getUserInfoLoading != null:
+        return getUserInfoLoading();
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc

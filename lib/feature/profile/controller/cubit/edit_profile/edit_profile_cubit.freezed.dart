@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -34,6 +33,217 @@ mixin _$EditProfileState {
 class $EditProfileStateCopyWith<$Res> {
   $EditProfileStateCopyWith(
       EditProfileState _, $Res Function(EditProfileState) __);
+}
+
+/// Adds pattern-matching-related methods to [EditProfileState].
+extension EditProfileStatePatterns on EditProfileState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(EditSucsecc value)? editSucsecc,
+    TResult Function(EditFailure value)? editFailure,
+    TResult Function(EditLoading value)? editLoading,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial(_that);
+      case EditSucsecc() when editSucsecc != null:
+        return editSucsecc(_that);
+      case EditFailure() when editFailure != null:
+        return editFailure(_that);
+      case EditLoading() when editLoading != null:
+        return editLoading(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(EditSucsecc value) editSucsecc,
+    required TResult Function(EditFailure value) editFailure,
+    required TResult Function(EditLoading value) editLoading,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return initial(_that);
+      case EditSucsecc():
+        return editSucsecc(_that);
+      case EditFailure():
+        return editFailure(_that);
+      case EditLoading():
+        return editLoading(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(EditSucsecc value)? editSucsecc,
+    TResult? Function(EditFailure value)? editFailure,
+    TResult? Function(EditLoading value)? editLoading,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial(_that);
+      case EditSucsecc() when editSucsecc != null:
+        return editSucsecc(_that);
+      case EditFailure() when editFailure != null:
+        return editFailure(_that);
+      case EditLoading() when editLoading != null:
+        return editLoading(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? editSucsecc,
+    TResult Function(String message)? editFailure,
+    TResult Function()? editLoading,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial();
+      case EditSucsecc() when editSucsecc != null:
+        return editSucsecc();
+      case EditFailure() when editFailure != null:
+        return editFailure(_that.message);
+      case EditLoading() when editLoading != null:
+        return editLoading();
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() editSucsecc,
+    required TResult Function(String message) editFailure,
+    required TResult Function() editLoading,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return initial();
+      case EditSucsecc():
+        return editSucsecc();
+      case EditFailure():
+        return editFailure(_that.message);
+      case EditLoading():
+        return editLoading();
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? editSucsecc,
+    TResult? Function(String message)? editFailure,
+    TResult? Function()? editLoading,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial();
+      case EditSucsecc() when editSucsecc != null:
+        return editSucsecc();
+      case EditFailure() when editFailure != null:
+        return editFailure(_that.message);
+      case EditLoading() when editLoading != null:
+        return editLoading();
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
