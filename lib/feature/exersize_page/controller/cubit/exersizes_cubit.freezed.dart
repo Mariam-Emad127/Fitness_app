@@ -51,12 +51,21 @@ extension ExersizesStatePatterns on ExersizesState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ExersizeSucess value)? exersizeSucess,
+    TResult Function(ExersizeFailure value)? exersizeFailure,
+    TResult Function(ExersizeLoading value)? exersizeLoading,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _Initial() when initial != null:
         return initial(_that);
+      case ExersizeSucess() when exersizeSucess != null:
+        return exersizeSucess(_that);
+      case ExersizeFailure() when exersizeFailure != null:
+        return exersizeFailure(_that);
+      case ExersizeLoading() when exersizeLoading != null:
+        return exersizeLoading(_that);
       case _:
         return orElse();
     }
@@ -78,11 +87,20 @@ extension ExersizesStatePatterns on ExersizesState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ExersizeSucess value) exersizeSucess,
+    required TResult Function(ExersizeFailure value) exersizeFailure,
+    required TResult Function(ExersizeLoading value) exersizeLoading,
   }) {
     final _that = this;
     switch (_that) {
       case _Initial():
         return initial(_that);
+      case ExersizeSucess():
+        return exersizeSucess(_that);
+      case ExersizeFailure():
+        return exersizeFailure(_that);
+      case ExersizeLoading():
+        return exersizeLoading(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -103,11 +121,20 @@ extension ExersizesStatePatterns on ExersizesState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ExersizeSucess value)? exersizeSucess,
+    TResult? Function(ExersizeFailure value)? exersizeFailure,
+    TResult? Function(ExersizeLoading value)? exersizeLoading,
   }) {
     final _that = this;
     switch (_that) {
       case _Initial() when initial != null:
         return initial(_that);
+      case ExersizeSucess() when exersizeSucess != null:
+        return exersizeSucess(_that);
+      case ExersizeFailure() when exersizeFailure != null:
+        return exersizeFailure(_that);
+      case ExersizeLoading() when exersizeLoading != null:
+        return exersizeLoading(_that);
       case _:
         return null;
     }
@@ -128,12 +155,21 @@ extension ExersizesStatePatterns on ExersizesState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(List<ExersizeModel> exresizeModel)? exersizeSucess,
+    TResult Function(String message)? exersizeFailure,
+    TResult Function()? exersizeLoading,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _Initial() when initial != null:
         return initial();
+      case ExersizeSucess() when exersizeSucess != null:
+        return exersizeSucess(_that.exresizeModel);
+      case ExersizeFailure() when exersizeFailure != null:
+        return exersizeFailure(_that.message);
+      case ExersizeLoading() when exersizeLoading != null:
+        return exersizeLoading();
       case _:
         return orElse();
     }
@@ -155,11 +191,20 @@ extension ExersizesStatePatterns on ExersizesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(List<ExersizeModel> exresizeModel) exersizeSucess,
+    required TResult Function(String message) exersizeFailure,
+    required TResult Function() exersizeLoading,
   }) {
     final _that = this;
     switch (_that) {
       case _Initial():
         return initial();
+      case ExersizeSucess():
+        return exersizeSucess(_that.exresizeModel);
+      case ExersizeFailure():
+        return exersizeFailure(_that.message);
+      case ExersizeLoading():
+        return exersizeLoading();
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -180,11 +225,20 @@ extension ExersizesStatePatterns on ExersizesState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(List<ExersizeModel> exresizeModel)? exersizeSucess,
+    TResult? Function(String message)? exersizeFailure,
+    TResult? Function()? exersizeLoading,
   }) {
     final _that = this;
     switch (_that) {
       case _Initial() when initial != null:
         return initial();
+      case ExersizeSucess() when exersizeSucess != null:
+        return exersizeSucess(_that.exresizeModel);
+      case ExersizeFailure() when exersizeFailure != null:
+        return exersizeFailure(_that.message);
+      case ExersizeLoading() when exersizeLoading != null:
+        return exersizeLoading();
       case _:
         return null;
     }
@@ -208,6 +262,162 @@ class _Initial implements ExersizesState {
   @override
   String toString() {
     return 'ExersizesState.initial()';
+  }
+}
+
+/// @nodoc
+
+class ExersizeSucess implements ExersizesState {
+  const ExersizeSucess(final List<ExersizeModel> exresizeModel)
+      : _exresizeModel = exresizeModel;
+
+  final List<ExersizeModel> _exresizeModel;
+  List<ExersizeModel> get exresizeModel {
+    if (_exresizeModel is EqualUnmodifiableListView) return _exresizeModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_exresizeModel);
+  }
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ExersizeSucessCopyWith<ExersizeSucess> get copyWith =>
+      _$ExersizeSucessCopyWithImpl<ExersizeSucess>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ExersizeSucess &&
+            const DeepCollectionEquality()
+                .equals(other._exresizeModel, _exresizeModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_exresizeModel));
+
+  @override
+  String toString() {
+    return 'ExersizesState.exersizeSucess(exresizeModel: $exresizeModel)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ExersizeSucessCopyWith<$Res>
+    implements $ExersizesStateCopyWith<$Res> {
+  factory $ExersizeSucessCopyWith(
+          ExersizeSucess value, $Res Function(ExersizeSucess) _then) =
+      _$ExersizeSucessCopyWithImpl;
+  @useResult
+  $Res call({List<ExersizeModel> exresizeModel});
+}
+
+/// @nodoc
+class _$ExersizeSucessCopyWithImpl<$Res>
+    implements $ExersizeSucessCopyWith<$Res> {
+  _$ExersizeSucessCopyWithImpl(this._self, this._then);
+
+  final ExersizeSucess _self;
+  final $Res Function(ExersizeSucess) _then;
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? exresizeModel = null,
+  }) {
+    return _then(ExersizeSucess(
+      null == exresizeModel
+          ? _self._exresizeModel
+          : exresizeModel // ignore: cast_nullable_to_non_nullable
+              as List<ExersizeModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ExersizeFailure implements ExersizesState {
+  const ExersizeFailure(this.message);
+
+  final String message;
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ExersizeFailureCopyWith<ExersizeFailure> get copyWith =>
+      _$ExersizeFailureCopyWithImpl<ExersizeFailure>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ExersizeFailure &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @override
+  String toString() {
+    return 'ExersizesState.exersizeFailure(message: $message)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ExersizeFailureCopyWith<$Res>
+    implements $ExersizesStateCopyWith<$Res> {
+  factory $ExersizeFailureCopyWith(
+          ExersizeFailure value, $Res Function(ExersizeFailure) _then) =
+      _$ExersizeFailureCopyWithImpl;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class _$ExersizeFailureCopyWithImpl<$Res>
+    implements $ExersizeFailureCopyWith<$Res> {
+  _$ExersizeFailureCopyWithImpl(this._self, this._then);
+
+  final ExersizeFailure _self;
+  final $Res Function(ExersizeFailure) _then;
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(ExersizeFailure(
+      null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ExersizeLoading implements ExersizesState {
+  const ExersizeLoading();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ExersizeLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'ExersizesState.exersizeLoading()';
   }
 }
 
