@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness/app.dart';
+import 'package:fitness/core/di/dependency_injection.dart';
 import 'package:fitness/core/helper/constant.dart';
 import 'package:fitness/core/routing/app_router.dart';
 import 'package:fitness/core/widgets/string.dart';
@@ -23,7 +24,7 @@ void main() async {
         detectSessionInUri: false,
       ),
       );
-      
+      setupGetIt();
 //await checkIfLoggedInUser();
  
 
