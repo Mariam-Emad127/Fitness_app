@@ -1,4 +1,3 @@
- import 'package:fitness/core/helper/constant.dart';
 import 'package:fitness/core/routing/app_router.dart';
 import 'package:fitness/core/routing/routes.dart';
 import 'package:flutter/material.dart';
