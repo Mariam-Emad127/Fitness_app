@@ -31,7 +31,7 @@ class _ExersizeApiServices implements ExersizeApiServices {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/exercises',
+            '/exercises/',
             queryParameters: queryParameters,
             data: _data,
           )
