@@ -10,13 +10,16 @@ part 'exersizes_cubit.freezed.dart';
 class ExersizesCubit extends Cubit<ExersizesState> {
   ExersizesCubit(this.exersizeHomeRepo) : super(ExersizesState.initial());
   ExersizeHomeRepo exersizeHomeRepo;
+  List<ExersizeModel?>? exersizeModelList = [];
 
   FutureOr<void> getAllExersizes() async {
     emit(ExersizesState.exersizeLoading());
     final response = await exersizeHomeRepo.getexersize();
     response.fold((l) => emit(ExersizesState.exersizeFailure(l.toString())),
-        (r) => emit(ExersizesState.exersizeSucess(r)));
+        (r) {
+          emit(ExersizesState.exersizeSucess(r));
+        }
+         );
 
-    print("jjjjjjjjjjjjjjjjjjj$response");
-  }
+   }
 }

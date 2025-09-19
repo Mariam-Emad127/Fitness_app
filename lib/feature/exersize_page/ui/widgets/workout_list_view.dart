@@ -1,3 +1,4 @@
+import 'package:fitness/core/helper/exersize_image.dart';
 import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/exersize_image.dart';
@@ -12,18 +13,22 @@ class WorkoutListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ExersizesCubit, ExersizesState>(
+      buildWhen: (previous, current) =>
+          current is ExersizeSucess || current is ExersizeFailure,
       builder: (context, state) {
-if(state is ExersizeSucess){
-  
-        return ListView.builder(
+   
+        return state.maybeWhen(
+          exersizeSucess: (exresizeModel) {
+            return   
+         ListView.builder(
             physics: ScrollPhysics(),
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemCount: 8,
+            itemCount: exresizeModel.length,
             itemBuilder: (context, index) {
               return Stack(
                 children: [
-                  ExersizeImage(),
+                  ExersizeImage(path: exerciseImages[index]),
                   Positioned(
                       top: 20,
                       child: Row(
@@ -32,12 +37,14 @@ if(state is ExersizeSucess){
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Banish Back Fat ",
-                                style: TextStyles.font16WhiteMedium,
+                                //"Banish Back Fat ",
+                                exresizeModel[index].name??"", 
+                                style: TextStyles.font15WhiteMedium,
                                 maxLines: 2,
                               ),
                               Text(
-                                "Training ",
+                                exresizeModel[index].bodyPart??"",
+                                //"Training ",
                                 style: TextStyles.font16WhiteSemiBold,
                               ),
                               SizedBox(
@@ -63,13 +70,19 @@ if(state is ExersizeSucess){
               );
             });
     
-}else if(state is ExersizeFailure) {
+          },
+          
+          orElse:()=> CircularProgressIndicator());
+     
+//}
+/*
+else if(state is ExersizeFailure) {
  return Scaffold(body: Container(child: Text(state.toString()),),);
 }
 else{
   return CircularProgressIndicator();
 }
-    
+  */  
       },
     );
   }
