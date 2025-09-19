@@ -10,7 +10,7 @@ class ExersizeHomeRepo {
   Future<Either<ApiErrorModel, List<ExersizeModel>>> getexersize() async {
     final response = await exersizeApiServices.getexersize();
     try {
-      return Right(response);
+      return Right(response  );
     } catch (e) {
       return Left(ApiErrorModel(message: e.toString()));
     }

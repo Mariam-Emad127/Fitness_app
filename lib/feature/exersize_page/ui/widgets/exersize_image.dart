@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ExersizeImage extends StatelessWidget {
-  const ExersizeImage({super.key});
+  final String path;
+  const ExersizeImage(   {super.key, required this.path});
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +12,9 @@ class ExersizeImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(12), // Image border
         child: SizedBox.fromSize(
           size: Size.fromRadius(100),  
-          child: Image.asset(
-           "assets/Screenshot 2025-07-10 021942.png",
+          child: Image.network(
+            path,
+         //  "assets/Screenshot 2025-07-10 021942.png",
            // "assets/7fc0e9da-f182-4d2c-a9ec-b6e494c78883.png",
             fit: BoxFit.fill,
             height: 200,
