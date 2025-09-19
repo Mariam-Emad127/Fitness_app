@@ -12,9 +12,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-      try{
+      
      await setupGetIt();
-      }catch(e){print("22222222222222222222222$e");}
+      
   await  Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

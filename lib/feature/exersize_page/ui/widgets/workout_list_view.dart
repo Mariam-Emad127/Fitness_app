@@ -36,11 +36,16 @@ class WorkoutListView extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                //"Banish Back Fat ",
-                                exresizeModel[index].name??"", 
-                                style: TextStyles.font15WhiteMedium,
-                                maxLines: 2,
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Text(
+                                  //"Banish Back Fat ",
+                                  exresizeModel[index].name??"", 
+                                  style: TextStyles.font15WhiteMedium,
+                                 overflow: TextOverflow.ellipsis,
+                                         maxLines: 1,
+                                
+                                ),
                               ),
                               Text(
                                 exresizeModel[index].bodyPart??"",
