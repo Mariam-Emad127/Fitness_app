@@ -1,4 +1,5 @@
 import 'package:fitness/core/helper/exersize_image.dart';
+import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/exersize_image.dart';
@@ -6,6 +7,8 @@ import 'package:fitness/feature/exersize_page/ui/widgets/info_widget.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/start_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
 
 class WorkoutListView extends StatelessWidget {
   const WorkoutListView({super.key});
@@ -30,7 +33,7 @@ class WorkoutListView extends StatelessWidget {
                 children: [
                   ExersizeImage(path: exerciseImages[index]),
                   Positioned(
-                      top: 20,
+                      top: 20.h,
                       child: Row(
                         children: [
                           Column(
@@ -60,7 +63,7 @@ class WorkoutListView extends StatelessWidget {
                                 icon: Icons.lock_clock,
                               ),
                               SizedBox(
-                                height: 5,
+                                height: 5.h,
                               ),
                               InfoWidget(
                                 title: "  50 min",
@@ -77,17 +80,28 @@ class WorkoutListView extends StatelessWidget {
     
           },
           
-          orElse:()=> CircularProgressIndicator());
+          orElse:()=>// CircularProgressIndicator(color: ColorsManager.mainYellow,)
+          SizedBox(
+  width: 200.0,
+  height: 100.0,
+  child: Shimmer.fromColors(
+    baseColor: Colors.red,
+    highlightColor: Colors.yellow,
+    child: Text(
+      'Shimmer',
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        fontSize: 40.0,
+        fontWeight:
+        FontWeight.bold,
+      ),
+    ),
+  ),
+)
+
+          );
      
-//}
-/*
-else if(state is ExersizeFailure) {
- return Scaffold(body: Container(child: Text(state.toString()),),);
-}
-else{
-  return CircularProgressIndicator();
-}
-  */  
+   
       },
     );
   }

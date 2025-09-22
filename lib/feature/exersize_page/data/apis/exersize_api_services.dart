@@ -10,4 +10,7 @@ abstract class ExersizeApiServices {
   factory ExersizeApiServices(Dio dio) = _ExersizeApiServices;
   @GET("/exercises")
   Future<List<ExersizeModel>> getexersize();
+
+  @GET("/targetList")
+  Future<List<ExersizeModel>> getTargetList();  
 }
