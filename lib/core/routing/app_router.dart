@@ -82,7 +82,7 @@ class AppRouter {
       case Routes.exersizeHome:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) => getIt<ExersizesCubit>()..getAllExersizes(),
+                  create: (context) => getIt<ExersizesCubit>()..getAllExersizes()..getTargetList(),
                   child: ExersizeHome(),
                 ));
 

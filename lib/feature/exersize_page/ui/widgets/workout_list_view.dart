@@ -17,11 +17,11 @@ class WorkoutListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ExersizesCubit, ExersizesState>(
       buildWhen: (previous, current) =>
-          current is ExersizeSucess || current is ExersizeFailure,
+          current is TargetListSucess || current is ExersizeFailure,
       builder: (context, state) {
    
         return state.maybeWhen(
-          exersizeSucess: (exresizeModel) {
+          targetListSucess: (exresizeModel) {
             return   
          ListView.builder(
             physics: ScrollPhysics(),
@@ -31,7 +31,7 @@ class WorkoutListView extends StatelessWidget {
             itemBuilder: (context, index) {
               return Stack(
                 children: [
-                  ExersizeImage(path: exerciseImages[index]),
+                  ExersizeImage(path: bodyPartsImages[index]),
                   Positioned(
                       top: 20.h,
                       child: Row(
@@ -42,8 +42,9 @@ class WorkoutListView extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.all(10.0),
                                 child: Text(
+                                  exresizeModel[index],
                                   //"Banish Back Fat ",
-                                  exresizeModel[index].name??"", 
+                                //  exresizeModel[index].name??"", 
                                   style: TextStyles.font15WhiteMedium,
                                  overflow: TextOverflow.ellipsis,
                                          maxLines: 1,
@@ -51,8 +52,8 @@ class WorkoutListView extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                exresizeModel[index].bodyPart??"",
-                                //"Training ",
+                                //exresizeModel[index].bodyPart??"",
+                                "Training ",
                                 style: TextStyles.font16WhiteSemiBold,
                               ),
                               SizedBox(
@@ -84,8 +85,20 @@ class WorkoutListView extends StatelessWidget {
           SizedBox(
   width: 200.0,
   height: 100.0,
-  child: Shimmer.fromColors(
-    baseColor: Colors.red,
+  child:   ListView.builder(
+            physics: ScrollPhysics(),
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemCount: 8,
+            itemBuilder: (context, index) {
+              return  Shimmer.fromColors(      baseColor: ColorsManager.lightGray,
+                        highlightColor: Colors.white, 
+              child: SizedBox(height: 200,),);
+            })
+    
+  /*
+   Shimmer.fromColors(
+    baseColor: Colors.grey,
     highlightColor: Colors.yellow,
     child: Text(
       'Shimmer',
@@ -97,6 +110,7 @@ class WorkoutListView extends StatelessWidget {
       ),
     ),
   ),
+*/
 )
 
           );

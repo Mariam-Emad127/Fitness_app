@@ -54,6 +54,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function(ExersizeSucess value)? exersizeSucess,
     TResult Function(ExersizeFailure value)? exersizeFailure,
     TResult Function(ExersizeLoading value)? exersizeLoading,
+    TResult Function(TargetListSucess value)? targetListSucess,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -66,6 +67,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeFailure(_that);
       case ExersizeLoading() when exersizeLoading != null:
         return exersizeLoading(_that);
+      case TargetListSucess() when targetListSucess != null:
+        return targetListSucess(_that);
       case _:
         return orElse();
     }
@@ -90,6 +93,7 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function(ExersizeSucess value) exersizeSucess,
     required TResult Function(ExersizeFailure value) exersizeFailure,
     required TResult Function(ExersizeLoading value) exersizeLoading,
+    required TResult Function(TargetListSucess value) targetListSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -101,6 +105,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeFailure(_that);
       case ExersizeLoading():
         return exersizeLoading(_that);
+      case TargetListSucess():
+        return targetListSucess(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -124,6 +130,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function(ExersizeSucess value)? exersizeSucess,
     TResult? Function(ExersizeFailure value)? exersizeFailure,
     TResult? Function(ExersizeLoading value)? exersizeLoading,
+    TResult? Function(TargetListSucess value)? targetListSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -135,6 +142,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeFailure(_that);
       case ExersizeLoading() when exersizeLoading != null:
         return exersizeLoading(_that);
+      case TargetListSucess() when targetListSucess != null:
+        return targetListSucess(_that);
       case _:
         return null;
     }
@@ -158,6 +167,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function(List<ExersizeModel> exresizeModel)? exersizeSucess,
     TResult Function(String message)? exersizeFailure,
     TResult Function()? exersizeLoading,
+    TResult Function(List<String> targetList)? targetListSucess,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -170,6 +180,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeFailure(_that.message);
       case ExersizeLoading() when exersizeLoading != null:
         return exersizeLoading();
+      case TargetListSucess() when targetListSucess != null:
+        return targetListSucess(_that.targetList);
       case _:
         return orElse();
     }
@@ -194,6 +206,7 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function(List<ExersizeModel> exresizeModel) exersizeSucess,
     required TResult Function(String message) exersizeFailure,
     required TResult Function() exersizeLoading,
+    required TResult Function(List<String> targetList) targetListSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -205,6 +218,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeFailure(_that.message);
       case ExersizeLoading():
         return exersizeLoading();
+      case TargetListSucess():
+        return targetListSucess(_that.targetList);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -228,6 +243,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function(List<ExersizeModel> exresizeModel)? exersizeSucess,
     TResult? Function(String message)? exersizeFailure,
     TResult? Function()? exersizeLoading,
+    TResult? Function(List<String> targetList)? targetListSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -239,6 +255,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeFailure(_that.message);
       case ExersizeLoading() when exersizeLoading != null:
         return exersizeLoading();
+      case TargetListSucess() when targetListSucess != null:
+        return targetListSucess(_that.targetList);
       case _:
         return null;
     }
@@ -418,6 +436,78 @@ class ExersizeLoading implements ExersizesState {
   @override
   String toString() {
     return 'ExersizesState.exersizeLoading()';
+  }
+}
+
+/// @nodoc
+
+class TargetListSucess implements ExersizesState {
+  const TargetListSucess(final List<String> targetList)
+      : _targetList = targetList;
+
+  final List<String> _targetList;
+  List<String> get targetList {
+    if (_targetList is EqualUnmodifiableListView) return _targetList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_targetList);
+  }
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TargetListSucessCopyWith<TargetListSucess> get copyWith =>
+      _$TargetListSucessCopyWithImpl<TargetListSucess>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TargetListSucess &&
+            const DeepCollectionEquality()
+                .equals(other._targetList, _targetList));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_targetList));
+
+  @override
+  String toString() {
+    return 'ExersizesState.targetListSucess(targetList: $targetList)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $TargetListSucessCopyWith<$Res>
+    implements $ExersizesStateCopyWith<$Res> {
+  factory $TargetListSucessCopyWith(
+          TargetListSucess value, $Res Function(TargetListSucess) _then) =
+      _$TargetListSucessCopyWithImpl;
+  @useResult
+  $Res call({List<String> targetList});
+}
+
+/// @nodoc
+class _$TargetListSucessCopyWithImpl<$Res>
+    implements $TargetListSucessCopyWith<$Res> {
+  _$TargetListSucessCopyWithImpl(this._self, this._then);
+
+  final TargetListSucess _self;
+  final $Res Function(TargetListSucess) _then;
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? targetList = null,
+  }) {
+    return _then(TargetListSucess(
+      null == targetList
+          ? _self._targetList
+          : targetList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
   }
 }
 
