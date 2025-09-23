@@ -1,6 +1,7 @@
 import 'package:fitness/core/di/dependency_injection.dart';
 import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
+import 'package:fitness/feature/exersize_page/exersize_details/ui/exersize_detail.dart';
 import 'package:fitness/feature/exersize_page/ui/exersize_home.dart';
 import 'package:fitness/feature/home/ui/home.dart';
 import 'package:fitness/feature/login/controller/cubit/login_cubit.dart';
@@ -82,10 +83,13 @@ class AppRouter {
       case Routes.exersizeHome:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) => getIt<ExersizesCubit>()..getAllExersizes()..getTargetList(),
+                  create: (context) => getIt<ExersizesCubit>()
+                    ..getAllExersizes()
+                    ..getTargetList(),
                   child: ExersizeHome(),
                 ));
-
+      case Routes.exersizeDetail:
+        return MaterialPageRoute(builder: (_) => ExersizeDetail());
       default:
         return null;
     }

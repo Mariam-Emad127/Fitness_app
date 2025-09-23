@@ -6,6 +6,6 @@ class Routes {
   static const String edieProfile= '/edit_profile';
   static const String home= '/home';
   static const String exersizeHome= '/exersize_home';
-
+  static const String exersizeDetail= '/exersize_details';
   //lib\feature\exersize_page\ui\exersize_home.dart
  } 

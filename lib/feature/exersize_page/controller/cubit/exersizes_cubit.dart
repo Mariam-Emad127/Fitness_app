@@ -26,8 +26,7 @@ class ExersizesCubit extends Cubit<ExersizesState> {
     final response = await exersizeHomeRepo.getTargetList();
     response.fold((l) => emit(ExersizesState.exersizeFailure(l.toString())),
         (r) {
-          print("ooooooooooooooo${r.length}");
-      emit(ExersizesState.targetListSucess(r));
+       emit(ExersizesState.targetListSucess(r));
     });
   }
 
