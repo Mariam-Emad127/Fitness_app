@@ -17,91 +17,83 @@ class WorkoutListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ExersizesCubit, ExersizesState>(
       buildWhen: (previous, current) =>
-          current is ExersizeSucess || current is ExersizeFailure,
+          current is TargetListSucess || current is ExersizeFailure,
       builder: (context, state) {
-   
         return state.maybeWhen(
-          exersizeSucess: (exresizeModel) {
-            return   
-         ListView.builder(
-            physics: ScrollPhysics(),
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemCount: exresizeModel.length,
-            itemBuilder: (context, index) {
-              return Stack(
-                children: [
-                  ExersizeImage(path: exerciseImages[index]),
-                  Positioned(
-                      top: 20.h,
-                      child: Row(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Text(
-                                  //"Banish Back Fat ",
-                                  exresizeModel[index].name??"", 
-                                  style: TextStyles.font15WhiteMedium,
-                                 overflow: TextOverflow.ellipsis,
-                                         maxLines: 1,
-                                
+            targetListSucess: (exresizeModel) {
+              return ListView.builder(
+                  physics: ScrollPhysics(),
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: exresizeModel.length,
+                  itemBuilder: (context, index) {
+                    return Stack(
+                      children: [
+                        ExersizeImage(path: bodyPartsImages[index]),
+                        Positioned(
+                            top: 20.h,
+                            child: Row(
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Text(
+                                        exresizeModel[index],
+                                        style: TextStyles.font18WhiteMedium,
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                      ),
+                                    ),
+                                    Text(
+                                       "Training ",
+                                      style: TextStyles.font16WhiteSemiBold,
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    InfoWidget(
+                                      title: " 500 Kacl",
+                                      icon: Icons.lock_clock,
+                                    ),
+                                    SizedBox(
+                                      height: 5.h,
+                                    ),
+                                    InfoWidget(
+                                      title: "  50 min",
+                                      icon: Icons.lock_clock_sharp,
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              Text(
-                                exresizeModel[index].bodyPart??"",
-                                //"Training ",
-                                style: TextStyles.font16WhiteSemiBold,
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              InfoWidget(
-                                title: " 500 Kacl",
-                                icon: Icons.lock_clock,
-                              ),
-                              SizedBox(
-                                height: 5.h,
-                              ),
-                              InfoWidget(
-                                title: "  50 min",
-                                icon: Icons.lock_clock_sharp,
-                              ),
-                            ],
-                          ),
-                          StartIcon()
-                        ],
-                      ))
-                ],
-              );
-            });
+                                StartIcon()
+                              ],
+                            ))
+                      ],
+                    );
+                  }
+                  );
+            },
+            orElse:
+                () => SizedBox(
+                        width: 200.0,
+                        height: 100.0,
+                        child: ListView.builder(
+                            physics: ScrollPhysics(),
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 8,
+                            itemBuilder: (context, index) {
+                              return Shimmer.fromColors(
+                                baseColor: ColorsManager.lightGray,
+                                highlightColor: Colors.white,
+                                child: SizedBox(
+                                  height: 200,
+                                ),
+                              );
+                            }))
+                            );
     
-          },
-          
-          orElse:()=>// CircularProgressIndicator(color: ColorsManager.mainYellow,)
-          SizedBox(
-  width: 200.0,
-  height: 100.0,
-  child: Shimmer.fromColors(
-    baseColor: Colors.red,
-    highlightColor: Colors.yellow,
-    child: Text(
-      'Shimmer',
-      textAlign: TextAlign.center,
-      style: TextStyle(
-        fontSize: 40.0,
-        fontWeight:
-        FontWeight.bold,
-      ),
-    ),
-  ),
-)
-
-          );
-     
-   
       },
     );
   }

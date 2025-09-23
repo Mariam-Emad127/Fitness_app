@@ -17,9 +17,18 @@ class ExersizesCubit extends Cubit<ExersizesState> {
     final response = await exersizeHomeRepo.getexersize();
     response.fold((l) => emit(ExersizesState.exersizeFailure(l.toString())),
         (r) {
-          emit(ExersizesState.exersizeSucess(r));
-        }
-         );
+      emit(ExersizesState.exersizeSucess(r));
+    });
+  }
 
-   }
+  FutureOr<void> getTargetList() async {
+    emit(ExersizesState.exersizeLoading());
+    final response = await exersizeHomeRepo.getTargetList();
+    response.fold((l) => emit(ExersizesState.exersizeFailure(l.toString())),
+        (r) {
+       emit(ExersizesState.targetListSucess(r));
+    });
+  }
+
+
 }
