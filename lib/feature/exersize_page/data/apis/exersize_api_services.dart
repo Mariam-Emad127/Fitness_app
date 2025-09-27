@@ -11,5 +11,12 @@ abstract class ExersizeApiServices {
   @GET("/exercises")
   Future<List<ExersizeModel>> getexersize();
 
+@GET("/image")
+  Future<String> getImage(
+   
+  @Query("exerciseId") String exerciseId,
+  @Query("resolution") String resolution,
+    );
 
 }
+ //String exerciseId,String resolution

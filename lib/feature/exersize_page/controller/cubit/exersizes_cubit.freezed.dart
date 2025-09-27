@@ -55,6 +55,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function(ExersizeFailure value)? exersizeFailure,
     TResult Function(ExersizeLoading value)? exersizeLoading,
     TResult Function(TargetListSucess value)? targetListSucess,
+    TResult Function(ImageSucess value)? imageSucess,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -69,6 +70,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeLoading(_that);
       case TargetListSucess() when targetListSucess != null:
         return targetListSucess(_that);
+      case ImageSucess() when imageSucess != null:
+        return imageSucess(_that);
       case _:
         return orElse();
     }
@@ -94,6 +97,7 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function(ExersizeFailure value) exersizeFailure,
     required TResult Function(ExersizeLoading value) exersizeLoading,
     required TResult Function(TargetListSucess value) targetListSucess,
+    required TResult Function(ImageSucess value) imageSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -107,6 +111,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeLoading(_that);
       case TargetListSucess():
         return targetListSucess(_that);
+      case ImageSucess():
+        return imageSucess(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -131,6 +137,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function(ExersizeFailure value)? exersizeFailure,
     TResult? Function(ExersizeLoading value)? exersizeLoading,
     TResult? Function(TargetListSucess value)? targetListSucess,
+    TResult? Function(ImageSucess value)? imageSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -144,6 +151,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeLoading(_that);
       case TargetListSucess() when targetListSucess != null:
         return targetListSucess(_that);
+      case ImageSucess() when imageSucess != null:
+        return imageSucess(_that);
       case _:
         return null;
     }
@@ -168,6 +177,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function(String message)? exersizeFailure,
     TResult Function()? exersizeLoading,
     TResult Function(List<String> targetList)? targetListSucess,
+    TResult Function(String url)? imageSucess,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -182,6 +192,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeLoading();
       case TargetListSucess() when targetListSucess != null:
         return targetListSucess(_that.targetList);
+      case ImageSucess() when imageSucess != null:
+        return imageSucess(_that.url);
       case _:
         return orElse();
     }
@@ -207,6 +219,7 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function(String message) exersizeFailure,
     required TResult Function() exersizeLoading,
     required TResult Function(List<String> targetList) targetListSucess,
+    required TResult Function(String url) imageSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -220,6 +233,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeLoading();
       case TargetListSucess():
         return targetListSucess(_that.targetList);
+      case ImageSucess():
+        return imageSucess(_that.url);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -244,6 +259,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function(String message)? exersizeFailure,
     TResult? Function()? exersizeLoading,
     TResult? Function(List<String> targetList)? targetListSucess,
+    TResult? Function(String url)? imageSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -257,6 +273,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeLoading();
       case TargetListSucess() when targetListSucess != null:
         return targetListSucess(_that.targetList);
+      case ImageSucess() when imageSucess != null:
+        return imageSucess(_that.url);
       case _:
         return null;
     }
@@ -507,6 +525,69 @@ class _$TargetListSucessCopyWithImpl<$Res>
           ? _self._targetList
           : targetList // ignore: cast_nullable_to_non_nullable
               as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ImageSucess implements ExersizesState {
+  const ImageSucess(this.url);
+
+  final String url;
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ImageSucessCopyWith<ImageSucess> get copyWith =>
+      _$ImageSucessCopyWithImpl<ImageSucess>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ImageSucess &&
+            (identical(other.url, url) || other.url == url));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, url);
+
+  @override
+  String toString() {
+    return 'ExersizesState.imageSucess(url: $url)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ImageSucessCopyWith<$Res>
+    implements $ExersizesStateCopyWith<$Res> {
+  factory $ImageSucessCopyWith(
+          ImageSucess value, $Res Function(ImageSucess) _then) =
+      _$ImageSucessCopyWithImpl;
+  @useResult
+  $Res call({String url});
+}
+
+/// @nodoc
+class _$ImageSucessCopyWithImpl<$Res> implements $ImageSucessCopyWith<$Res> {
+  _$ImageSucessCopyWithImpl(this._self, this._then);
+
+  final ImageSucess _self;
+  final $Res Function(ImageSucess) _then;
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? url = null,
+  }) {
+    return _then(ImageSucess(
+      null == url
+          ? _self.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
