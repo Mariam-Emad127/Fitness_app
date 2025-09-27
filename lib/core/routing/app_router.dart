@@ -19,7 +19,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AppRouter {
   Route? onGenerateRoute(RouteSettings setting) {
     // Route? onGenerateRoute(RouteSettings settings) {
-    // final arrgument = setting.arguments;
+    final arrgument = setting.arguments;
 
     switch (setting.name) {
       case Routes.signupScreen:
@@ -89,7 +89,11 @@ class AppRouter {
                   child: ExersizeHome(),
                 ));
       case Routes.exersizeDetail:
-        return MaterialPageRoute(builder: (_) => ExersizeDetail());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) =>getIt<ExersizesCubit>(),//,..getImage(id, resolution),
+                  child: ExersizeDetail( ),
+                ));
       default:
         return null;
     }

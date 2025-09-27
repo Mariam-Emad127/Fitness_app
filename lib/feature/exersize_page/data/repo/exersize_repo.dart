@@ -27,4 +27,14 @@ class ExersizeHomeRepo {
     }
   }
    
+  Future<Either<ApiErrorModel, String>> getImage(String id,String resolution) async {
+    final response = await exersizeApiServices.getImage(id,"360");
+    print( "11111111111$response");
+    try {
+      return Right(response  );
+    } catch (e) {
+      return Left(ApiErrorModel(message: e.toString()));
+    }
+  }
+
 }
