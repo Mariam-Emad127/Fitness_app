@@ -4,6 +4,7 @@ import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/exersize_image.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/info_widget.dart';
+import 'package:fitness/feature/exersize_page/ui/widgets/shimmer_widget.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/start_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -73,7 +74,13 @@ class WorkoutListView extends StatelessWidget {
                     );
                   }
                   );
+
+                  
             },
+                      exersizeFailure: (message) {
+            return Text(message);
+          },
+          exersizeLoading: () => ShimmerWidget(),
             orElse:
                 () => SizedBox(
                         width: 200.0,

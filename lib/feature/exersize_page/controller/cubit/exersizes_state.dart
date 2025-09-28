@@ -10,10 +10,8 @@ class ExersizesState with _$ExersizesState {
 
  //const factory ExersizesState.exersizeSucess() = _Initial;
 
-<<<<<<< Updated upstream
-=======
+ 
   const factory ExersizesState.imageSucess(Uint8List url) = ImageSucess;
->>>>>>> Stashed changes
-
+ 
 
 }

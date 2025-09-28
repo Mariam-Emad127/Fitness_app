@@ -3,6 +3,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitness/core/di/dependency_injection.dart';
 import 'package:fitness/core/helper/exersize_image.dart';
+import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
@@ -29,15 +30,8 @@ class TodayItemlist extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
      onTap: () {
-       
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => BlocProvider(
-                    create: (context) =>getIt <ExersizesCubit>()..getImage( "0001", "360"),
-                    child: ExersizeDetail(),
-                  )),
-        );
+    Navigator.pushNamed(context, Routes.exersizeDetail);   
+  //context.read<ExersizesCubit>()..getImage( "",  "");
       //  print(id);
       },
       
