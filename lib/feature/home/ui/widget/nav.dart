@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 class NavigationScreen extends StatefulWidget {
   final IconData iconData;
 
-  const NavigationScreen(this.iconData) : super();
+  const NavigationScreen(this.iconData, {super.key});
 
   @override
   _NavigationScreenState createState() => _NavigationScreenState();

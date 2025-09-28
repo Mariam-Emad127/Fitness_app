@@ -50,10 +50,7 @@ class _ExersizeApiServices implements ExersizeApiServices {
     return _value;
   }
 
-<<<<<<< Updated upstream
-=======
-  @override
-  Future<Uint8List> getImage(String exerciseId, String resolution) async {
+ 
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'exerciseId': exerciseId,
@@ -61,13 +58,7 @@ class _ExersizeApiServices implements ExersizeApiServices {
     };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<Uint8List>(
-      Options(
-        method: 'GET',
-        headers: _headers,
-        extra: _extra,
-        responseType: ResponseType.bytes,
-      )
+ 
           .compose(
             _dio.options,
             '/image',
@@ -76,20 +67,15 @@ class _ExersizeApiServices implements ExersizeApiServices {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Uint8List>(_options);
-    late Uint8List _value;
-    try {
-//      _value = Uint8List.fromJson(_result.data!);
-        _value = Uint8List.fromList(_result.data!);
-
+ 
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
     }
     return _value;
   }
-
->>>>>>> Stashed changes
+ 
+ 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||
