@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:dartz/dartz.dart';
 import 'package:fitness/core/helper/network/api_error_model.dart';
 import 'package:fitness/feature/exersize_page/data/apis/exersize_api_services.dart';
@@ -26,15 +28,11 @@ class ExersizeHomeRepo {
       return Left(ApiErrorModel(message: e.toString()));
     }
   }
-   
-  Future<Either<ApiErrorModel, String>> getImage(String id,String resolution) async {
-    final response = await exersizeApiServices.getImage(id,"360");
-    print( "11111111111$response");
-    try {
-      return Right(response  );
+  
     } catch (e) {
       return Left(ApiErrorModel(message: e.toString()));
     }
   }
 
+ 
 }

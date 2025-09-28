@@ -177,7 +177,8 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function(String message)? exersizeFailure,
     TResult Function()? exersizeLoading,
     TResult Function(List<String> targetList)? targetListSucess,
-    TResult Function(String url)? imageSucess,
+ 
+ 
     required TResult orElse(),
   }) {
     final _that = this;
@@ -219,7 +220,8 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function(String message) exersizeFailure,
     required TResult Function() exersizeLoading,
     required TResult Function(List<String> targetList) targetListSucess,
-    required TResult Function(String url) imageSucess,
+ 
+ 
   }) {
     final _that = this;
     switch (_that) {
@@ -259,7 +261,8 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function(String message)? exersizeFailure,
     TResult? Function()? exersizeLoading,
     TResult? Function(List<String> targetList)? targetListSucess,
-    TResult? Function(String url)? imageSucess,
+ 
+ 
   }) {
     final _that = this;
     switch (_that) {
@@ -529,12 +532,13 @@ class _$TargetListSucessCopyWithImpl<$Res>
   }
 }
 
+ 
 /// @nodoc
 
 class ImageSucess implements ExersizesState {
   const ImageSucess(this.url);
 
-  final String url;
+ 
 
   /// Create a copy of ExersizesState
   /// with the given fields replaced by the non-null parameter values.
@@ -548,11 +552,7 @@ class ImageSucess implements ExersizesState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ImageSucess &&
-            (identical(other.url, url) || other.url == url));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, url);
+ 
 
   @override
   String toString() {
@@ -567,7 +567,7 @@ abstract mixin class $ImageSucessCopyWith<$Res>
           ImageSucess value, $Res Function(ImageSucess) _then) =
       _$ImageSucessCopyWithImpl;
   @useResult
-  $Res call({String url});
+ 
 }
 
 /// @nodoc
@@ -581,6 +581,8 @@ class _$ImageSucessCopyWithImpl<$Res> implements $ImageSucessCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   $Res call({
+ 
+=======
     Object? url = null,
   }) {
     return _then(ImageSucess(
@@ -592,4 +594,4 @@ class _$ImageSucessCopyWithImpl<$Res> implements $ImageSucessCopyWith<$Res> {
   }
 }
 
-// dart format on
+ // dart format on

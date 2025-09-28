@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:typed_data';
 import 'package:fitness/feature/exersize_page/data/model/exresize_model.dart';
 import 'package:fitness/feature/exersize_page/data/repo/exersize_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
