@@ -50,8 +50,6 @@ class _ExersizeApiServices implements ExersizeApiServices {
     return _value;
   }
 
-<<<<<<< Updated upstream
-=======
   @override
   Future<Uint8List> getImage(String exerciseId, String resolution) async {
     final _extra = <String, dynamic>{};
@@ -76,12 +74,10 @@ class _ExersizeApiServices implements ExersizeApiServices {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Uint8List>(_options);
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late Uint8List _value;
     try {
-//      _value = Uint8List.fromJson(_result.data!);
-        _value = Uint8List.fromList(_result.data!);
-
+      _value = Uint8List.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -89,7 +85,6 @@ class _ExersizeApiServices implements ExersizeApiServices {
     return _value;
   }
 
->>>>>>> Stashed changes
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

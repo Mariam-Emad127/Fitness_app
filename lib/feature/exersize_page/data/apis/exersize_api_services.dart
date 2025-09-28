@@ -13,9 +13,7 @@ abstract class ExersizeApiServices {
   factory ExersizeApiServices(Dio dio) = _ExersizeApiServices;
   @GET("/exercises")
   Future<List<ExersizeModel>> getexersize();
-<<<<<<< Updated upstream
-
-=======
+ 
   
 @GET("/image")
 @DioResponseType(ResponseType.bytes) // 👈 Important
@@ -25,6 +23,6 @@ abstract class ExersizeApiServices {
   @Query("exerciseId") String exerciseId,
   @Query("resolution") String resolution,
     );
->>>>>>> Stashed changes
+ 
 
 }

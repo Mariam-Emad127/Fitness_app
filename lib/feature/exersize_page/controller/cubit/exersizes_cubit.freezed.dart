@@ -55,6 +55,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function(ExersizeFailure value)? exersizeFailure,
     TResult Function(ExersizeLoading value)? exersizeLoading,
     TResult Function(TargetListSucess value)? targetListSucess,
+    TResult Function(ImageSucess value)? imageSucess,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -69,6 +70,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeLoading(_that);
       case TargetListSucess() when targetListSucess != null:
         return targetListSucess(_that);
+      case ImageSucess() when imageSucess != null:
+        return imageSucess(_that);
       case _:
         return orElse();
     }
@@ -94,6 +97,7 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function(ExersizeFailure value) exersizeFailure,
     required TResult Function(ExersizeLoading value) exersizeLoading,
     required TResult Function(TargetListSucess value) targetListSucess,
+    required TResult Function(ImageSucess value) imageSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -107,6 +111,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeLoading(_that);
       case TargetListSucess():
         return targetListSucess(_that);
+      case ImageSucess():
+        return imageSucess(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -131,6 +137,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function(ExersizeFailure value)? exersizeFailure,
     TResult? Function(ExersizeLoading value)? exersizeLoading,
     TResult? Function(TargetListSucess value)? targetListSucess,
+    TResult? Function(ImageSucess value)? imageSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -144,6 +151,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeLoading(_that);
       case TargetListSucess() when targetListSucess != null:
         return targetListSucess(_that);
+      case ImageSucess() when imageSucess != null:
+        return imageSucess(_that);
       case _:
         return null;
     }
@@ -168,10 +177,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function(String message)? exersizeFailure,
     TResult Function()? exersizeLoading,
     TResult Function(List<String> targetList)? targetListSucess,
-<<<<<<< Updated upstream
-=======
     TResult Function(Uint8List url)? imageSucess,
->>>>>>> Stashed changes
     required TResult orElse(),
   }) {
     final _that = this;
@@ -186,6 +192,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeLoading();
       case TargetListSucess() when targetListSucess != null:
         return targetListSucess(_that.targetList);
+      case ImageSucess() when imageSucess != null:
+        return imageSucess(_that.url);
       case _:
         return orElse();
     }
@@ -211,10 +219,7 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function(String message) exersizeFailure,
     required TResult Function() exersizeLoading,
     required TResult Function(List<String> targetList) targetListSucess,
-<<<<<<< Updated upstream
-=======
     required TResult Function(Uint8List url) imageSucess,
->>>>>>> Stashed changes
   }) {
     final _that = this;
     switch (_that) {
@@ -228,6 +233,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeLoading();
       case TargetListSucess():
         return targetListSucess(_that.targetList);
+      case ImageSucess():
+        return imageSucess(_that.url);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -252,10 +259,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function(String message)? exersizeFailure,
     TResult? Function()? exersizeLoading,
     TResult? Function(List<String> targetList)? targetListSucess,
-<<<<<<< Updated upstream
-=======
     TResult? Function(Uint8List url)? imageSucess,
->>>>>>> Stashed changes
   }) {
     final _that = this;
     switch (_that) {
@@ -269,6 +273,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return exersizeLoading();
       case TargetListSucess() when targetListSucess != null:
         return targetListSucess(_that.targetList);
+      case ImageSucess() when imageSucess != null:
+        return imageSucess(_that.url);
       case _:
         return null;
     }
@@ -523,8 +529,6 @@ class _$TargetListSucessCopyWithImpl<$Res>
   }
 }
 
-<<<<<<< Updated upstream
-=======
 /// @nodoc
 
 class ImageSucess implements ExersizesState {
@@ -578,10 +582,10 @@ class _$ImageSucessCopyWithImpl<$Res> implements $ImageSucessCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? url = freezed,
+    Object? url = null,
   }) {
     return _then(ImageSucess(
-      freezed == url
+      null == url
           ? _self.url
           : url // ignore: cast_nullable_to_non_nullable
               as Uint8List,
@@ -589,5 +593,4 @@ class _$ImageSucessCopyWithImpl<$Res> implements $ImageSucessCopyWith<$Res> {
   }
 }
 
->>>>>>> Stashed changes
 // dart format on

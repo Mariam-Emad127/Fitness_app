@@ -30,7 +30,10 @@ class ExersizeHomeRepo {
   }
    
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
   Future<Either<ApiErrorModel, Uint8List>> getImage(String id,String resolution) async {
     final response = await exersizeApiServices.getImage(id,"180");
      try {
