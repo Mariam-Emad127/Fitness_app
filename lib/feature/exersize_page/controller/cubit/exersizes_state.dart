@@ -10,7 +10,7 @@ class ExersizesState with _$ExersizesState {
 
  //const factory ExersizesState.exersizeSucess() = _Initial;
 
-  const factory ExersizesState.imageSucess(String url) = ImageSucess;
+ 
 
 
 }
