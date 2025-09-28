@@ -42,7 +42,7 @@ class _ExersizeHomeState extends State<ExersizeHome> {
                     height: 10,
                   ),
                   CustomSearchTextField(
-                    onChanged: (String) {},
+                    onChanged: (s) {},
                   ),
                   SizedBox(
                     height: 10,

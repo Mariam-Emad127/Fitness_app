@@ -14,15 +14,17 @@ abstract class ExersizeApiServices {
   @GET("/exercises")
   Future<List<ExersizeModel>> getexersize();
  
-  
+   
 @GET("/image")
 @DioResponseType(ResponseType.bytes) // 👈 Important
 
   Future<Uint8List> getImage(
-   
+ 
   @Query("exerciseId") String exerciseId,
   @Query("resolution") String resolution,
     );
  
+ 
 
 }
+ //String exerciseId,String resolution

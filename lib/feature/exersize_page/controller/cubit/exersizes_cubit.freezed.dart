@@ -177,7 +177,12 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function(String message)? exersizeFailure,
     TResult Function()? exersizeLoading,
     TResult Function(List<String> targetList)? targetListSucess,
+<<<<<<< HEAD
     TResult Function(Uint8List url)? imageSucess,
+=======
+ 
+ 
+>>>>>>> 89f9925dcf4838705e035102f0451ccee2404bcc
     required TResult orElse(),
   }) {
     final _that = this;
@@ -219,7 +224,12 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function(String message) exersizeFailure,
     required TResult Function() exersizeLoading,
     required TResult Function(List<String> targetList) targetListSucess,
+<<<<<<< HEAD
     required TResult Function(Uint8List url) imageSucess,
+=======
+ 
+ 
+>>>>>>> 89f9925dcf4838705e035102f0451ccee2404bcc
   }) {
     final _that = this;
     switch (_that) {
@@ -259,7 +269,12 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function(String message)? exersizeFailure,
     TResult? Function()? exersizeLoading,
     TResult? Function(List<String> targetList)? targetListSucess,
+<<<<<<< HEAD
     TResult? Function(Uint8List url)? imageSucess,
+=======
+ 
+ 
+>>>>>>> 89f9925dcf4838705e035102f0451ccee2404bcc
   }) {
     final _that = this;
     switch (_that) {
@@ -529,12 +544,16 @@ class _$TargetListSucessCopyWithImpl<$Res>
   }
 }
 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 89f9925dcf4838705e035102f0451ccee2404bcc
 /// @nodoc
 
 class ImageSucess implements ExersizesState {
   const ImageSucess(this.url);
 
-  final Uint8List url;
+ 
 
   /// Create a copy of ExersizesState
   /// with the given fields replaced by the non-null parameter values.
@@ -548,12 +567,7 @@ class ImageSucess implements ExersizesState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ImageSucess &&
-            const DeepCollectionEquality().equals(other.url, url));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(url));
+ 
 
   @override
   String toString() {
@@ -568,7 +582,7 @@ abstract mixin class $ImageSucessCopyWith<$Res>
           ImageSucess value, $Res Function(ImageSucess) _then) =
       _$ImageSucessCopyWithImpl;
   @useResult
-  $Res call({Uint8List url});
+ 
 }
 
 /// @nodoc
@@ -582,15 +596,24 @@ class _$ImageSucessCopyWithImpl<$Res> implements $ImageSucessCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   $Res call({
+<<<<<<< HEAD
+=======
+ 
+=======
+>>>>>>> 89f9925dcf4838705e035102f0451ccee2404bcc
     Object? url = null,
   }) {
     return _then(ImageSucess(
       null == url
           ? _self.url
           : url // ignore: cast_nullable_to_non_nullable
-              as Uint8List,
+              as String,
     ));
   }
 }
 
+<<<<<<< HEAD
 // dart format on
+=======
+ // dart format on
+>>>>>>> 89f9925dcf4838705e035102f0451ccee2404bcc

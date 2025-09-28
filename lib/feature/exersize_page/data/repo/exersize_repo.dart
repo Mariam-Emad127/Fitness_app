@@ -28,6 +28,7 @@ class ExersizeHomeRepo {
       return Left(ApiErrorModel(message: e.toString()));
     }
   }
+<<<<<<< HEAD
    
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -39,10 +40,13 @@ class ExersizeHomeRepo {
      try {
       return Right(response  );
  
+=======
+  
+>>>>>>> 89f9925dcf4838705e035102f0451ccee2404bcc
     } catch (e) {
       return Left(ApiErrorModel(message: e.toString()));
     }
   }
 
->>>>>>> Stashed changes
+ 
 }

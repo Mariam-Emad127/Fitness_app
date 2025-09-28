@@ -92,7 +92,7 @@ class AppRouter {
  
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) =>getIt<ExersizesCubit>()..getImage(  "0001",  "180"),
+                  create: (context) =>getIt<ExersizesCubit>(),//..getImage(  "0001",  "180"),
                   child: ExersizeDetail( ),
                 ));
  
