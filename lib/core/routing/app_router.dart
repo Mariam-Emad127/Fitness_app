@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:fitness/core/di/dependency_injection.dart';
 import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
@@ -19,7 +20,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AppRouter {
   Route? onGenerateRoute(RouteSettings setting) {
     // Route? onGenerateRoute(RouteSettings settings) {
+<<<<<<< Updated upstream
     // final arrgument = setting.arguments;
+=======
+   // final arrgument = setting.arguments;
+>>>>>>> Stashed changes
 
     switch (setting.name) {
       case Routes.signupScreen:
@@ -89,7 +94,15 @@ class AppRouter {
                   child: ExersizeHome(),
                 ));
       case Routes.exersizeDetail:
+<<<<<<< Updated upstream
         return MaterialPageRoute(builder: (_) => ExersizeDetail());
+=======
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) =>getIt<ExersizesCubit>()..getImage(  "0001",  "180"),
+                  child: ExersizeDetail( ),
+                ));
+>>>>>>> Stashed changes
       default:
         return null;
     }

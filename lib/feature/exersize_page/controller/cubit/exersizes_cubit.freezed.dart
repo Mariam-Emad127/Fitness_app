@@ -168,6 +168,10 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function(String message)? exersizeFailure,
     TResult Function()? exersizeLoading,
     TResult Function(List<String> targetList)? targetListSucess,
+<<<<<<< Updated upstream
+=======
+    TResult Function(Uint8List url)? imageSucess,
+>>>>>>> Stashed changes
     required TResult orElse(),
   }) {
     final _that = this;
@@ -207,6 +211,10 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function(String message) exersizeFailure,
     required TResult Function() exersizeLoading,
     required TResult Function(List<String> targetList) targetListSucess,
+<<<<<<< Updated upstream
+=======
+    required TResult Function(Uint8List url) imageSucess,
+>>>>>>> Stashed changes
   }) {
     final _that = this;
     switch (_that) {
@@ -244,6 +252,10 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function(String message)? exersizeFailure,
     TResult? Function()? exersizeLoading,
     TResult? Function(List<String> targetList)? targetListSucess,
+<<<<<<< Updated upstream
+=======
+    TResult? Function(Uint8List url)? imageSucess,
+>>>>>>> Stashed changes
   }) {
     final _that = this;
     switch (_that) {
@@ -511,4 +523,71 @@ class _$TargetListSucessCopyWithImpl<$Res>
   }
 }
 
+<<<<<<< Updated upstream
+=======
+/// @nodoc
+
+class ImageSucess implements ExersizesState {
+  const ImageSucess(this.url);
+
+  final Uint8List url;
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ImageSucessCopyWith<ImageSucess> get copyWith =>
+      _$ImageSucessCopyWithImpl<ImageSucess>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ImageSucess &&
+            const DeepCollectionEquality().equals(other.url, url));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(url));
+
+  @override
+  String toString() {
+    return 'ExersizesState.imageSucess(url: $url)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ImageSucessCopyWith<$Res>
+    implements $ExersizesStateCopyWith<$Res> {
+  factory $ImageSucessCopyWith(
+          ImageSucess value, $Res Function(ImageSucess) _then) =
+      _$ImageSucessCopyWithImpl;
+  @useResult
+  $Res call({Uint8List url});
+}
+
+/// @nodoc
+class _$ImageSucessCopyWithImpl<$Res> implements $ImageSucessCopyWith<$Res> {
+  _$ImageSucessCopyWithImpl(this._self, this._then);
+
+  final ImageSucess _self;
+  final $Res Function(ImageSucess) _then;
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? url = freezed,
+  }) {
+    return _then(ImageSucess(
+      freezed == url
+          ? _self.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as Uint8List,
+    ));
+  }
+}
+
+>>>>>>> Stashed changes
 // dart format on
