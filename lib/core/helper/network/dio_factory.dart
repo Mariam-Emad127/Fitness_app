@@ -15,7 +15,7 @@ dio!
         ..options.connectTimeout = timeOut 
         ..options.receiveTimeout = timeOut;
          
-        addDioInterceptor();
+         addDioInterceptor();
         addDioHeaders();
 return dio!;
 }else{
@@ -26,7 +26,7 @@ return dio!;
  
   static void addDioHeaders() async {
     dio?.options.headers = {
-       "X-RapidAPI-Key":"53e27c4f99msh0e46f73aa09d3aap130fdbjsnc7180362403e",
+       "X-RapidAPI-Key":"25a94da6a5mshd8b5eb683cab4bcp1395dbjsn636c704b8a42", 
        "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
        };
       }
@@ -44,10 +44,11 @@ static void setTokenIntoHeaderAfterLogin(String token){
 */
  
 static void addDioInterceptor(){
+ 
  dio?.interceptors.add(PrettyDioLogger(
         requestHeader: true,
         requestBody: true,
-        responseBody: true,
+        responseBody: false,
         responseHeader: false,));
 
 }

@@ -28,7 +28,13 @@ class ExersizeHomeRepo {
       return Left(ApiErrorModel(message: e.toString()));
     }
   }
-  
+ 
+  Future<Either<ApiErrorModel, Uint8List>> getImage(String id,String resolution) async {
+     try {
+    final response = await exersizeApiServices.getImage(id,"180");
+print(response);
+      return Right(response  );
+ 
     } catch (e) {
       return Left(ApiErrorModel(message: e.toString()));
     }
