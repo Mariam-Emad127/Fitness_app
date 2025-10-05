@@ -20,12 +20,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AppRouter {
   Route? onGenerateRoute(RouteSettings setting) {
     // Route? onGenerateRoute(RouteSettings settings) {
-<<<<<<< Updated upstream
-    // final arrgument = setting.arguments;
-=======
-   // final arrgument = setting.arguments;
->>>>>>> Stashed changes
-
     switch (setting.name) {
       case Routes.signupScreen:
         return MaterialPageRoute(
@@ -94,17 +88,15 @@ class AppRouter {
                   child: ExersizeHome(),
                 ));
       case Routes.exersizeDetail:
-<<<<<<< Updated upstream
-        return MaterialPageRoute(builder: (_) => ExersizeDetail());
-=======
+        final args = setting.arguments as String; // هنا تاخد الـ id
+
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) =>getIt<ExersizesCubit>(),//,..getImage(id, resolution),
-                  child: ExersizeDetail( ),
+                  create: (context) =>getIt<ExersizesCubit>(),// ..getImage("0001",  "180"), 
+                  child: ExersizeDetail(id: args,  ),
                 ));
->>>>>>> Stashed changes
-      default:
-        return null;
+ 
+       
     }
   }
 }

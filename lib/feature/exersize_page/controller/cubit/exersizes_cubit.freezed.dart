@@ -56,6 +56,8 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function(ExersizeLoading value)? exersizeLoading,
     TResult Function(TargetListSucess value)? targetListSucess,
     TResult Function(ImageSucess value)? imageSucess,
+    TResult Function(ImageFailure value)? imageFailure,
+    TResult Function(ImageLoading value)? imageLoading,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -72,6 +74,10 @@ extension ExersizesStatePatterns on ExersizesState {
         return targetListSucess(_that);
       case ImageSucess() when imageSucess != null:
         return imageSucess(_that);
+      case ImageFailure() when imageFailure != null:
+        return imageFailure(_that);
+      case ImageLoading() when imageLoading != null:
+        return imageLoading(_that);
       case _:
         return orElse();
     }
@@ -98,6 +104,8 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function(ExersizeLoading value) exersizeLoading,
     required TResult Function(TargetListSucess value) targetListSucess,
     required TResult Function(ImageSucess value) imageSucess,
+    required TResult Function(ImageFailure value) imageFailure,
+    required TResult Function(ImageLoading value) imageLoading,
   }) {
     final _that = this;
     switch (_that) {
@@ -113,6 +121,10 @@ extension ExersizesStatePatterns on ExersizesState {
         return targetListSucess(_that);
       case ImageSucess():
         return imageSucess(_that);
+      case ImageFailure():
+        return imageFailure(_that);
+      case ImageLoading():
+        return imageLoading(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -138,6 +150,8 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function(ExersizeLoading value)? exersizeLoading,
     TResult? Function(TargetListSucess value)? targetListSucess,
     TResult? Function(ImageSucess value)? imageSucess,
+    TResult? Function(ImageFailure value)? imageFailure,
+    TResult? Function(ImageLoading value)? imageLoading,
   }) {
     final _that = this;
     switch (_that) {
@@ -153,6 +167,10 @@ extension ExersizesStatePatterns on ExersizesState {
         return targetListSucess(_that);
       case ImageSucess() when imageSucess != null:
         return imageSucess(_that);
+      case ImageFailure() when imageFailure != null:
+        return imageFailure(_that);
+      case ImageLoading() when imageLoading != null:
+        return imageLoading(_that);
       case _:
         return null;
     }
@@ -178,6 +196,8 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function()? exersizeLoading,
     TResult Function(List<String> targetList)? targetListSucess,
     TResult Function(Uint8List url)? imageSucess,
+    TResult Function(String message)? imageFailure,
+    TResult Function()? imageLoading,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -194,6 +214,10 @@ extension ExersizesStatePatterns on ExersizesState {
         return targetListSucess(_that.targetList);
       case ImageSucess() when imageSucess != null:
         return imageSucess(_that.url);
+      case ImageFailure() when imageFailure != null:
+        return imageFailure(_that.message);
+      case ImageLoading() when imageLoading != null:
+        return imageLoading();
       case _:
         return orElse();
     }
@@ -220,6 +244,8 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function() exersizeLoading,
     required TResult Function(List<String> targetList) targetListSucess,
     required TResult Function(Uint8List url) imageSucess,
+    required TResult Function(String message) imageFailure,
+    required TResult Function() imageLoading,
   }) {
     final _that = this;
     switch (_that) {
@@ -235,6 +261,10 @@ extension ExersizesStatePatterns on ExersizesState {
         return targetListSucess(_that.targetList);
       case ImageSucess():
         return imageSucess(_that.url);
+      case ImageFailure():
+        return imageFailure(_that.message);
+      case ImageLoading():
+        return imageLoading();
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -260,6 +290,8 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function()? exersizeLoading,
     TResult? Function(List<String> targetList)? targetListSucess,
     TResult? Function(Uint8List url)? imageSucess,
+    TResult? Function(String message)? imageFailure,
+    TResult? Function()? imageLoading,
   }) {
     final _that = this;
     switch (_that) {
@@ -275,6 +307,10 @@ extension ExersizesStatePatterns on ExersizesState {
         return targetListSucess(_that.targetList);
       case ImageSucess() when imageSucess != null:
         return imageSucess(_that.url);
+      case ImageFailure() when imageFailure != null:
+        return imageFailure(_that.message);
+      case ImageLoading() when imageLoading != null:
+        return imageLoading();
       case _:
         return null;
     }
@@ -590,6 +626,89 @@ class _$ImageSucessCopyWithImpl<$Res> implements $ImageSucessCopyWith<$Res> {
           : url // ignore: cast_nullable_to_non_nullable
               as Uint8List,
     ));
+  }
+}
+
+/// @nodoc
+
+class ImageFailure implements ExersizesState {
+  const ImageFailure(this.message);
+
+  final String message;
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ImageFailureCopyWith<ImageFailure> get copyWith =>
+      _$ImageFailureCopyWithImpl<ImageFailure>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ImageFailure &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @override
+  String toString() {
+    return 'ExersizesState.imageFailure(message: $message)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ImageFailureCopyWith<$Res>
+    implements $ExersizesStateCopyWith<$Res> {
+  factory $ImageFailureCopyWith(
+          ImageFailure value, $Res Function(ImageFailure) _then) =
+      _$ImageFailureCopyWithImpl;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class _$ImageFailureCopyWithImpl<$Res> implements $ImageFailureCopyWith<$Res> {
+  _$ImageFailureCopyWithImpl(this._self, this._then);
+
+  final ImageFailure _self;
+  final $Res Function(ImageFailure) _then;
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(ImageFailure(
+      null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ImageLoading implements ExersizesState {
+  const ImageLoading();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ImageLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'ExersizesState.imageLoading()';
   }
 }
 

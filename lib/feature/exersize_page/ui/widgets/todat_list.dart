@@ -1,3 +1,4 @@
+import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/shimmer_widget.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/today_itemList.dart';
@@ -21,11 +22,21 @@ class TodayList extends StatelessWidget {
                     physics: ScrollPhysics(),
                     itemCount: exersizeModel.length,
                     itemBuilder: (contex, index) {
-                      return TodayItemlist(
-                        index: index,
-                        equipment: exersizeModel[index].equipment ?? "",
-                        difficulty: exersizeModel[index].difficulty ?? "",
-                       // id: exersizeModel[index].id ?? "",
+                      return InkWell(
+                        onTap: () async {
+                          Navigator.pushNamed(
+                            context,
+                            Routes.exersizeDetail,
+                            arguments: exersizeModel[index].id,
+                          );
+
+                          // print(object)
+                        },
+                        child: TodayItemlist(
+                          index: index,
+                          equipment: exersizeModel[index].equipment ?? "",
+                          difficulty: exersizeModel[index].difficulty ?? "",
+                        ),
                       );
                     }));
           },

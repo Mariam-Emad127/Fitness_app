@@ -82,6 +82,7 @@ class _ExersizeApiServices implements ExersizeApiServices {
       errorLogger?.logError(e, s, _options);
       rethrow;
     }
+    print("lllllllllllllll$_value");
     return _value;
   }
 

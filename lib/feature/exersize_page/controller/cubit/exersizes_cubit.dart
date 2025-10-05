@@ -31,10 +31,11 @@ class ExersizesCubit extends Cubit<ExersizesState> {
     });
   }
   FutureOr<void> getImage(String id,String resolution) async {
-    emit(ExersizesState.exersizeLoading());
-    final response = await exersizeHomeRepo.getImage(id,"360");
-    print("4444444444$response");
-    response.fold((l) => emit(ExersizesState.exersizeFailure(l.toString())),
+   
+    emit(ExersizesState.imageLoading());
+    final response = await exersizeHomeRepo.getImage(id,resolution);
+    print("4444444444$id");
+    response.fold((l) => emit(ExersizesState.imageFailure(l.toString())),
         (r) {
        emit(ExersizesState.imageSucess(r));
     });
