@@ -1,60 +1,79 @@
+/*
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
- import 'package:fitness/core/routing/routes.dart';
+import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
+import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
+import 'package:fitness/feature/exersize_page/ui/exersize_home.dart';
 import 'package:fitness/feature/home/ui/widget/floating_widget.dart';
 import 'package:fitness/feature/profile/controller/cubit/edit_profile/edit_profile_cubit.dart';
 import 'package:fitness/feature/profile/ui/edit_profile.dart';
- 
+import 'package:fitness/feature/profile/ui/user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class NotificationListnerBody extends StatefulWidget {
+  const NotificationListnerBody({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<NotificationListnerBody> createState() => _NotificationListnerBodyState();
 }
 
-class _HomeState extends State<Home> with TickerProviderStateMixin {
-  final autoSizeGroup = AutoSizeGroup();
+class _NotificationListnerBodyState extends State<NotificationListnerBody> {
+    final autoSizeGroup = AutoSizeGroup();
   var _bottomNavIndex = 0;
-  late AnimationController _fabAnimationController;
-  late AnimationController _borderRadiusAnimationController;
+
   late Animation<double> fabAnimation;
   late Animation<double> borderRadiusAnimation;
   late CurvedAnimation fabCurve;
   late CurvedAnimation borderRadiusCurve;
   late AnimationController _hideBottomBarAnimationController;
-
+  late AnimationController _fabAnimationController;
+   late AnimationController _borderRadiusAnimationController;
+   
   final iconList = <IconData>[
     Icons.brightness_5,
     Icons.brightness_4,
     Icons.brightness_6,
     Icons.brightness_7,
   ];
-  
+ 
   final List<Widget> _pages = [
-    BlocProvider(
-      create: (context) => EditProfileCubit(),
-      child: EditProfile(),
-    ),    BlocProvider(
-      create: (context) => EditProfileCubit(),
-      child: EditProfile(),
-    ), 
-    BlocProvider(
-      create: (context) => EditProfileCubit(),
-      child: EditProfile(),
-    ),
-    BlocProvider(
-      create: (context) => EditProfileCubit(),
-      child: EditProfile(),
-    ),
+    UserProfile(),    
     
+    // EditProfile(),
+    UserProfile(),
+    BlocProvider(
+      create: (context) => EditProfileCubit(),
+      child: EditProfile(),
+    ),
+    BlocProvider(
+      create: (context) => EditProfileCubit(),
+      child: EditProfile(),
+    ),
   ];
-  
-  @override
+ 
+
+  bool onScrollNotification(ScrollNotification notification) {
+    if (notification is UserScrollNotification &&
+        notification.metrics.axis == Axis.vertical) {
+      switch (notification.direction) {
+        case ScrollDirection.forward:
+          _hideBottomBarAnimationController.reverse();
+          _fabAnimationController.forward(from: 0);
+          break;
+        case ScrollDirection.reverse:
+          _hideBottomBarAnimationController.forward();
+          _fabAnimationController.reverse(from: 1);
+          break;
+        case ScrollDirection.idle:
+          break;
+      }
+    }
+    return false;
+  }
+    @override
   void initState() {
     super.initState();
 
@@ -95,25 +114,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     );
   }
 
-  bool onScrollNotification(ScrollNotification notification) {
-    if (notification is UserScrollNotification &&
-        notification.metrics.axis == Axis.vertical) {
-      switch (notification.direction) {
-        case ScrollDirection.forward:
-          _hideBottomBarAnimationController.reverse();
-          _fabAnimationController.forward(from: 0);
-          break;
-        case ScrollDirection.reverse:
-          _hideBottomBarAnimationController.forward();
-          _fabAnimationController.reverse(from: 1);
-          break;
-        case ScrollDirection.idle:
-          break;
-      }
-    }
-    return false;
-  }
-
   @override
   void dispose() {
     _borderRadiusAnimationController.dispose();
@@ -126,17 +126,32 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       backgroundColor: ColorsManager.darkGray,
       extendBody: true,
       body: NotificationListener<ScrollNotification>(
           onNotification: onScrollNotification,
-     
-          child:Container()//_pages[0] //
+          child: _pages[_bottomNavIndex] ,
+         
           ),
       floatingActionButton: FloatingWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
+          onTap: (index) {
+    setState(() => _bottomNavIndex = index);
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, Routes.exersizeDetail);
+        break;
+      case 1:
+        Navigator.pushNamed(context, Routes.exersizeHome);
+        break;
+      case 2:
+        Navigator.pushNamed(context, Routes.userProfile);
+        break;
+    }
+  },
+       
         itemCount: iconList.length,
         tabBuilder: (int index, bool isActive) {
           final color = isActive ? Colors.amberAccent : ColorsManager.lightBlue;
@@ -172,25 +187,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         gapLocation: GapLocation.center,
         leftCornerRadius: 15,
         rightCornerRadius: 15,
-       //onTap: (index) => setState(() => _bottomNavIndex = index),
-            
-              onTap: (index) {
-    setState(() => _bottomNavIndex = index);
-    switch (index) {
-      case 0:
-        Navigator.pushNamed(context, Routes.exersizeDetail);
-        break;
-      case 1:
-        Navigator.pushNamed(context, Routes.exersizeHome);
-        break;
-      case 2:
-        Navigator.pushNamed(context, Routes.userProfile);
-        break;
-    }
-  },
-      
+      //  onTap: (index) => setState(() => _bottomNavIndex = index),
         hideAnimationController: _hideBottomBarAnimationController,
-
         shadow: BoxShadow(
           offset: Offset(0, 1),
           blurRadius: 12,
@@ -200,3 +198,5 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     );
   }
 }
+
+*/
