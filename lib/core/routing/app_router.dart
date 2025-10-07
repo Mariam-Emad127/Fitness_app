@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:fitness/core/di/dependency_injection.dart';
 import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';

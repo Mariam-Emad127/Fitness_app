@@ -9,7 +9,7 @@ part 'exersizes_state.dart';
 part 'exersizes_cubit.freezed.dart';
 
 class ExersizesCubit extends Cubit<ExersizesState> {
-  ExersizesCubit(this.exersizeHomeRepo) : super(ExersizesState.initial());
+  ExersizesCubit(this.exersizeHomeRepo, ) : super(ExersizesState.initial());
   ExersizeHomeRepo exersizeHomeRepo;
   List<ExersizeModel?>? exersizeModelList = [];
 
