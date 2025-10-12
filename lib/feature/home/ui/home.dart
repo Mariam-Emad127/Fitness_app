@@ -1,7 +1,10 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:fitness/core/di/dependency_injection.dart';
  import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
+import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
+import 'package:fitness/feature/exersize_page/ui/exersize_home.dart';
 import 'package:fitness/feature/home/ui/widget/floating_widget.dart';
 import 'package:fitness/feature/profile/controller/cubit/edit_profile/edit_profile_cubit.dart';
 import 'package:fitness/feature/profile/ui/edit_profile.dart';
@@ -36,6 +39,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   ];
   
   final List<Widget> _pages = [
+     BlocProvider(
+                  create: (context) => getIt<ExersizesCubit>()
+                    ..getAllExersizes()
+                    ..getTargetList(),
+                  child: ExersizeHome(),
+                ),
     BlocProvider(
       create: (context) => EditProfileCubit(),
       child: EditProfile(),
@@ -132,7 +141,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       body: NotificationListener<ScrollNotification>(
           onNotification: onScrollNotification,
      
-          child:Container()//_pages[0] //
+          child:_pages[0]
+          //Container()//_pages[0] //
           ),
       floatingActionButton: FloatingWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

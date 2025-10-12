@@ -24,7 +24,10 @@ abstract class ExersizeApiServices {
   @Query("resolution") String resolution,
     );
  
- 
+   @GET("/exercise")
+  Future< ExersizeModel> getexersizedettail(
+     @Query("exerciseId") String exerciseId,
+  );
 
 }
  //String exerciseId,String resolution

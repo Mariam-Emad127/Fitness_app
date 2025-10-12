@@ -41,4 +41,12 @@ print(response);
   }
 
  
+   Future<Either<ApiErrorModel, ExersizeModel>> getexersizedettail(String id) async {
+    final response = await exersizeApiServices.getexersizedettail(id);
+    try {
+      return Right(response  );
+    } catch (e) {
+      return Left(ApiErrorModel(message: e.toString()));
+    }
+  }
 }
