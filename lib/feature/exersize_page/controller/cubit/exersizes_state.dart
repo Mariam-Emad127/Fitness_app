@@ -14,5 +14,6 @@ class ExersizesState with _$ExersizesState {
   const factory ExersizesState.imageSucess(Uint8List url) = ImageSucess;
   const factory ExersizesState.imageFailure(String message) = ImageFailure;
   const factory ExersizesState.imageLoading() = ImageLoading;
+  const factory ExersizesState.exersizeDetailSucess( ExersizeModel exresizeModel) = ExersizeDetailSucess;
 
 }

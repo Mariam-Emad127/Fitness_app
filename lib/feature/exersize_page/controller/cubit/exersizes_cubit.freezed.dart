@@ -58,6 +58,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function(ImageSucess value)? imageSucess,
     TResult Function(ImageFailure value)? imageFailure,
     TResult Function(ImageLoading value)? imageLoading,
+    TResult Function(ExersizeDetailSucess value)? exersizeDetailSucess,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -78,6 +79,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return imageFailure(_that);
       case ImageLoading() when imageLoading != null:
         return imageLoading(_that);
+      case ExersizeDetailSucess() when exersizeDetailSucess != null:
+        return exersizeDetailSucess(_that);
       case _:
         return orElse();
     }
@@ -106,6 +109,7 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function(ImageSucess value) imageSucess,
     required TResult Function(ImageFailure value) imageFailure,
     required TResult Function(ImageLoading value) imageLoading,
+    required TResult Function(ExersizeDetailSucess value) exersizeDetailSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -125,6 +129,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return imageFailure(_that);
       case ImageLoading():
         return imageLoading(_that);
+      case ExersizeDetailSucess():
+        return exersizeDetailSucess(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -152,6 +158,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function(ImageSucess value)? imageSucess,
     TResult? Function(ImageFailure value)? imageFailure,
     TResult? Function(ImageLoading value)? imageLoading,
+    TResult? Function(ExersizeDetailSucess value)? exersizeDetailSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -171,6 +178,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return imageFailure(_that);
       case ImageLoading() when imageLoading != null:
         return imageLoading(_that);
+      case ExersizeDetailSucess() when exersizeDetailSucess != null:
+        return exersizeDetailSucess(_that);
       case _:
         return null;
     }
@@ -198,6 +207,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult Function(Uint8List url)? imageSucess,
     TResult Function(String message)? imageFailure,
     TResult Function()? imageLoading,
+    TResult Function(ExersizeModel exresizeModel)? exersizeDetailSucess,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -218,6 +228,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return imageFailure(_that.message);
       case ImageLoading() when imageLoading != null:
         return imageLoading();
+      case ExersizeDetailSucess() when exersizeDetailSucess != null:
+        return exersizeDetailSucess(_that.exresizeModel);
       case _:
         return orElse();
     }
@@ -246,6 +258,7 @@ extension ExersizesStatePatterns on ExersizesState {
     required TResult Function(Uint8List url) imageSucess,
     required TResult Function(String message) imageFailure,
     required TResult Function() imageLoading,
+    required TResult Function(ExersizeModel exresizeModel) exersizeDetailSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -265,6 +278,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return imageFailure(_that.message);
       case ImageLoading():
         return imageLoading();
+      case ExersizeDetailSucess():
+        return exersizeDetailSucess(_that.exresizeModel);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -292,6 +307,7 @@ extension ExersizesStatePatterns on ExersizesState {
     TResult? Function(Uint8List url)? imageSucess,
     TResult? Function(String message)? imageFailure,
     TResult? Function()? imageLoading,
+    TResult? Function(ExersizeModel exresizeModel)? exersizeDetailSucess,
   }) {
     final _that = this;
     switch (_that) {
@@ -311,6 +327,8 @@ extension ExersizesStatePatterns on ExersizesState {
         return imageFailure(_that.message);
       case ImageLoading() when imageLoading != null:
         return imageLoading();
+      case ExersizeDetailSucess() when exersizeDetailSucess != null:
+        return exersizeDetailSucess(_that.exresizeModel);
       case _:
         return null;
     }
@@ -709,6 +727,72 @@ class ImageLoading implements ExersizesState {
   @override
   String toString() {
     return 'ExersizesState.imageLoading()';
+  }
+}
+
+/// @nodoc
+
+class ExersizeDetailSucess implements ExersizesState {
+  const ExersizeDetailSucess(this.exresizeModel);
+
+  final ExersizeModel exresizeModel;
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ExersizeDetailSucessCopyWith<ExersizeDetailSucess> get copyWith =>
+      _$ExersizeDetailSucessCopyWithImpl<ExersizeDetailSucess>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ExersizeDetailSucess &&
+            (identical(other.exresizeModel, exresizeModel) ||
+                other.exresizeModel == exresizeModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, exresizeModel);
+
+  @override
+  String toString() {
+    return 'ExersizesState.exersizeDetailSucess(exresizeModel: $exresizeModel)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ExersizeDetailSucessCopyWith<$Res>
+    implements $ExersizesStateCopyWith<$Res> {
+  factory $ExersizeDetailSucessCopyWith(ExersizeDetailSucess value,
+          $Res Function(ExersizeDetailSucess) _then) =
+      _$ExersizeDetailSucessCopyWithImpl;
+  @useResult
+  $Res call({ExersizeModel exresizeModel});
+}
+
+/// @nodoc
+class _$ExersizeDetailSucessCopyWithImpl<$Res>
+    implements $ExersizeDetailSucessCopyWith<$Res> {
+  _$ExersizeDetailSucessCopyWithImpl(this._self, this._then);
+
+  final ExersizeDetailSucess _self;
+  final $Res Function(ExersizeDetailSucess) _then;
+
+  /// Create a copy of ExersizesState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? exresizeModel = null,
+  }) {
+    return _then(ExersizeDetailSucess(
+      null == exresizeModel
+          ? _self.exresizeModel
+          : exresizeModel // ignore: cast_nullable_to_non_nullable
+              as ExersizeModel,
+    ));
   }
 }
 

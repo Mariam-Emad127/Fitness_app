@@ -19,57 +19,59 @@ class _ExersizeHomeState extends State<ExersizeHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsManager.darkGray,
-      body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.only(left: 20.0,right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Home",
-              style: TextStyles.font13GrayRegular,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Good Morning",
-                    style: TextStyles.font18WhiteMedium,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomSearchTextField(
-                    onChanged: (s) {},
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "Popular Workouts ",
-                    style: TextStyles.font18WhiteMedium,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(height: 200.h, child: WorkoutListView()),
-                  Text(
-                    "Today Plan",
-                    style: TextStyles.font18WhiteMedium,
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-               TodayList()
-          
-                ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+            child: Padding(
+          padding: const EdgeInsets.only(left: 20.0,right: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Home",
+                style: TextStyles.font13GrayRegular,
               ),
-            ),
-          ],
-        ),
-      )),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Good Morning",
+                      style: TextStyles.font18WhiteMedium,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    CustomSearchTextField(
+                      onChanged: (s) {},
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Popular Workouts ",
+                      style: TextStyles.font18WhiteMedium,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    SizedBox(height: 200.h, child: WorkoutListView()),
+                    Text(
+                      "Today Plan",
+                      style: TextStyles.font18WhiteMedium,
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                 TodayList()
+            
+                  ],
+                ),
+              ),
+            ],
+          ),
+        )),
+      ),
     );
   }
 }

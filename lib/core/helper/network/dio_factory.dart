@@ -8,7 +8,7 @@ DioFactory._();
 static Dio ?dio ;
  static Dio  getDio()   {
 if(dio==null){
-Duration timeOut=Duration(seconds: 30);
+Duration timeOut=Duration(seconds: 60);
 dio=Dio();
 dio!
 

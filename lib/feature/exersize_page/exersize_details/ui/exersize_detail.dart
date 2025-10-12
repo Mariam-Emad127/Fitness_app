@@ -1,4 +1,7 @@
- import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
+ import 'package:fitness/core/theming/color.dart';
+import 'package:fitness/core/theming/style.dart';
+import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
+import 'package:fitness/feature/exersize_page/exersize_details/ui/wedgit/exersizeDetailBlocBilder.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/shimmer_widget.dart';
   import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,6 +19,7 @@ class _ExersizeDetailState extends State<ExersizeDetail> {
     @override
   void initState() {
                context.read<ExersizesCubit>().getImage( widget.id, "180");            
+               context.read<ExersizesCubit>().getexersizeDetail ( widget.id);            
  
      super.initState();
   }
@@ -23,29 +27,45 @@ class _ExersizeDetailState extends State<ExersizeDetail> {
   Widget build(BuildContext context) {
  
     return Scaffold(
-body: SafeArea(child: Column(
-
-  children: [
- 
-    BlocBuilder<ExersizesCubit, ExersizesState>(
-      builder: (context, state) {
-        print(state);
-        return state.maybeWhen(
-            imageSucess: (url) => Image.memory(
-                  url,
-                  fit: BoxFit.cover,
+      backgroundColor: ColorsManager.darkBlue,
+body: SafeArea(child: Padding(
+  padding: const EdgeInsets.only(left: 30.0,top: 10),
+  child: Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+   
+      BlocBuilder<ExersizesCubit, ExersizesState>(
+        builder: (context, state) {
+           return state.maybeWhen(
+              imageSucess: (url) => Container(
+               // color: Colors.white,
+                decoration: BoxDecoration(
+                  color: ColorsManager.mainYellow,
+                  borderRadius: BorderRadius.circular(10,),
+                  border: Border.all(color: ColorsManager.mainYellow,width: 3)
+                 // color: ColorsManager.mainYellow
                 ),
-            exersizeLoading: () => ShimmerWidget(),
-            exersizeFailure: (message) {
-              return Text(message);
-            },
-            orElse: () {
-              return Center(child: CircularProgressIndicator());
-            });
-      },
-    )
-  
-  ],
+                child: Image.memory(
+                      url,
+                      fit: BoxFit.cover,
+                      height: 250,
+                      width: 300,
+                    ),
+              ),
+              exersizeLoading: () => ShimmerWidget(),
+              exersizeFailure: (message) {
+                return Text(message);
+              },
+              orElse: () {
+                return Center(child: CircularProgressIndicator());
+              });
+        },
+      ),
+    
+SizedBox(height: 50,),
+ Exersizedetailblocbilder()
+    ],
+  ),
 )),
 
     );
