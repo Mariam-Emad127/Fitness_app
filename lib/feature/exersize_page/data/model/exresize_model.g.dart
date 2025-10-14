@@ -23,5 +23,4 @@ ExersizeModel _$ExersizeModelFromJson(Map<String, dynamic> json) =>
       difficulty: json['difficulty'] as String?,
       category: json['category'] as String?,
     );
-
  

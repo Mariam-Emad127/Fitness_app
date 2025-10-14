@@ -88,6 +88,11 @@ static TextStyle font13DarkBRedRegular = TextStyle(
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.mainYellow,
   );
+  static TextStyle font18YellowRegular = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.mainYellow,
+  );
 
   static TextStyle font14GrayRegular = TextStyle(
     fontSize: 14.sp,

@@ -1,7 +1,7 @@
 import 'package:fitness/core/helper/exersize_image.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
-import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
+ import 'package:fitness/feature/exersize_page/controller/cubit/target_exersize/cubit/target_exersize_cubit.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/exersize_image.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/info_widget.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/shimmer_widget.dart';
@@ -16,9 +16,9 @@ class WorkoutListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ExersizesCubit, ExersizesState>(
+    return BlocBuilder<TargetExersizeCubit, TargetExersizeState>(
       buildWhen: (previous, current) =>
-          current is TargetListSucess || current is ExersizeFailure,
+          current is TargetListSucess || current is TargetListFailure,
       builder: (context, state) {
         return state.maybeWhen(
             targetListSucess: (exresizeModel) {
@@ -77,10 +77,10 @@ class WorkoutListView extends StatelessWidget {
 
                   
             },
-                      exersizeFailure: (message) {
+                      targetListFailure: (message) {
             return Text(message);
           },
-          exersizeLoading: () => ShimmerWidget(),
+          targetListLoading: () => ShimmerWidget(),
             orElse:
                 () => SizedBox(
                         width: 200.0,

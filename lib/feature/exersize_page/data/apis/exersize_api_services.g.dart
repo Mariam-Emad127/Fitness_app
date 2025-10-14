@@ -61,11 +61,11 @@ class _ExersizeApiServices implements ExersizeApiServices {
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<Uint8List>(
       Options(
-        method: 'GET',
-        headers: _headers,
-        extra: _extra,
-        responseType: ResponseType.bytes,
-      )
+            method: 'GET',
+            headers: _headers,
+            extra: _extra,
+            responseType: ResponseType.bytes,
+          )
           .compose(
             _dio.options,
             '/image',
@@ -74,7 +74,7 @@ class _ExersizeApiServices implements ExersizeApiServices {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Uint8List >(_options);
+    final _result = await _dio.fetch<Uint8List>(_options);
     late Uint8List _value;
     try {
       _value = Uint8List.fromList(_result.data!);

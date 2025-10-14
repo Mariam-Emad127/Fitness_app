@@ -15,14 +15,7 @@ class ExersizeDetail extends StatefulWidget {
 }
 
 class _ExersizeDetailState extends State<ExersizeDetail> {
-    @override
-  void initState() {
-            //   context.read<ExersizesCubit>().getexersizeDetail ( widget.id);            
- //             context.read<ExersizesCubit>().getImage( widget.id, "180");            
  
-     super.initState();
-
-  }
   @override
   Widget build(BuildContext context) {
  
@@ -63,7 +56,7 @@ body: SafeArea(child: Padding(
           },
         ),
       
-    SizedBox(height: 50,),
+    SizedBox(height: 30,),
      Exersizedetailblocbilder()
       ],
     ),
