@@ -12,16 +12,19 @@ class Exersizedetailblocbilder extends StatelessWidget {
       builder: (context, state) {
          
         return state.maybeWhen(
-          exersizeDetailSucess: (exresizeModel) =>     Column(
+          exersizeDetailSucess: (exresizeModel) =>  
+             Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Name",
-              style: TextStyles.font14GrayRegular,
+              "Name :",
+              style: TextStyles.font18DarkBlueBold,
             ),
             Text(
               exresizeModel.name??"",
               style: TextStyles.font14GrayRegular,
             ),
+            SizedBox(height: 5,),
             Text(
               "Body Part",
               style: TextStyles.font14GrayRegular,
@@ -30,35 +33,43 @@ class Exersizedetailblocbilder extends StatelessWidget {
              exresizeModel.bodyPart??"",
               style: TextStyles.font14GrayRegular,
             ),
+              SizedBox(height: 5,),
             Text(
               "Equipment",
               style: TextStyles.font14GrayRegular,
             ),
             Text(
-              "Name",
+              exresizeModel.bodyPart??"",
               style: TextStyles.font14GrayRegular,
             ),
+              SizedBox(height: 5,),
             Text(
               "Description",
               style: TextStyles.font14GrayRegular,
             ),
             Text(
-              "Description",
+              exresizeModel.description??"",
+              style: TextStyles.font14GrayRegular,
+            ),
+              SizedBox(height: 5,),
+
+            Text(
+              "instructions :",
               style: TextStyles.font14GrayRegular,
             ),
             Text(
-              "instructions",
-              style: TextStyles.font14GrayRegular,
-            ),
-            Text(
-              "Description",
+               "",// (exresizeModel.instructions).toString() ,
               style: TextStyles.font14GrayRegular,
             ),
           ],
         ),
-          
+          exersizeLoading: () => CircularProgressIndicator(),
+          exersizeFailure: (message) => Text(message),
           orElse: () {
-          return CircularProgressIndicator();
+          return Container(
+child: Text( "Error"),
+
+          );
         },);
     
       },

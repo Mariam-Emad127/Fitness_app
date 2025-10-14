@@ -22,7 +22,7 @@ class ExersizesCubit extends Cubit<ExersizesState> {
         (r) {
       emit(ExersizesState.exersizeSucess(r));
      } );
-    }on DioException catch (e){print("Connection timeout, try again");}
+    }on DioException catch (e){print("$e Connection timeout, try again");}
   }
 
   FutureOr<void> getTargetList() async {
@@ -33,16 +33,7 @@ class ExersizesCubit extends Cubit<ExersizesState> {
        emit(ExersizesState.targetListSucess(r));
     });
   }
-  FutureOr<void> getImage(String id,String resolution) async {
-   
-    emit(ExersizesState.imageLoading());
-    final response = await exersizeHomeRepo.getImage(id,resolution);
-    print("4444444444$id");
-    response.fold((l) => emit(ExersizesState.imageFailure(l.toString())),
-        (r) {
-       emit(ExersizesState.imageSucess(r));
-    });
-  }
+  
 
   FutureOr<void> getexersizeDetail(String id) async {
     emit(ExersizesState.exersizeLoading());

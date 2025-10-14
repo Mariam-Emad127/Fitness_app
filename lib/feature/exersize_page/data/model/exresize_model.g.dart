@@ -24,16 +24,4 @@ ExersizeModel _$ExersizeModelFromJson(Map<String, dynamic> json) =>
       category: json['category'] as String?,
     );
 
-Map<String, dynamic> _$ExersizeModelToJson(ExersizeModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'bodyPart': instance.bodyPart,
-      'target': instance.target,
-      'equipment': instance.equipment,
-      'secondaryMuscles': instance.secondaryMuscles,
-      'instructions': instance.instructions,
-      'description': instance.description,
-      'difficulty': instance.difficulty,
-      'category': instance.category,
-    };
+ 
