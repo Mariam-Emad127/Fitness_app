@@ -74,7 +74,7 @@ class _ExersizeApiServices implements ExersizeApiServices {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Uint8List>(_options);
+    final _result = await _dio.fetch<Uint8List >(_options);
     late Uint8List _value;
     try {
       _value = Uint8List.fromList(_result.data!);
@@ -88,14 +88,14 @@ class _ExersizeApiServices implements ExersizeApiServices {
   @override
   Future<ExersizeModel> getexersizedettail(String exerciseId) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'exerciseId': exerciseId};
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<ExersizeModel>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/exercise',
+            '/exercises/exercise/${exerciseId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -105,6 +105,33 @@ class _ExersizeApiServices implements ExersizeApiServices {
     late ExersizeModel _value;
     try {
       _value = ExersizeModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<String>> getTargetList() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<List<String>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/exercises/targetList',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<String> _value;
+    try {
+      _value = _result.data!.cast<String>();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

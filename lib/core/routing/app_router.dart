@@ -1,6 +1,7 @@
 import 'package:fitness/core/di/dependency_injection.dart';
 import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
+import 'package:fitness/feature/exersize_page/controller/cubit/get_image/cubit/get_image_cubit.dart';
 import 'package:fitness/feature/exersize_page/exersize_details/ui/exersize_detail.dart';
 import 'package:fitness/feature/exersize_page/ui/exersize_home.dart';
 import 'package:fitness/feature/home/ui/home.dart';
@@ -90,12 +91,21 @@ class AppRouter {
         final args = setting.arguments as String; // هنا تاخد الـ id
 
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) =>getIt<ExersizesCubit>(),// ..getImage("0001",  "180"), 
-                  child: ExersizeDetail(id: args,  ),
+            builder: (_) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (context) => getIt<ExersizesCubit>()
+                     
+                        ..getexersizeDetail(args),
+                    ),
+                    BlocProvider(
+                      create: (context) => getIt<GetImageCubit>()   ..getImage(args, "180"),
+                    ),
+                  ],
+                  child: ExersizeDetail(
+                    id: args,
+                  ),
                 ));
- 
-       
     }
   }
 }
