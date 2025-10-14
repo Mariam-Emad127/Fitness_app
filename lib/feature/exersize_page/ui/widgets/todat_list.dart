@@ -30,8 +30,7 @@ class TodayList extends StatelessWidget {
                             arguments: exersizeModel[index].id,
                           );
 
-                          // print(object)
-                        },
+                         },
                         child: TodayItemlist(
                           index: index,
                           equipment: exersizeModel[index].equipment ?? "",

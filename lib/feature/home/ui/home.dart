@@ -1,14 +1,15 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fitness/core/di/dependency_injection.dart';
- import 'package:fitness/core/routing/routes.dart';
+import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
+import 'package:fitness/feature/exersize_page/controller/cubit/target_exersize/cubit/target_exersize_cubit.dart';
 import 'package:fitness/feature/exersize_page/ui/exersize_home.dart';
 import 'package:fitness/feature/home/ui/widget/floating_widget.dart';
 import 'package:fitness/feature/profile/controller/cubit/edit_profile/edit_profile_cubit.dart';
 import 'package:fitness/feature/profile/ui/edit_profile.dart';
- 
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,32 +38,25 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     Icons.brightness_6,
     Icons.brightness_7,
   ];
-  
+
   final List<Widget> _pages = [
-     BlocProvider(
-                  create: (context) => getIt<ExersizesCubit>()
-                    ..getAllExersizes()
-                    ..getTargetList(),
-                  child: ExersizeHome(),
-                ),
-    BlocProvider(
-      create: (context) => EditProfileCubit(),
-      child: EditProfile(),
-    ),    BlocProvider(
-      create: (context) => EditProfileCubit(),
-      child: EditProfile(),
-    ), 
-    BlocProvider(
-      create: (context) => EditProfileCubit(),
-      child: EditProfile(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<ExersizesCubit>()
+            ..getAllExersizes()
+            
+        ),
+        BlocProvider(create: (context) =>getIt< TargetExersizeCubit>()..getTargetList()),
+      ],
+      child: ExersizeHome(),
     ),
-    BlocProvider(
-      create: (context) => EditProfileCubit(),
-      child: EditProfile(),
-    ),
-    
+    BlocProvider(create: (context) => EditProfileCubit(), child: EditProfile()),
+    BlocProvider(create: (context) => EditProfileCubit(), child: EditProfile()),
+    BlocProvider(create: (context) => EditProfileCubit(), child: EditProfile()),
+    BlocProvider(create: (context) => EditProfileCubit(), child: EditProfile()),
   ];
-  
+
   @override
   void initState() {
     super.initState();
@@ -85,9 +79,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     );
 
     fabAnimation = Tween<double>(begin: 0, end: 1).animate(fabCurve);
-    borderRadiusAnimation = Tween<double>(begin: 0, end: 1).animate(
-      borderRadiusCurve,
-    );
+    borderRadiusAnimation = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(borderRadiusCurve);
 
     _hideBottomBarAnimationController = AnimationController(
       duration: Duration(milliseconds: 200),
@@ -139,11 +134,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       backgroundColor: ColorsManager.darkGray,
       extendBody: true,
       body: NotificationListener<ScrollNotification>(
-          onNotification: onScrollNotification,
-     
-          child:_pages[0]
-          //Container()//_pages[0] //
-          ),
+        onNotification: onScrollNotification,
+
+        child: _pages[0],
+        //Container()//_pages[0] //
+      ),
       floatingActionButton: FloatingWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
@@ -169,7 +164,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   style: TextStyle(color: color),
                   group: autoSizeGroup,
                 ),
-              )
+              ),
             ],
           );
         },
@@ -182,23 +177,23 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         gapLocation: GapLocation.center,
         leftCornerRadius: 15,
         rightCornerRadius: 15,
-       //onTap: (index) => setState(() => _bottomNavIndex = index),
-            
-              onTap: (index) {
-    setState(() => _bottomNavIndex = index);
-    switch (index) {
-      case 0:
-        Navigator.pushNamed(context, Routes.exersizeDetail);
-        break;
-      case 1:
-        Navigator.pushNamed(context, Routes.exersizeHome);
-        break;
-      case 2:
-        Navigator.pushNamed(context, Routes.userProfile);
-        break;
-    }
-  },
-      
+
+        //onTap: (index) => setState(() => _bottomNavIndex = index),
+        onTap: (index) {
+          setState(() => _bottomNavIndex = index);
+          switch (index) {
+            case 0:
+              Navigator.pushNamed(context, Routes.exersizeDetail);
+              break;
+            case 1:
+              Navigator.pushNamed(context, Routes.exersizeHome);
+              break;
+            case 2:
+              Navigator.pushNamed(context, Routes.userProfile);
+              break;
+          }
+        },
+
         hideAnimationController: _hideBottomBarAnimationController,
 
         shadow: BoxShadow(

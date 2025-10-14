@@ -18,7 +18,7 @@ class Exersizedetailblocbilder extends StatelessWidget {
           children: [
             Text(
               "Name :",
-              style: TextStyles.font18DarkBlueBold,
+              style: TextStyles.font18YellowRegular,
             ),
             Text(
               exresizeModel.name??"",
@@ -26,8 +26,8 @@ class Exersizedetailblocbilder extends StatelessWidget {
             ),
             SizedBox(height: 5,),
             Text(
-              "Body Part",
-              style: TextStyles.font14GrayRegular,
+              "Body Part :",
+              style: TextStyles.font18YellowRegular,
             ),
             Text(
              exresizeModel.bodyPart??"",
@@ -35,8 +35,8 @@ class Exersizedetailblocbilder extends StatelessWidget {
             ),
               SizedBox(height: 5,),
             Text(
-              "Equipment",
-              style: TextStyles.font14GrayRegular,
+              "Equipment :",
+              style: TextStyles.font18YellowRegular,
             ),
             Text(
               exresizeModel.bodyPart??"",
@@ -44,8 +44,8 @@ class Exersizedetailblocbilder extends StatelessWidget {
             ),
               SizedBox(height: 5,),
             Text(
-              "Description",
-              style: TextStyles.font14GrayRegular,
+              "Description :",
+              style: TextStyles.font18YellowRegular,
             ),
             Text(
               exresizeModel.description??"",
@@ -53,23 +53,13 @@ class Exersizedetailblocbilder extends StatelessWidget {
             ),
               SizedBox(height: 5,),
 
-            Text(
-              "instructions :",
-              style: TextStyles.font14GrayRegular,
-            ),
-            Text(
-               "",// (exresizeModel.instructions).toString() ,
-              style: TextStyles.font14GrayRegular,
-            ),
+           
           ],
         ),
           exersizeLoading: () => CircularProgressIndicator(),
           exersizeFailure: (message) => Text(message),
           orElse: () {
-          return Container(
-child: Text( "Error"),
-
-          );
+          return Text( "Error");
         },);
     
       },
