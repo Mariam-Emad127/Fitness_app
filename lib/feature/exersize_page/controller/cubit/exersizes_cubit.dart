@@ -20,7 +20,7 @@ class ExersizesCubit extends Cubit<ExersizesState> {
         (r) {
       emit(ExersizesState.exersizeSucess(r));
      } );
-    }on DioException catch (e){print("$e Connection timeout, try again");}
+    }on DioException catch (e){log("$e Connection timeout, try again");}
   }
 
 
