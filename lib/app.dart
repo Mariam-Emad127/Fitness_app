@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyApp extends StatelessWidget {
   final AppRouter appRouter;
-
+ //final GlobalKey navigatorKey;
   const MyApp({super.key, required this.appRouter});
 
    @override
