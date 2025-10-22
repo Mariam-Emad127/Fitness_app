@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
-import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
+ 
   
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -35,13 +35,24 @@ void main() async {
   ZegoUIKitPrebuiltCallInvitationService().setNavigatorKey(navigatorKey);
 
   // call the useSystemCallingUI
+ /* 
   ZegoUIKit().initLog().then((value) {
     ZegoUIKitPrebuiltCallInvitationService().useSystemCallingUI(
       [ZegoUIKitSignalingPlugin()],
     );
+   */ 
+  ZegoUIKitPrebuiltCall(
+  appID:  appID,
+  appSign: appSignin,
+  userID: "",
+  userName:  "",
+  callID: "1",
+  config: ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall(),
+);
   runApp(MyApp( appRouter: AppRouter(), ));
-});
 }
+//);
+//}
  
 checkIfLoggedInUser() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

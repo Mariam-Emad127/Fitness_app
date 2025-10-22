@@ -7,5 +7,7 @@ class Routes {
   static const String home= '/home';
   static const String exersizeHome= '/exersize_home';
   static const String exersizeDetail= '/exersize_details';
+   static const String vediocallScreen= '/vediocall_screen';
   //lib\feature\exersize_page\ui\exersize_home.dart
+  //lib\feature\vediocall\ui\vediocall_screen.dart
  } 

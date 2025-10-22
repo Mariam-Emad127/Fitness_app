@@ -11,7 +11,10 @@ list(APPEND FLUTTER_PLUGIN_LIST
   firebase_auth
   firebase_core
   firebase_storage
+  flutter_volume_controller
   permission_handler_windows
+  screen_brightness_windows
+  share_plus
   url_launcher_windows
   zego_express_engine
   zego_zim
