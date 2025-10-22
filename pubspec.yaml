@@ -62,8 +62,10 @@ dependencies:
   shimmer: ^3.0.0
   #zego_uikit_prebuilt_call: ^4.19.0
   #zego_uikit_signaling_plugin: ^2.8.18
-  zego_uikit_prebuilt_call: ^3.15.1
-  zego_uikit_signaling_plugin: ^2.8.3
+  #zego_uikit_prebuilt_call: ^4.19.2
+  #zego_uikit_signaling_plugin: ^2.8.11
+  zego_uikit_prebuilt_call: ^4.16.24
+  zego_uikit_signaling_plugin: ^2.8.11
   #firebase_messaging: ^16.0.3
 
 
@@ -75,7 +77,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+#dependency_overrides:
+ # native_device_orientation: ^1.0.0
+  #proximity_sensor: ^1.0.0
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your

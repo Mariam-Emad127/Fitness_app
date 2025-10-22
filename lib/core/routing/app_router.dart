@@ -14,6 +14,7 @@ import 'package:fitness/feature/profile/ui/edit_profile.dart';
 import 'package:fitness/feature/profile/ui/user_profile.dart';
 import 'package:fitness/feature/sign_up/controller/cubit/sign_up_cubit.dart';
 import 'package:fitness/feature/ui/signup_screen.dart';
+import 'package:fitness/feature/vediocall/ui/vediocall_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -106,6 +107,10 @@ class AppRouter {
                     id: args,
                   ),
                 ));
+
+                case Routes.vediocallScreen:
+        return MaterialPageRoute(
+            builder: (_) => VediocallScreen());
     }
     return null;
   }
