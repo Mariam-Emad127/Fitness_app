@@ -9,7 +9,7 @@ static Dio ?dio ;
  static Dio  getDio()   {
 if(dio==null){
 Duration timeOut=Duration(seconds: 60);
-dio=Dio();
+final dio=Dio();
 dio!
 
         ..options.connectTimeout = timeOut 

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:fitness/core/helper/network/dio_factory.dart';
+import 'package:fitness/core/network/dio_factory.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/get_image/cubit/get_image_cubit.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/target_exersize/cubit/target_exersize_cubit.dart';

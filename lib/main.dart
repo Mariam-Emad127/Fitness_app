@@ -41,14 +41,8 @@ void main() async {
       [ZegoUIKitSignalingPlugin()],
     );
    */ 
-  ZegoUIKitPrebuiltCall(
-  appID:  appID,
-  appSign: appSignin,
-  userID: "",
-  userName:  "",
-  callID: "1",
-  config: ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall(),
-);
+  //ZegoUIKitPrebuiltCall( appID:  appID, appSign: appSignin, userID: "",
+  //userName:  "",callID: "1",config: ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall(),);
   runApp(MyApp( appRouter: AppRouter(), ));
 }
 //);
