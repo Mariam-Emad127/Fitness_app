@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:fitness/core/helper/network/api_error_model.dart';
+ import 'package:fitness/core/network/api_error_model.dart';
  
  abstract class ApiResult<T> {
  Future<Either<ApiErrorModel , T>> apiCall<T>(Future<T> Function() request) async {

@@ -13,6 +13,7 @@ import 'package:fitness/feature/profile/controller/get_user_Info/get_user_info_c
 import 'package:fitness/feature/profile/ui/edit_profile.dart';
 import 'package:fitness/feature/profile/ui/user_profile.dart';
 import 'package:fitness/feature/sign_up/controller/cubit/sign_up_cubit.dart';
+import 'package:fitness/feature/test_try/test.dart';
 import 'package:fitness/feature/ui/signup_screen.dart';
 import 'package:fitness/feature/vediocall/ui/vediocall_screen.dart';
 import 'package:flutter/material.dart';
@@ -107,7 +108,8 @@ class AppRouter {
                     id: args,
                   ),
                 ));
-
+case Routes.test:
+return MaterialPageRoute(builder:  (_)=>Count());
                 case Routes.vediocallScreen:
         return MaterialPageRoute(
             builder: (_) => VediocallScreen());
