@@ -28,7 +28,7 @@ if(state is LoginLoading)  {
               ),
             );
           }else if(state is LoginSucess){
- Navigator.pushNamed(context,Routes.userProfile);
+ Navigator.pushNamed(context,Routes.home);
            //  Navigator.pop(context);
           }else if(state is LoginFailure){
 

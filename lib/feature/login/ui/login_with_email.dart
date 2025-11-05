@@ -29,9 +29,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 20.h,
-                  ),
+                  SizedBox(height: 20.h),
                   Image.asset(
                     "assets/Screenshot 2025-07-10 021942.png",
                     height: 200,
@@ -42,45 +40,53 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                     style: TextStyles.font20WhiteMedium,
                   ),
                   AppTextFormField(
-                      hintText: "Email",
-                      inputTextStyle: TextStyle(color: Colors.white),
-                      controller: context.read<LoginCubit>().email,
-                      validator: (val) {
-                        if (val == null || val.isEmpty) {
-                          return 'Please enter a valid email';
-                        }
-                      }),
-                  SizedBox(
-                    height: 20.h,
+                    hintText: "Email",
+                    inputTextStyle: TextStyle(color: Colors.white),
+                    controller: context.read<LoginCubit>().email,
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'Please enter a valid email';
+                      }
+                    },
                   ),
+                  SizedBox(height: 20.h),
                   AppTextFormField(
-                       hintText: "Password",
-                      controller: context.read<LoginCubit>().password,
-                      validator: (val) {
-                        if (val == null || val.isEmpty) {
-                          return 'Please enter a valid password';
-                        }
-        
-                      }),
-                  SizedBox(height: 15,),
-                  Text( "Forget Password",style: TextStyles.font13DarkBlueMedium,),
-                  SizedBox(
-                    height: 20.h,
+                    hintText: "Password",
+                    controller: context.read<LoginCubit>().password,
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'Please enter a valid password';
+                      }
+                    },
                   ),
+                  SizedBox(height: 15),
+                  Text(
+                    "Forget Password",
+                    style: TextStyles.font13DarkBlueMedium,
+                  ),
+                  SizedBox(height: 20.h),
 
                   BottonWidget(
                     onTap: () {
-        if(context.read<LoginCubit>().formKey.currentState!.validate()){
-        try{
-        context.read<LoginCubit>().signInWithEmailAndPassword(email: context.read<LoginCubit>().email.text, 
-        password: context.read<LoginCubit>().password.text);
-        }catch(e){Text("$e");}
-                    } 
+                      if (context
+                          .read<LoginCubit>()
+                          .formKey
+                          .currentState!
+                          .validate()) {
+                        try {
+                          context.read<LoginCubit>().signInWithEmailAndPassword(
+                            email: context.read<LoginCubit>().email.text,
+                            password: context.read<LoginCubit>().password.text,
+                          );
+                        } catch (e) {
+                          Text("$e");
+                        }
+                      }
                     },
-                    title: "Login ", width: 345,
+                    title: "Login ",
+                    width: 345,
                   ),
-                    Loginbloclistener()
-        
+                  Loginbloclistener(),
                 ],
               ),
             ),
