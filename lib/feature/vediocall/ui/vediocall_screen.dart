@@ -1,8 +1,7 @@
-import 'package:fitness/core/helper/constant.dart';
+ 
 import 'package:flutter/material.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
- import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
-import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
+ 
 class VediocallScreen extends StatefulWidget {
   const VediocallScreen({super.key});
 
@@ -14,8 +13,9 @@ class _VediocallScreenState extends State<VediocallScreen> {
   @override
   Widget build(BuildContext context) {
     return   Scaffold(
-
+appBar: AppBar(title: Text( "fffff"),),
       body: Column(children: [
+        
          ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
@@ -25,24 +25,39 @@ class _VediocallScreenState extends State<VediocallScreen> {
                     borderRadius: BorderRadius.circular(10)),
               ),
               onPressed: () {
+              
                 ZegoUIKitPrebuiltCallInvitationService().send(
-                  resourceID: "waelZegoApp",
-                  invitees: [ZegoCallUser("",  "")],
+                  resourceID: "mmm",
+                  invitees: [ZegoCallUser("UiSPIgA2TKaZSecjnbd2Pb5d2Xp2",  "memo")],
                   isVideoCall: false,
                 );
               },
               child: const Text("Call",
                   style: TextStyle(fontSize: 18, color: Colors.white)),
             ),
+ 
+ 
+ 
+ /*
  ZegoUIKitPrebuiltCall(
       appID: appID, // Fill in the appID that you get from ZEGOCLOUD Admin Console.
       appSign: appSignin, // Fill in the appSign that you get from ZEGOCLOUD Admin Console.
-      userID: 'user_id',
+      userID: FirebaseAuth.instance.currentUser!.uid,
       userName: 'user_name',
-      callID: "callID",
+      callID: "1",
       // You can also use groupVideo/groupVoice/oneOnOneVoice to make more types of calls.
       config: ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall(),
     )
+   
+   */
+   
+   
+   
+   
+   
+   
+   
+   
    /*
      ZegoSendCallInvitationButton(
    isVideoCall: true,

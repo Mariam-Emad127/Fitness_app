@@ -9,6 +9,7 @@ import 'package:fitness/feature/exersize_page/ui/exersize_home.dart';
 import 'package:fitness/feature/home/ui/widget/floating_widget.dart';
 import 'package:fitness/feature/profile/controller/cubit/edit_profile/edit_profile_cubit.dart';
 import 'package:fitness/feature/profile/ui/edit_profile.dart';
+import 'package:fitness/feature/vediocall/ui/vediocall_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -51,8 +52,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ],
       child: ExersizeHome(),
     ),
+    VediocallScreen(),//BlocProvider(create: (context) => EditProfileCubit(), child: EditProfile()),
+
     BlocProvider(create: (context) => EditProfileCubit(), child: EditProfile()),
-    BlocProvider(create: (context) => EditProfileCubit(), child: EditProfile()),
+    VediocallScreen(),//BlocProvider(create: (context) => EditProfileCubit(), child: EditProfile()),
     BlocProvider(create: (context) => EditProfileCubit(), child: EditProfile()),
     BlocProvider(create: (context) => EditProfileCubit(), child: EditProfile()),
   ];
@@ -183,10 +186,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           setState(() => _bottomNavIndex = index);
           switch (index) {
             case 0:
-              Navigator.pushNamed(context, Routes.exersizeDetail);
+              Navigator.pushNamed(context, Routes.exersizeHome);
               break;
             case 1:
-              Navigator.pushNamed(context, Routes.exersizeHome);
+              Navigator.pushNamed(context, Routes.vediocallScreen);
               break;
             case 2:
               Navigator.pushNamed(context, Routes.userProfile);

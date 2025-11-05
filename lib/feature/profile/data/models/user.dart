@@ -11,7 +11,7 @@ final  String email;
 final  String height;
 final  String weight;
 final  String age;
-final  String photo; 
+final  String? photo; 
 
   UserModel({required this.uid, required this.username, required this.email,
    required this.height, required this.weight, required this.age, required this.photo});
