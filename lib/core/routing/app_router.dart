@@ -5,6 +5,7 @@ import 'package:fitness/feature/exersize_page/controller/cubit/get_image/cubit/g
 import 'package:fitness/feature/exersize_page/controller/cubit/target_exersize/cubit/target_exersize_cubit.dart';
 import 'package:fitness/feature/exersize_page/exersize_details/ui/exersize_detail.dart';
 import 'package:fitness/feature/exersize_page/ui/exersize_home.dart';
+import 'package:fitness/feature/frind_screen/ui/frind_screen.dart';
 import 'package:fitness/feature/home/ui/home.dart';
 import 'package:fitness/feature/login/controller/cubit/login_cubit.dart';
 import 'package:fitness/feature/login/ui/login.dart';
@@ -77,7 +78,7 @@ class AppRouter {
               ),
               BlocProvider(create: (context) => EditProfileCubit()),
             ],
-            child: Home(),
+            child: HomeScreen(),
           ),
         );
 
@@ -90,7 +91,7 @@ class AppRouter {
 
                 // ..getTargetList(),
               ),
-           //   BlocProvider(create: (context) => getIt<TargetExersizeCubit>()..getTargetList()),
+              BlocProvider(create: (context) => getIt<TargetExersizeCubit>()..getTargetList()),
             ],
             child: ExersizeHome(),
           ),
@@ -117,6 +118,9 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => Count());
       case Routes.vediocallScreen:
         return MaterialPageRoute(builder: (_) => VediocallScreen());
+case Routes.frindScreen:
+return MaterialPageRoute(builder: ( _)=>FrindScreen());
+
     }
     return null;
   }
