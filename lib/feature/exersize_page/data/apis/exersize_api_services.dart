@@ -6,7 +6,7 @@ import 'package:fitness/feature/exersize_page/data/model/exresize_model.dart';
 import 'package:retrofit/dio.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
-part 'exersize_api_services.g.dart';
+part   'exersize_api_services.g.dart';
 
 @RestApi(baseUrl: ExersizeApiConstants.baseUrl)
 abstract class ExersizeApiServices {
