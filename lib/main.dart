@@ -9,12 +9,7 @@ import 'package:fitness/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
-import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
  
-  
-final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
@@ -33,15 +28,7 @@ void main() async {
       );
 //await checkIfLoggedInUser();
  
- 
-  ZegoUIKitPrebuiltCallInvitationService().init(
-    appID: appID, // من Zego Console
-    appSign: appSignin, // من Zego Console
-    userID: FirebaseAuth.instance.currentUser!.uid, // ID المستخدم الحالي (لازم يكون Unique)
-    userName:  "dxs",
-    plugins: [ZegoUIKitSignalingPlugin()],
-  );
- 
+  
   runApp(MyApp( appRouter: AppRouter(), ));
 }
  

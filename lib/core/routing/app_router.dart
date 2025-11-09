@@ -2,6 +2,7 @@ import 'package:fitness/core/di/dependency_injection.dart';
 import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/get_image/cubit/get_image_cubit.dart';
+import 'package:fitness/feature/exersize_page/controller/cubit/target_exersize/cubit/target_exersize_cubit.dart';
 import 'package:fitness/feature/exersize_page/exersize_details/ui/exersize_detail.dart';
 import 'package:fitness/feature/exersize_page/ui/exersize_home.dart';
 import 'package:fitness/feature/home/ui/home.dart';
@@ -25,94 +26,97 @@ class AppRouter {
     switch (setting.name) {
       case Routes.signupScreen:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => SignUpCubit(),
-                  child: SignupScreen(),
-                ));
+          builder: (_) => BlocProvider(
+            create: (context) => SignUpCubit(),
+            child: SignupScreen(),
+          ),
+        );
 
       case Routes.loginScreen:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => LoginCubit(),
-                  child: Login(),
-                ));
+          builder: (_) =>
+              BlocProvider(create: (context) => LoginCubit(), child: Login()),
+        );
 
       case Routes.loginWithEmailScreen:
-        return MaterialPageRoute(builder: (_) {
-          return BlocProvider<LoginCubit>(
-            create: (context) => LoginCubit(),
-            child: LoginWithEmail(),
-          );
-        });
+        return MaterialPageRoute(
+          builder: (_) {
+            return BlocProvider<LoginCubit>(
+              create: (context) => LoginCubit(),
+              child: LoginWithEmail(),
+            );
+          },
+        );
 
       case Routes.userProfile:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider.value(
-                  value: GetUserInfoCubit()..getUserData(),
-                  child: UserProfile(),
-                ));
+          builder: (_) => BlocProvider.value(
+            value: GetUserInfoCubit()..getUserData(),
+            child: UserProfile(),
+          ),
+        );
 
       case Routes.edieProfile:
         return MaterialPageRoute(
-            builder: (_) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider(
-                      create: (context) => EditProfileCubit(),
-                    ),
-                    BlocProvider.value(
-                      value: GetUserInfoCubit()..getUserData(),
-                    ),
-                  ],
-                  child: EditProfile(),
-                ));
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => EditProfileCubit()),
+              BlocProvider.value(value: GetUserInfoCubit()..getUserData()),
+            ],
+            child: EditProfile(),
+          ),
+        );
 
       ///home
       case Routes.home:
         return MaterialPageRoute(
-            builder: (_) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider(
-                      create: (context) => GetUserInfoCubit()..getUserData(),
-                    ),
-                    BlocProvider(
-                      create: (context) => EditProfileCubit(),
-                    ),
-                  ],
-                  child: Home(),
-                ));
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => GetUserInfoCubit()..getUserData(),
+              ),
+              BlocProvider(create: (context) => EditProfileCubit()),
+            ],
+            child: Home(),
+          ),
+        );
 
       case Routes.exersizeHome:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<ExersizesCubit>()
-                    ..getAllExersizes(),
-                   // ..getTargetList(),
-                  child: ExersizeHome(),
-                ));
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<ExersizesCubit>()..getAllExersizes(),
+
+                // ..getTargetList(),
+              ),
+           //   BlocProvider(create: (context) => getIt<TargetExersizeCubit>()..getTargetList()),
+            ],
+            child: ExersizeHome(),
+          ),
+        );
       case Routes.exersizeDetail:
         final args = setting.arguments as String; // هنا تاخد الـ id
 
         return MaterialPageRoute(
-            builder: (_) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider(
-                      create: (context) => getIt<ExersizesCubit>()
-                     
-                        ..getexersizeDetail(args),
-                    ),
-                    BlocProvider(
-                      create: (context) => getIt<GetImageCubit>()   ..getImage(args, "180"),
-                    ),
-                  ],
-                  child: ExersizeDetail(
-                    id: args,
-                  ),
-                ));
-case Routes.test:
-return MaterialPageRoute(builder:  (_)=>Count());
-                case Routes.vediocallScreen:
-        return MaterialPageRoute(
-            builder: (_) => VediocallScreen());
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    getIt<ExersizesCubit>()..getexersizeDetail(args),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    getIt<GetImageCubit>()..getImage(args, "180"),
+              ),
+            ],
+            child: ExersizeDetail(id: args),
+          ),
+        );
+      case Routes.test:
+        return MaterialPageRoute(builder: (_) => Count());
+      case Routes.vediocallScreen:
+        return MaterialPageRoute(builder: (_) => VediocallScreen());
     }
     return null;
   }

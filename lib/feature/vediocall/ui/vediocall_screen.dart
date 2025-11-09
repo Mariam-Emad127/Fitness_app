@@ -1,15 +1,36 @@
  
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitness/core/helper/constant.dart';
+import 'package:fitness/feature/vediocall/ui/calling_vedio.dart';
 import 'package:flutter/material.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
+import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
  
 class VediocallScreen extends StatefulWidget {
   const VediocallScreen({super.key});
 
   @override
   State<VediocallScreen> createState() => _VediocallScreenState();
+
+
 }
 
 class _VediocallScreenState extends State<VediocallScreen> {
+  @override
+  void initState() {
+   
+  ZegoUIKitPrebuiltCallInvitationService().init(
+    appID: appID, // من Zego Console
+    appSign: appSignin, // من Zego Console
+    userID: FirebaseAuth.instance.currentUser!.uid, // ID المستخدم الحالي (لازم يكون Unique)
+    userName:FirebaseAuth.instance.currentUser!.displayName??"",  //"mmo",
+    config: ZegoCallInvitationConfig(),
+    plugins: [ZegoUIKitSignalingPlugin()],
+  
+  );
+ 
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return   Scaffold(
@@ -29,8 +50,9 @@ appBar: AppBar(title: Text( "fffff"),),
                 ZegoUIKitPrebuiltCallInvitationService().send(
                   resourceID: "mmm",
                   invitees: [ZegoCallUser("UiSPIgA2TKaZSecjnbd2Pb5d2Xp2",  "memo")],
-                  isVideoCall: false,
+                  isVideoCall: true,
                 );
+                Navigator.push(context, MaterialPageRoute(builder:  (context)=>CallingVedio()));
               },
               child: const Text("Call",
                   style: TextStyle(fontSize: 18, color: Colors.white)),
@@ -38,6 +60,11 @@ appBar: AppBar(title: Text( "fffff"),),
  
  
  
+      ],),
+    );
+  }
+}
+
  /*
  ZegoUIKitPrebuiltCall(
       appID: appID, // Fill in the appID that you get from ZEGOCLOUD Admin Console.
@@ -75,7 +102,3 @@ appBar: AppBar(title: Text( "fffff"),),
    ],
 )
 */
-      ],),
-    );
-  }
-}

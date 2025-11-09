@@ -55,7 +55,7 @@ class _ExersizeHomeState extends State<ExersizeHome> {
                     SizedBox(
                       height: 10,
                     ),
-                    SizedBox(height: 200.h, child: WorkoutListView()),
+                   // SizedBox(height: 200.h, child: WorkoutListView()),
                     Text(
                       "Today Plan",
                       style: TextStyles.font18WhiteMedium,
@@ -63,7 +63,7 @@ class _ExersizeHomeState extends State<ExersizeHome> {
                     SizedBox(
                       height: 10.h,
                     ),
-                 TodayList()
+                TodayList()
             
                   ],
                 ),
