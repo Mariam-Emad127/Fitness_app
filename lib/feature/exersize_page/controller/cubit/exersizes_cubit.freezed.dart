@@ -55,18 +55,15 @@ extension ExersizesStatePatterns on ExersizesState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( ExersizeSucess value)?  exersizeSucess,TResult Function( ExersizeFailure value)?  exersizeFailure,TResult Function( ExersizeLoading value)?  exersizeLoading,TResult Function( TargetListSucess value)?  targetListSucess,TResult Function( ExersizeDetailSucess value)?  exersizeDetailSucess,TResult Function( TargetListLoading value)?  targetListLoading,TResult Function( TargetListFailure value)?  targetListFailure,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( ExersizeSucess value)?  exersizeSucess,TResult Function( ExersizeFailure value)?  exersizeFailure,TResult Function( ExersizeLoading value)?  exersizeLoading,TResult Function( ExersizeDetailSucess value)?  exersizeDetailSucess,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case ExersizeSucess() when exersizeSucess != null:
 return exersizeSucess(_that);case ExersizeFailure() when exersizeFailure != null:
 return exersizeFailure(_that);case ExersizeLoading() when exersizeLoading != null:
-return exersizeLoading(_that);case TargetListSucess() when targetListSucess != null:
-return targetListSucess(_that);case ExersizeDetailSucess() when exersizeDetailSucess != null:
-return exersizeDetailSucess(_that);case TargetListLoading() when targetListLoading != null:
-return targetListLoading(_that);case TargetListFailure() when targetListFailure != null:
-return targetListFailure(_that);case _:
+return exersizeLoading(_that);case ExersizeDetailSucess() when exersizeDetailSucess != null:
+return exersizeDetailSucess(_that);case _:
   return orElse();
 
 }
@@ -84,18 +81,15 @@ return targetListFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( ExersizeSucess value)  exersizeSucess,required TResult Function( ExersizeFailure value)  exersizeFailure,required TResult Function( ExersizeLoading value)  exersizeLoading,required TResult Function( TargetListSucess value)  targetListSucess,required TResult Function( ExersizeDetailSucess value)  exersizeDetailSucess,required TResult Function( TargetListLoading value)  targetListLoading,required TResult Function( TargetListFailure value)  targetListFailure,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( ExersizeSucess value)  exersizeSucess,required TResult Function( ExersizeFailure value)  exersizeFailure,required TResult Function( ExersizeLoading value)  exersizeLoading,required TResult Function( ExersizeDetailSucess value)  exersizeDetailSucess,}){
 final _that = this;
 switch (_that) {
 case _Initial():
 return initial(_that);case ExersizeSucess():
 return exersizeSucess(_that);case ExersizeFailure():
 return exersizeFailure(_that);case ExersizeLoading():
-return exersizeLoading(_that);case TargetListSucess():
-return targetListSucess(_that);case ExersizeDetailSucess():
-return exersizeDetailSucess(_that);case TargetListLoading():
-return targetListLoading(_that);case TargetListFailure():
-return targetListFailure(_that);case _:
+return exersizeLoading(_that);case ExersizeDetailSucess():
+return exersizeDetailSucess(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -112,18 +106,15 @@ return targetListFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( ExersizeSucess value)?  exersizeSucess,TResult? Function( ExersizeFailure value)?  exersizeFailure,TResult? Function( ExersizeLoading value)?  exersizeLoading,TResult? Function( TargetListSucess value)?  targetListSucess,TResult? Function( ExersizeDetailSucess value)?  exersizeDetailSucess,TResult? Function( TargetListLoading value)?  targetListLoading,TResult? Function( TargetListFailure value)?  targetListFailure,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( ExersizeSucess value)?  exersizeSucess,TResult? Function( ExersizeFailure value)?  exersizeFailure,TResult? Function( ExersizeLoading value)?  exersizeLoading,TResult? Function( ExersizeDetailSucess value)?  exersizeDetailSucess,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case ExersizeSucess() when exersizeSucess != null:
 return exersizeSucess(_that);case ExersizeFailure() when exersizeFailure != null:
 return exersizeFailure(_that);case ExersizeLoading() when exersizeLoading != null:
-return exersizeLoading(_that);case TargetListSucess() when targetListSucess != null:
-return targetListSucess(_that);case ExersizeDetailSucess() when exersizeDetailSucess != null:
-return exersizeDetailSucess(_that);case TargetListLoading() when targetListLoading != null:
-return targetListLoading(_that);case TargetListFailure() when targetListFailure != null:
-return targetListFailure(_that);case _:
+return exersizeLoading(_that);case ExersizeDetailSucess() when exersizeDetailSucess != null:
+return exersizeDetailSucess(_that);case _:
   return null;
 
 }
@@ -140,17 +131,14 @@ return targetListFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function( List<ExersizeModel> exresizeModel)?  exersizeSucess,TResult Function( String message)?  exersizeFailure,TResult Function()?  exersizeLoading,TResult Function( List<String> targetList)?  targetListSucess,TResult Function( ExersizeModel exresizeModel)?  exersizeDetailSucess,TResult Function()?  targetListLoading,TResult Function( String messageFailure)?  targetListFailure,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function( List<ExersizeModel> exresizeModel)?  exersizeSucess,TResult Function( String message)?  exersizeFailure,TResult Function()?  exersizeLoading,TResult Function( ExersizeModel exresizeModel)?  exersizeDetailSucess,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case ExersizeSucess() when exersizeSucess != null:
 return exersizeSucess(_that.exresizeModel);case ExersizeFailure() when exersizeFailure != null:
 return exersizeFailure(_that.message);case ExersizeLoading() when exersizeLoading != null:
-return exersizeLoading();case TargetListSucess() when targetListSucess != null:
-return targetListSucess(_that.targetList);case ExersizeDetailSucess() when exersizeDetailSucess != null:
-return exersizeDetailSucess(_that.exresizeModel);case TargetListLoading() when targetListLoading != null:
-return targetListLoading();case TargetListFailure() when targetListFailure != null:
-return targetListFailure(_that.messageFailure);case _:
+return exersizeLoading();case ExersizeDetailSucess() when exersizeDetailSucess != null:
+return exersizeDetailSucess(_that.exresizeModel);case _:
   return orElse();
 
 }
@@ -168,17 +156,14 @@ return targetListFailure(_that.messageFailure);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function( List<ExersizeModel> exresizeModel)  exersizeSucess,required TResult Function( String message)  exersizeFailure,required TResult Function()  exersizeLoading,required TResult Function( List<String> targetList)  targetListSucess,required TResult Function( ExersizeModel exresizeModel)  exersizeDetailSucess,required TResult Function()  targetListLoading,required TResult Function( String messageFailure)  targetListFailure,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function( List<ExersizeModel> exresizeModel)  exersizeSucess,required TResult Function( String message)  exersizeFailure,required TResult Function()  exersizeLoading,required TResult Function( ExersizeModel exresizeModel)  exersizeDetailSucess,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case ExersizeSucess():
 return exersizeSucess(_that.exresizeModel);case ExersizeFailure():
 return exersizeFailure(_that.message);case ExersizeLoading():
-return exersizeLoading();case TargetListSucess():
-return targetListSucess(_that.targetList);case ExersizeDetailSucess():
-return exersizeDetailSucess(_that.exresizeModel);case TargetListLoading():
-return targetListLoading();case TargetListFailure():
-return targetListFailure(_that.messageFailure);case _:
+return exersizeLoading();case ExersizeDetailSucess():
+return exersizeDetailSucess(_that.exresizeModel);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,17 +180,14 @@ return targetListFailure(_that.messageFailure);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function( List<ExersizeModel> exresizeModel)?  exersizeSucess,TResult? Function( String message)?  exersizeFailure,TResult? Function()?  exersizeLoading,TResult? Function( List<String> targetList)?  targetListSucess,TResult? Function( ExersizeModel exresizeModel)?  exersizeDetailSucess,TResult? Function()?  targetListLoading,TResult? Function( String messageFailure)?  targetListFailure,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function( List<ExersizeModel> exresizeModel)?  exersizeSucess,TResult? Function( String message)?  exersizeFailure,TResult? Function()?  exersizeLoading,TResult? Function( ExersizeModel exresizeModel)?  exersizeDetailSucess,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case ExersizeSucess() when exersizeSucess != null:
 return exersizeSucess(_that.exresizeModel);case ExersizeFailure() when exersizeFailure != null:
 return exersizeFailure(_that.message);case ExersizeLoading() when exersizeLoading != null:
-return exersizeLoading();case TargetListSucess() when targetListSucess != null:
-return targetListSucess(_that.targetList);case ExersizeDetailSucess() when exersizeDetailSucess != null:
-return exersizeDetailSucess(_that.exresizeModel);case TargetListLoading() when targetListLoading != null:
-return targetListLoading();case TargetListFailure() when targetListFailure != null:
-return targetListFailure(_that.messageFailure);case _:
+return exersizeLoading();case ExersizeDetailSucess() when exersizeDetailSucess != null:
+return exersizeDetailSucess(_that.exresizeModel);case _:
   return null;
 
 }
@@ -418,78 +400,6 @@ String toString() {
 /// @nodoc
 
 
-class TargetListSucess implements ExersizesState {
-  const TargetListSucess(final  List<String> targetList): _targetList = targetList;
-  
-
- final  List<String> _targetList;
- List<String> get targetList {
-  if (_targetList is EqualUnmodifiableListView) return _targetList;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_targetList);
-}
-
-
-/// Create a copy of ExersizesState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$TargetListSucessCopyWith<TargetListSucess> get copyWith => _$TargetListSucessCopyWithImpl<TargetListSucess>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TargetListSucess&&const DeepCollectionEquality().equals(other._targetList, _targetList));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_targetList));
-
-@override
-String toString() {
-  return 'ExersizesState.targetListSucess(targetList: $targetList)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $TargetListSucessCopyWith<$Res> implements $ExersizesStateCopyWith<$Res> {
-  factory $TargetListSucessCopyWith(TargetListSucess value, $Res Function(TargetListSucess) _then) = _$TargetListSucessCopyWithImpl;
-@useResult
-$Res call({
- List<String> targetList
-});
-
-
-
-
-}
-/// @nodoc
-class _$TargetListSucessCopyWithImpl<$Res>
-    implements $TargetListSucessCopyWith<$Res> {
-  _$TargetListSucessCopyWithImpl(this._self, this._then);
-
-  final TargetListSucess _self;
-  final $Res Function(TargetListSucess) _then;
-
-/// Create a copy of ExersizesState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? targetList = null,}) {
-  return _then(TargetListSucess(
-null == targetList ? _self._targetList : targetList // ignore: cast_nullable_to_non_nullable
-as List<String>,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
 class ExersizeDetailSucess implements ExersizesState {
   const ExersizeDetailSucess(this.exresizeModel);
   
@@ -547,104 +457,6 @@ class _$ExersizeDetailSucessCopyWithImpl<$Res>
   return _then(ExersizeDetailSucess(
 null == exresizeModel ? _self.exresizeModel : exresizeModel // ignore: cast_nullable_to_non_nullable
 as ExersizeModel,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class TargetListLoading implements ExersizesState {
-  const TargetListLoading();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TargetListLoading);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'ExersizesState.targetListLoading()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class TargetListFailure implements ExersizesState {
-  const TargetListFailure(this.messageFailure);
-  
-
- final  String messageFailure;
-
-/// Create a copy of ExersizesState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$TargetListFailureCopyWith<TargetListFailure> get copyWith => _$TargetListFailureCopyWithImpl<TargetListFailure>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TargetListFailure&&(identical(other.messageFailure, messageFailure) || other.messageFailure == messageFailure));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,messageFailure);
-
-@override
-String toString() {
-  return 'ExersizesState.targetListFailure(messageFailure: $messageFailure)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $TargetListFailureCopyWith<$Res> implements $ExersizesStateCopyWith<$Res> {
-  factory $TargetListFailureCopyWith(TargetListFailure value, $Res Function(TargetListFailure) _then) = _$TargetListFailureCopyWithImpl;
-@useResult
-$Res call({
- String messageFailure
-});
-
-
-
-
-}
-/// @nodoc
-class _$TargetListFailureCopyWithImpl<$Res>
-    implements $TargetListFailureCopyWith<$Res> {
-  _$TargetListFailureCopyWithImpl(this._self, this._then);
-
-  final TargetListFailure _self;
-  final $Res Function(TargetListFailure) _then;
-
-/// Create a copy of ExersizesState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? messageFailure = null,}) {
-  return _then(TargetListFailure(
-null == messageFailure ? _self.messageFailure : messageFailure // ignore: cast_nullable_to_non_nullable
-as String,
   ));
 }
 
