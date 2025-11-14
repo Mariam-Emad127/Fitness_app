@@ -5,7 +5,7 @@ import 'package:fitness/feature/exersize_page/controller/cubit/get_image/cubit/g
 import 'package:fitness/feature/exersize_page/controller/cubit/target_exersize/cubit/target_exersize_cubit.dart';
 import 'package:fitness/feature/exersize_page/data/apis/exersize_api_services.dart';
  import 'package:fitness/feature/exersize_page/data/repo/exersize_repo.dart';
-import 'package:get_it/get_it.dart';
+ import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
 
@@ -24,5 +24,10 @@ getIt.registerLazySingleton<ExersizeHomeRepo>(()=>ExersizeHomeRepo(getIt()));
 
     getIt.registerFactory<GetImageCubit>(
     () => GetImageCubit(getIt()),
+  
+  
   );
+     // getIt.registerFactory<GetFrindsCubit>(
+    //() => GetFrindsCubit(getIt()),
+ // );
 }

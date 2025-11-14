@@ -1,3 +1,5 @@
+import 'package:fitness/core/theming/color.dart';
+import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/feature/profile/data/models/user.dart';
 import 'package:flutter/material.dart';
 
@@ -15,12 +17,21 @@ class _FrindScreenState extends State<FrindScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsManager.darkGray,
        appBar: AppBar(
+        backgroundColor:ColorsManager.darkGray ,
+     leading: IconButton(
+    icon: const Icon(Icons.arrow_back,color: Colors.white,),
+    onPressed: () => Navigator.pop(context),
+  ),
         title: Form(
           child: TextFormField(
             controller: searchController,
             decoration:
-                const InputDecoration(labelText: 'Search for a user...'),
+                const InputDecoration(labelText: 'Search for a user...',
+                labelStyle: TextStyle(color: Colors.white,fontSize: 12)
+                
+                ),
             onFieldSubmitted: (String _) {
               setState(() {
                 isShowUsers = true;
@@ -41,8 +52,8 @@ class _FrindScreenState extends State<FrindScreen> {
                 ),
                 radius: 16,
               ),
-              title: Text("cfcc"),
-            ),
+              title: Text("cfcc",style: TextStyles.font15WhiteMedium),),
+       
           );
         },
       ),
