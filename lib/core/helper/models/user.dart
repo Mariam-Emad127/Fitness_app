@@ -5,12 +5,12 @@ part 'user.g.dart'; // مهم عشان يولد الكود
 @JsonSerializable()
 class UserModel {
  final String uid;
-final  String username
+final  String ?username
 ;
-final  String email;
-final  String height;
-final  String weight;
-final  String age;
+final  String ?email;
+final  String ?height;
+final  String ?weight;
+final  String ?age;
 final  String? photo; 
 
   UserModel({required this.uid, required this.username, required this.email,

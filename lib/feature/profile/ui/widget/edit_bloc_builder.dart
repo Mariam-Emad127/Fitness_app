@@ -66,7 +66,7 @@ class _EditBlocBuilderState extends State<EditBlocBuilder> {
                       height: 7.h,
                     ),
                     TextEditingwidget(
-                        initialText: state.user.username,
+                        initialText: state.user.username??"",
                         secondText: "",
                         controller:
                             context.read<EditProfileCubit>().nameController),
@@ -81,7 +81,7 @@ class _EditBlocBuilderState extends State<EditBlocBuilder> {
                       height: 7.h,
                     ),
                     TextEditingwidget(
-                      initialText: state.user.weight,
+                      initialText: state.user.weight??"",
                       secondText: "Kg",
                       controller:
                           context.read<EditProfileCubit>().weightController,
@@ -97,7 +97,7 @@ class _EditBlocBuilderState extends State<EditBlocBuilder> {
                       height: 7.h,
                     ),
                     TextEditingwidget(
-                      initialText: state.user.height,
+                      initialText: state.user.height??"",
                       secondText: "cm",
                       controller:
                           context.read<EditProfileCubit>().hightController,
@@ -113,7 +113,7 @@ class _EditBlocBuilderState extends State<EditBlocBuilder> {
                       height: 7.h,
                     ),
                     TextEditingwidget(
-                      initialText: state.user.age,
+                      initialText: state.user.age??"",
                       secondText: "Years",
                       controller:
                           context.read<EditProfileCubit>().ageController,
@@ -125,7 +125,7 @@ class _EditBlocBuilderState extends State<EditBlocBuilder> {
                       
                       onTap: () {
                       // widget.ontap;
-                        saveChange(state.user.username, state.user.age,
+                        saveChange(state.user.username??"", state.user.age,
                             state.user.weight, state.user.height);
 
                         setState(() {});
