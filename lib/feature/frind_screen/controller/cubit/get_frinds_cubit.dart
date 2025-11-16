@@ -1,6 +1,5 @@
- import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:fitness/feature/profile/data/models/user.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fitness/core/helper/models/user.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -12,17 +11,20 @@ class GetFrindsCubit extends Cubit<GetFrindsState> {
 
 List<UserModel>users=[];
 //Map<String,dynamic>
+
 Future<List<UserModel>>getFrind()async{
-  GetFrindsLoading();
+ emit(GetFrindsState.getFrindsLoading());
   try{
 final usersj= await FirebaseFirestore.instance.collection("users").get();
-usersj.docs.map((e) => (),);
-print(usersj);
-
-emit(GetFrindsState.getFrindSucess());
+for(var i in usersj.docs){
+  print("2222222222${i.data()}");
+  users.add(UserModel.fromJson( i.data()) );
+}
+emit(GetFrindsState.getFrindSucess(users));
 return users;
 }catch(e){
  emit(GetFrindsState.getFrindsFailure(e.toString())); 
+ return [];
 }
 }
 

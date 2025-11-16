@@ -128,13 +128,13 @@ return getFrindSucess(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  getFrindsLoading,TResult Function( String message)?  getFrindsFailure,TResult Function()?  getFrindSucess,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  getFrindsLoading,TResult Function( String message)?  getFrindsFailure,TResult Function( List<UserModel> users)?  getFrindSucess,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case GetFrindsLoading() when getFrindsLoading != null:
 return getFrindsLoading();case GetFrindsFailure() when getFrindsFailure != null:
 return getFrindsFailure(_that.message);case GetFrindSucess() when getFrindSucess != null:
-return getFrindSucess();case _:
+return getFrindSucess(_that.users);case _:
   return orElse();
 
 }
@@ -152,13 +152,13 @@ return getFrindSucess();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  getFrindsLoading,required TResult Function( String message)  getFrindsFailure,required TResult Function()  getFrindSucess,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  getFrindsLoading,required TResult Function( String message)  getFrindsFailure,required TResult Function( List<UserModel> users)  getFrindSucess,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case GetFrindsLoading():
 return getFrindsLoading();case GetFrindsFailure():
 return getFrindsFailure(_that.message);case GetFrindSucess():
-return getFrindSucess();case _:
+return getFrindSucess(_that.users);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -175,13 +175,13 @@ return getFrindSucess();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  getFrindsLoading,TResult? Function( String message)?  getFrindsFailure,TResult? Function()?  getFrindSucess,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  getFrindsLoading,TResult? Function( String message)?  getFrindsFailure,TResult? Function( List<UserModel> users)?  getFrindSucess,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case GetFrindsLoading() when getFrindsLoading != null:
 return getFrindsLoading();case GetFrindsFailure() when getFrindsFailure != null:
 return getFrindsFailure(_that.message);case GetFrindSucess() when getFrindSucess != null:
-return getFrindSucess();case _:
+return getFrindSucess(_that.users);case _:
   return null;
 
 }
@@ -323,32 +323,72 @@ as String,
 
 
 class GetFrindSucess implements GetFrindsState {
-  const GetFrindSucess();
+  const GetFrindSucess(final  List<UserModel> users): _users = users;
   
 
+ final  List<UserModel> _users;
+ List<UserModel> get users {
+  if (_users is EqualUnmodifiableListView) return _users;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_users);
+}
 
 
+/// Create a copy of GetFrindsState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$GetFrindSucessCopyWith<GetFrindSucess> get copyWith => _$GetFrindSucessCopyWithImpl<GetFrindSucess>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetFrindSucess);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetFrindSucess&&const DeepCollectionEquality().equals(other._users, _users));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_users));
 
 @override
 String toString() {
-  return 'GetFrindsState.getFrindSucess()';
+  return 'GetFrindsState.getFrindSucess(users: $users)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class $GetFrindSucessCopyWith<$Res> implements $GetFrindsStateCopyWith<$Res> {
+  factory $GetFrindSucessCopyWith(GetFrindSucess value, $Res Function(GetFrindSucess) _then) = _$GetFrindSucessCopyWithImpl;
+@useResult
+$Res call({
+ List<UserModel> users
+});
 
 
+
+
+}
+/// @nodoc
+class _$GetFrindSucessCopyWithImpl<$Res>
+    implements $GetFrindSucessCopyWith<$Res> {
+  _$GetFrindSucessCopyWithImpl(this._self, this._then);
+
+  final GetFrindSucess _self;
+  final $Res Function(GetFrindSucess) _then;
+
+/// Create a copy of GetFrindsState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? users = null,}) {
+  return _then(GetFrindSucess(
+null == users ? _self._users : users // ignore: cast_nullable_to_non_nullable
+as List<UserModel>,
+  ));
+}
+
+
+}
 
 // dart format on

@@ -44,11 +44,11 @@ else if(state is GetUserInfoSucess){
                           height: 5,
                         ),
                         Text(
-                          state.user.username,
+                          state.user.username??"",
                           style: TextStyles.font15WhiteMedium,
                         ),
                         Text(
-                          state.user.email,
+                          state.user.email??"",
                           style: TextStyles.font15WhiteMedium,
                         ),
                         SizedBox(
@@ -59,19 +59,19 @@ else if(state is GetUserInfoSucess){
                           children: [
                             Info(
                               iconData: Icons.line_weight,
-                              number: state.user.weight,
+                              number: state.user.weight??"",
                               info: 'Weight',
                               measurement: '${state.user.weight} kg',
                             ),
                             Info(
                               iconData: Icons.height,
-                              number: state.user.height,
+                              number: state.user.height??"",
                               info: 'Height',
                               measurement: '${state.user.height}  Fit',
                             ),
                             Info(
                               iconData: Icons.photo_size_select_actual_rounded,
-                              number: state.user.age,
+                              number: state.user.age??"",
                               info: 'age    ',
                               measurement:  '${state.user.age} years',
                             )
