@@ -1,6 +1,8 @@
+import 'package:fitness/core/helper/constant.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/feature/frind_screen/controller/cubit/get_frinds_cubit.dart';
+import 'package:fitness/feature/profile/ui/widget/image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,35 +42,33 @@ class _FrindScreenState extends State<FrindScreen> {
         ),
       ),
       body: BlocBuilder<GetFrindsCubit, GetFrindsState>(
-        builder: (context, state)  =>
-          state.maybeWhen(
-            getFrindSucess: (user) {
-              return ListView.builder(
-                itemCount: user.length, //users.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {},
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                       // user[index].photo??
-                         "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg",
-                        ),
-                        radius: 16,
-                      ),
-                      title: Text(user[index].username??"000", style: TextStyles.font18WhiteMedium),
+        builder: (context, state) => state.maybeWhen(
+          getFrindSucess: (user) {
+            return ListView.builder(
+              itemCount: user.length, //users.length,
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {},
+                  child: ListTile(
+                    leading: ImageWidget(image: unknownImage),
+                    title: Text(
+                      user[index].username ?? "000",
+                      style: TextStyles.font18WhiteMedium,
                     ),
-                  );
-                },
-              );
-            },
-            getFrindsLoading: () => CircularProgressIndicator(),
-            getFrindsFailure: (message){
-              print( "vvvvvvvvvvvvvv$message");
-               return  Text(message,style: TextStyle(color: Colors.white),);},
-            orElse: ()  {return  CircularProgressIndicator();}
-          )
-        
+                  ),
+                );
+              },
+            );
+          },
+          getFrindsLoading: () => CircularProgressIndicator(),
+          getFrindsFailure: (message) {
+            print("vvvvvvvvvvvvvv$message");
+            return Text(message, style: TextStyle(color: Colors.white));
+          },
+          orElse: () {
+            return CircularProgressIndicator();
+          },
+        ),
       ),
     );
   }
