@@ -8,24 +8,15 @@ class SendBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      Size size = MediaQuery.maybeOf(context)!.size;
+   //   Size size = MediaQuery.maybeOf(context)!.size;
     return    
-    /*   Positioned(
-            bottom: 0,
-            child: Container(
-              height: 60,
-              color: Colors.white,
-              child: 
-              */
+    
               Padding(
-                padding: const EdgeInsets.only(bottom:  8.0),
+                padding: const EdgeInsets.only(left: 8,bottom:  8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      height: 40,
-                      width: size.width * 0.85,
-                      padding: EdgeInsets.only(left: 5, right: 5),
+                    Expanded(
                       child: 
                       TextField(
                         controller: messageController,
@@ -53,21 +44,17 @@ class SendBubble extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      width: size.width * 0.15,
-                      child: IconButton(
+                       child: IconButton(
                         icon: Icon(Icons.send, color: ColorsManager.mainYellow),
                         onPressed: 
-                        //() {
-                        onPressed
-                        //  _sendMessage();
-                        //},
+                         onPressed
+                       
                       ),
                     )
                   ],
                 ),
               );
-         //   ),
-          //);
+        
        
   }
 }

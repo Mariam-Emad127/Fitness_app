@@ -7,7 +7,8 @@ import 'package:fitness/feature/chatting_page/ui/widgets/send_message.dart';
 import 'package:flutter/material.dart';
 
 class ChattingScreen extends StatefulWidget {
-  const ChattingScreen({super.key});
+  final String name;
+  const ChattingScreen({super.key, required this.name});
 
   @override
   State<ChattingScreen> createState() => _ChattingScreenState();
@@ -15,7 +16,7 @@ class ChattingScreen extends StatefulWidget {
 
 class _ChattingScreenState extends State<ChattingScreen> {
   final TextEditingController _textEditingController = TextEditingController();
-  final ScrollController _controller = ScrollController();
+ // final ScrollController _controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,39 +26,44 @@ class _ChattingScreenState extends State<ChattingScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              height: 50,
-              decoration: BoxDecoration(
-                border: Border.all(color: ColorsManager.mainYellow),
-                borderRadius: BorderRadius.vertical(
-                  bottom: Radius.circular(12),
+        
+            Expanded(
+              flex: 1,
+              child: Container(
+               // height: 50,
+                decoration: BoxDecoration(
+                  border: Border.all(color: ColorsManager.mainYellow),
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.circular(12),
+                  ),
+                  color: ColorsManager.mainYellow,
                 ),
-                color: ColorsManager.mainYellow,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Text("chattng with oooo", style: TextStyle(fontSize: 15)),
-                    SizedBox(width: 5),
-                    ImageWidget(photo: unknownImage),
-                    SizedBox(width: 100),
-
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 15.0),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.video_call, size: 30),
-                        color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Text("chattng with ${widget.name}", style: TextStyle(fontSize: 15)),
+                      SizedBox(width: 5),
+                      CirImageWidget(photo: unknownImage),
+                      SizedBox(width: 100),
+              
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 15.0),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.video_call, size: 30),
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
 
             Expanded(
-              child: Column(
+              flex: 6,
+              child: ListView(
                 children: [
                   Align(
                     alignment: Alignment.bottomLeft,
@@ -72,7 +78,9 @@ class _ChattingScreenState extends State<ChattingScreen> {
               ),
             ),
 
-            SendBubble(messageController: _textEditingController, onPressed:  (){})
+            Expanded(
+              flex: 1,
+              child: SendBubble(messageController: _textEditingController, onPressed:  (){}))
           ],
         ),
       ),

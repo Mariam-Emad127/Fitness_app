@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ImageWidget extends StatelessWidget {
+class CirImageWidget extends StatelessWidget {
   final String photo;
-  const ImageWidget({super.key, required this.photo});
+  const CirImageWidget(  {super.key, required this.photo});
 
   @override
   Widget build(BuildContext context) {
