@@ -123,7 +123,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => VediocallScreen());
 
       case Routes.chatScreen:
-        return MaterialPageRoute(builder: (_) => ChattingScreen());
+        final args = setting.arguments as String;
+        return MaterialPageRoute(builder: (_) => ChattingScreen(name: args,));
       case Routes.frindScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

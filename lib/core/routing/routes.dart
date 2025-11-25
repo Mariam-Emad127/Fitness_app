@@ -8,7 +8,6 @@ class Routes {
   static const String exersizeHome= '/exersize_home';
   static const String exersizeDetail= '/exersize_details';
   static const String vediocallScreen= '/vediocall_screen';
-  static const String test= '/test';
-  static const String frindScreen="\frind_screen";
-  static const String chatScreen="\chatting_screen";
+   static const String frindScreen="/frind_screen";
+  static const String chatScreen="/chatting_screen";
   } 
