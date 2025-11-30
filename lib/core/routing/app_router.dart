@@ -123,8 +123,12 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => VediocallScreen());
 
       case Routes.chatScreen:
-        final args = setting.arguments as String;
-        return MaterialPageRoute(builder: (_) => ChattingScreen(name: args,));
+    final args = setting.arguments as Map;
+        //     final id = setting.arguments as String;
+ 
+        final username = args["name"];
+final uid = args["id"];
+        return MaterialPageRoute(builder: (_) => ChattingScreen(name: username,id: uid,));
       case Routes.frindScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

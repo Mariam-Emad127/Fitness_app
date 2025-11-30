@@ -10,15 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
  
+ 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+ 
      await setupGetIt();
       
   await  Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
+ 
+ 
   );
-  
+
   await Supabase.initialize(
       url: 'https://zsbjdsxlzxhtkqmjwwmm.supabase.co',
       anonKey: AppStrings.supabaseKey,
@@ -26,7 +29,7 @@ void main() async {
         detectSessionInUri: false,
       ),
       );
-//await checkIfLoggedInUser();
+await checkIfLoggedInUser();
  
   
   runApp(MyApp( appRouter: AppRouter(), ));

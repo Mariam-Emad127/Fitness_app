@@ -38,7 +38,8 @@ class _FrindScreenState extends State<FrindScreen> {
                         onTap: () {
                           Navigator.of(
                             context,
-                          ).pushReplacementNamed(Routes.chatScreen,arguments:user[index].username );
+                          ).pushReplacementNamed(Routes.chatScreen,arguments:{"name": user[index].username,
+                           "id":user[index].uid });
                         },
                         child: ListTile(
                           leading: CirImageWidget(photo: unknownImage),
