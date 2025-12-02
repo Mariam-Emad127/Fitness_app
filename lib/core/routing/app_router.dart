@@ -1,5 +1,6 @@
 import 'package:fitness/core/di/dependency_injection.dart';
 import 'package:fitness/core/routing/routes.dart';
+import 'package:fitness/feature/chatting_page/controller/bloc/message_bloc.dart';
 import 'package:fitness/feature/chatting_page/ui/chatting_screen.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/get_image/cubit/get_image_cubit.dart';
@@ -123,12 +124,17 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => VediocallScreen());
 
       case Routes.chatScreen:
-    final args = setting.arguments as Map;
+        final args = setting.arguments as Map;
         //     final id = setting.arguments as String;
- 
+
         final username = args["name"];
-final uid = args["id"];
-        return MaterialPageRoute(builder: (_) => ChattingScreen(name: username,id: uid,));
+        final uid = args["id"];
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => MessageBloc(),
+            child: ChattingScreen(name: username, id: uid),
+          ),
+        );
       case Routes.frindScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

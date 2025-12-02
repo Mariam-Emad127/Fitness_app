@@ -1,18 +1,24 @@
  import 'package:fitness/core/theming/color.dart';
+import 'package:fitness/feature/chatting_page/controller/bloc/message_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
  
  
 class OwnMessageCard extends StatelessWidget {
 
   const OwnMessageCard({super.key,
- required this.message, required this.time
+ //required this.message,
+  required this.time, required this.textEditingController
    });  
-  final String message;
+  final TextEditingController textEditingController;
+    
       final String time;
   @override
   Widget build(BuildContext context) {
-    return         Container(
+      final messageBloc = context.read<MessageBloc>();
+
+           messageBloc.textEditingController ??     Container(
                               padding: EdgeInsets.all(12),
                               margin: EdgeInsets.symmetric(vertical: 6),
                               constraints: BoxConstraints(
@@ -25,8 +31,9 @@ class OwnMessageCard extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    "messageText",
+                                 Text(
+                                 messageBloc.textEditingController.toString()??"",
+                                     //"messageText",
                                     style: TextStyle(color: Colors.black),
                                   ),
                                   Text(
@@ -36,69 +43,9 @@ class OwnMessageCard extends StatelessWidget {
                                 ],
                               ),
                                            
-                            );
+                            ); return Container();
    
-   
-    
-    /*Align(
-      alignment: Alignment.bottomRight,
-      child: ConstrainedBox(
-        constraints: BoxConstraints(
-         // maxWidth: MediaQuery.of(context).size.width - 45,
-         minWidth: 100,
-             maxWidth:200,// MediaQuery.of(context).size.width ,//-4, //45,
-          minHeight:6, 
-        ),
-        child: Card(
-          elevation: 1,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          color: Color(0xffdcf8c6),
-          margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-          child: Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 10,
-                  right: 30,
-                  top: 5,
-                  bottom: 20,
-                ),
-                child: Text( 
-                   message ,
-                //  message.message,
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 4,
-                right: 10,
-                child: Row(
-                  children: [
-                    Text(time ,
-                    //  message.time,
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: Colors.grey[600],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Icon(
-                      Icons.done_all,
-                      size: 20,
-                      color: Colors.blue,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-    */
+ 
+ 
   }
 }
