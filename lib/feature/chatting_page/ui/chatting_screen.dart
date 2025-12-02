@@ -1,9 +1,11 @@
 import 'package:fitness/core/theming/color.dart';
+import 'package:fitness/feature/chatting_page/controller/bloc/message_bloc.dart';
 import 'package:fitness/feature/chatting_page/ui/widgets/ReplyCard.dart';
 import 'package:fitness/feature/chatting_page/ui/widgets/chatting_appbar.dart';
 import 'package:fitness/feature/chatting_page/ui/widgets/own_message.dart';
 import 'package:fitness/feature/chatting_page/ui/widgets/send_message.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
  
 class ChattingScreen extends StatefulWidget {
   final String name;
@@ -43,7 +45,7 @@ class _ChattingScreenState extends State<ChattingScreen> {
 
                   Align(
                     alignment: Alignment.topRight,
-                    child: OwnMessageCard(message: "message", time: "time"),
+                    child: OwnMessageCard(textEditingController: context.read<MessageBloc>().textEditingController, time: "time"),
                   ),
                 ],
               ),
