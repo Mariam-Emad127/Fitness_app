@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             //useMaterial3: true,
                   ),
-                  initialRoute:Routes.loginWithEmailScreen, 
+                  initialRoute:Routes.frindScreen, 
                   //vediocallScreen ,//isLoggedInUser==true? Routes.exersizeHome:Routes.loginScreen,
                   onGenerateRoute: appRouter.onGenerateRoute,
                 ));

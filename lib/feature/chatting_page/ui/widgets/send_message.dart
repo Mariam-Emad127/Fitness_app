@@ -1,10 +1,27 @@
 import 'package:fitness/core/theming/color.dart';
 import 'package:flutter/material.dart';
+ 
+class SendBubble extends StatefulWidget {
 
-class SendBubble extends StatelessWidget {
   final TextEditingController messageController;
   final VoidCallback onPressed;
-  const SendBubble({super.key, required this.messageController, required this.onPressed});
+  const SendBubble({super.key, 
+  required this.messageController,
+   required this.onPressed});
+
+  @override
+  State<SendBubble> createState() => _SendBubbleState();
+}
+
+class _SendBubbleState extends State<SendBubble> {
+ 
+ 
+@override
+  void initState() {
+ 
+     super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +36,8 @@ class SendBubble extends StatelessWidget {
                     Expanded(
                       child: 
                       TextField(
-                        controller: messageController,
+                    
+                        controller:widget.messageController,//widget.messageController,
                         cursorColor: Colors.white,
                         decoration: InputDecoration(
                           hintText: "Message",
@@ -43,14 +61,17 @@ class SendBubble extends StatelessWidget {
                         maxLength: 500,
                       ),
                     ),
-                    Container(
-                       child: IconButton(
-                        icon: Icon(Icons.send, color: ColorsManager.mainYellow),
-                        onPressed: 
-                         onPressed
-                       
-                      ),
-                    )
+                    IconButton(
+                     icon: Icon(Icons.send, color: ColorsManager.mainYellow),
+                     onPressed:(){
+widget.onPressed;
+                       setState(() {
+                        
+                      });
+                     } 
+                      
+                    
+                                          )
                   ],
                 ),
               );

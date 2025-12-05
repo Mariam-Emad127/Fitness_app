@@ -5,6 +5,7 @@ import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/core/widgets/image_widget.dart';
 import 'package:fitness/feature/frind_screen/controller/cubit/get_frinds_cubit.dart';
 import 'package:fitness/feature/frind_screen/ui/wedgits/appbar_wedgit.dart';
+import 'package:fitness/feature/frind_screen/ui/wedgits/loading_feind.dart';
 import 'package:fitness/feature/frind_screen/ui/wedgits/search_wedgit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -52,10 +53,9 @@ class _FrindScreenState extends State<FrindScreen> {
                     },
                   );
                 },
-                getFrindsLoading: () => CircularProgressIndicator(),
+                getFrindsLoading: () => LoadingFrind(),
                 getFrindsFailure: (message) {
-                  print("vvvvvvvvvvvvvv$message");
-                  return Text(message, style: TextStyle(color: Colors.white));
+                   return Text(message, style: TextStyle(color: Colors.white));
                 },
                 orElse: () {
                   return CircularProgressIndicator();
