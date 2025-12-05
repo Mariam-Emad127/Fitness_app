@@ -30,10 +30,10 @@ class SharedPrefHelper {
       case int:
         await sharedPreferences.setInt(key, value);
         break;
-      case bool:
+      case const (bool):
         await sharedPreferences.setBool(key, value);
         break;
-      case double:
+      case const (double):
         await sharedPreferences.setDouble(key, value);
         break;
       default:
@@ -70,12 +70,13 @@ class SharedPrefHelper {
   }
  
   /// Gets an String value from SharedPreferences with given [key].
+  /*
   static setString(String key) async {
     debugPrint('SharedPrefHelper : getString with key : $key');
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  //  return sharedPreferences.setString ("key","");
+    return sharedPreferences.setString ( key);
   }
-
+*/
 /*
   /// Saves a [value] with a [key] in the FlutterSecureStorage.
   static setSecuredString(String key, String value) async {

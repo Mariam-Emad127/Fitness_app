@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
 import 'package:flutter/material.dart';

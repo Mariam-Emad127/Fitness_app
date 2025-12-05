@@ -9,10 +9,11 @@ part 'message_bloc.freezed.dart';
 
 class MessageBloc extends Bloc<MessageEvent, MessageState> {
     TextEditingController textEditingController=TextEditingController();
+    final key=GlobalKey<FormState>();
+    //GlobalKey<FormState>()
 
   MessageBloc() : super(_Initial()) {
     on<MessageEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+     });
   }
 }

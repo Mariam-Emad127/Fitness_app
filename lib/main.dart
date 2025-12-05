@@ -9,43 +9,33 @@ import 'package:fitness/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
- 
- 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
- 
-     await setupGetIt();
-      
-  await  Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
- 
- 
-  );
+
+  await setupGetIt();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   await Supabase.initialize(
-      url: 'https://zsbjdsxlzxhtkqmjwwmm.supabase.co',
-      anonKey: AppStrings.supabaseKey,
-       authOptions: FlutterAuthClientOptions(
-        detectSessionInUri: false,
-      ),
-      );
-await checkIfLoggedInUser();
- 
-  
-  runApp(MyApp( appRouter: AppRouter(), ));
+    url: 'https://zsbjdsxlzxhtkqmjwwmm.supabase.co',
+    anonKey: AppStrings.supabaseKey,
+    authOptions: FlutterAuthClientOptions(detectSessionInUri: false),
+  );
+  await checkIfLoggedInUser();
+
+  runApp(MyApp(appRouter: AppRouter()));
 }
- 
- 
+
 checkIfLoggedInUser() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-       String ? user=FirebaseAuth.instance.currentUser?.uid;
-  prefs.setString("user",user??"" );
-        user = prefs.getString("user");
- 
-  if (user==""||user==null  ) {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? user = FirebaseAuth.instance.currentUser?.uid;
+  prefs.setString("user", user ?? "");
+  user = prefs.getString("user");
+
+  if (user == "" || user == null) {
     isLoggedInUser = false;
   } else {
     isLoggedInUser = true;
   }
-
 }

@@ -1,7 +1,6 @@
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/feature/chatting_page/controller/bloc/message_bloc.dart';
-import 'package:fitness/feature/chatting_page/ui/widgets/ReplyCard.dart';
-import 'package:fitness/feature/chatting_page/ui/widgets/chatting_appbar.dart';
+ import 'package:fitness/feature/chatting_page/ui/widgets/chatting_appbar.dart';
 import 'package:fitness/feature/chatting_page/ui/widgets/own_message.dart';
 import 'package:fitness/feature/chatting_page/ui/widgets/send_message.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +20,7 @@ class _ChattingScreenState extends State<ChattingScreen> {
   // final ScrollController _controller = ScrollController();
 @override
   void initState() {
-
+_textEditingController;
  
     super.initState();
   }
@@ -31,34 +30,41 @@ class _ChattingScreenState extends State<ChattingScreen> {
       backgroundColor: ColorsManager.darkBlue,
 
       body: SafeArea(
-        child: Column(
-          children: [
-            ChattingAppbar(name: widget.name, id: widget.id,),
-            Expanded(
-              flex: 6,
-              child: ListView(
-                children: [
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: ReplyCard(message: "message", time: "time"),
-                  ),
-
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: OwnMessageCard(textEditingController: context.read<MessageBloc>().textEditingController, time: "time"),
-                  ),
-                ],
+        child: Form(
+          key: context.read<MessageBloc>().key,
+          child: Column(
+            children: [
+              ChattingAppbar(name: widget.name, id: widget.id,),
+              Expanded(
+                flex: 6,
+                child: ListView(
+                  children: [
+                  /*
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: ReplyCard(message: "message", time: "time"),
+                    ),
+          */
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: OwnMessageCard(textEditingController:_textEditingController ,
+                      //textEditingController: context.read<MessageBloc>().textEditingController
+                       time: "time"),
+                    ),
+                  ],
+                ),
               ),
-            ),
-
-            Expanded(
-              flex: 1,
-              child: SendBubble(
-                messageController: _textEditingController,
-                onPressed: () {},
+          
+              Expanded(
+                flex: 1,
+                child: SendBubble(
+                   messageController: _textEditingController,
+                 onPressed:(){_textEditingController; },//
+            
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
