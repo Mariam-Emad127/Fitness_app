@@ -1,5 +1,5 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,346 +9,586 @@ part of 'sign_up_cubit.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
 /// @nodoc
 mixin _$SignUpState {
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignUpState);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'SignUpState()';
-}
-
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signUpLoading,
+    required TResult Function() signUpSucees,
+    required TResult Function(String message) signUpFailuier,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signUpLoading,
+    TResult? Function()? signUpSucees,
+    TResult? Function(String message)? signUpFailuier,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signUpLoading,
+    TResult Function()? signUpSucees,
+    TResult Function(String message)? signUpFailuier,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(SignUpLoading value) signUpLoading,
+    required TResult Function(SignUpSucees value) signUpSucees,
+    required TResult Function(SignUpFailuier value) signUpFailuier,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(SignUpLoading value)? signUpLoading,
+    TResult? Function(SignUpSucees value)? signUpSucees,
+    TResult? Function(SignUpFailuier value)? signUpFailuier,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(SignUpLoading value)? signUpLoading,
+    TResult Function(SignUpSucees value)? signUpSucees,
+    TResult Function(SignUpFailuier value)? signUpFailuier,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-class $SignUpStateCopyWith<$Res>  {
-$SignUpStateCopyWith(SignUpState _, $Res Function(SignUpState) __);
+abstract class $SignUpStateCopyWith<$Res> {
+  factory $SignUpStateCopyWith(
+          SignUpState value, $Res Function(SignUpState) then) =
+      _$SignUpStateCopyWithImpl<$Res, SignUpState>;
 }
 
+/// @nodoc
+class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
+    implements $SignUpStateCopyWith<$Res> {
+  _$SignUpStateCopyWithImpl(this._value, this._then);
 
-/// Adds pattern-matching-related methods to [SignUpState].
-extension SignUpStatePatterns on SignUpState {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( SignUpLoading value)?  signUpLoading,TResult Function( SignUpSucees value)?  signUpSucees,TResult Function( SignUpFailuier value)?  signUpFailuier,required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _Initial() when initial != null:
-return initial(_that);case SignUpLoading() when signUpLoading != null:
-return signUpLoading(_that);case SignUpSucees() when signUpSucees != null:
-return signUpSucees(_that);case SignUpFailuier() when signUpFailuier != null:
-return signUpFailuier(_that);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( SignUpLoading value)  signUpLoading,required TResult Function( SignUpSucees value)  signUpSucees,required TResult Function( SignUpFailuier value)  signUpFailuier,}){
-final _that = this;
-switch (_that) {
-case _Initial():
-return initial(_that);case SignUpLoading():
-return signUpLoading(_that);case SignUpSucees():
-return signUpSucees(_that);case SignUpFailuier():
-return signUpFailuier(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( SignUpLoading value)?  signUpLoading,TResult? Function( SignUpSucees value)?  signUpSucees,TResult? Function( SignUpFailuier value)?  signUpFailuier,}){
-final _that = this;
-switch (_that) {
-case _Initial() when initial != null:
-return initial(_that);case SignUpLoading() when signUpLoading != null:
-return signUpLoading(_that);case SignUpSucees() when signUpSucees != null:
-return signUpSucees(_that);case SignUpFailuier() when signUpFailuier != null:
-return signUpFailuier(_that);case _:
-  return null;
-
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  signUpLoading,TResult Function()?  signUpSucees,TResult Function( String message)?  signUpFailuier,required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _Initial() when initial != null:
-return initial();case SignUpLoading() when signUpLoading != null:
-return signUpLoading();case SignUpSucees() when signUpSucees != null:
-return signUpSucees();case SignUpFailuier() when signUpFailuier != null:
-return signUpFailuier(_that.message);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  signUpLoading,required TResult Function()  signUpSucees,required TResult Function( String message)  signUpFailuier,}) {final _that = this;
-switch (_that) {
-case _Initial():
-return initial();case SignUpLoading():
-return signUpLoading();case SignUpSucees():
-return signUpSucees();case SignUpFailuier():
-return signUpFailuier(_that.message);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  signUpLoading,TResult? Function()?  signUpSucees,TResult? Function( String message)?  signUpFailuier,}) {final _that = this;
-switch (_that) {
-case _Initial() when initial != null:
-return initial();case SignUpLoading() when signUpLoading != null:
-return signUpLoading();case SignUpSucees() when signUpSucees != null:
-return signUpSucees();case SignUpFailuier() when signUpFailuier != null:
-return signUpFailuier(_that.message);case _:
-  return null;
-
-}
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
+/// @nodoc
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
-class _Initial implements SignUpState {
-  const _Initial();
-  
+  @override
+  String toString() {
+    return 'SignUpState.initial()';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
+  }
 
+  @override
+  int get hashCode => runtimeType.hashCode;
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signUpLoading,
+    required TResult Function() signUpSucees,
+    required TResult Function(String message) signUpFailuier,
+  }) {
+    return initial();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signUpLoading,
+    TResult? Function()? signUpSucees,
+    TResult? Function(String message)? signUpFailuier,
+  }) {
+    return initial?.call();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signUpLoading,
+    TResult Function()? signUpSucees,
+    TResult Function(String message)? signUpFailuier,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial);
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(SignUpLoading value) signUpLoading,
+    required TResult Function(SignUpSucees value) signUpSucees,
+    required TResult Function(SignUpFailuier value) signUpFailuier,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(SignUpLoading value)? signUpLoading,
+    TResult? Function(SignUpSucees value)? signUpSucees,
+    TResult? Function(SignUpFailuier value)? signUpFailuier,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(SignUpLoading value)? signUpLoading,
+    TResult Function(SignUpSucees value)? signUpSucees,
+    TResult Function(SignUpFailuier value)? signUpFailuier,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
 }
 
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'SignUpState.initial()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class SignUpLoading implements SignUpState {
-  const SignUpLoading();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignUpLoading);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'SignUpState.signUpLoading()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class SignUpSucees implements SignUpState {
-  const SignUpSucees();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignUpSucees);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'SignUpState.signUpSucees()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class SignUpFailuier implements SignUpState {
-  const SignUpFailuier(this.message);
-  
-
- final  String message;
-
-/// Create a copy of SignUpState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$SignUpFailuierCopyWith<SignUpFailuier> get copyWith => _$SignUpFailuierCopyWithImpl<SignUpFailuier>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignUpFailuier&&(identical(other.message, message) || other.message == message));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,message);
-
-@override
-String toString() {
-  return 'SignUpState.signUpFailuier(message: $message)';
-}
-
-
+abstract class _Initial implements SignUpState {
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract mixin class $SignUpFailuierCopyWith<$Res> implements $SignUpStateCopyWith<$Res> {
-  factory $SignUpFailuierCopyWith(SignUpFailuier value, $Res Function(SignUpFailuier) _then) = _$SignUpFailuierCopyWithImpl;
-@useResult
-$Res call({
- String message
-});
-
-
-
-
+abstract class _$$SignUpLoadingImplCopyWith<$Res> {
+  factory _$$SignUpLoadingImplCopyWith(
+          _$SignUpLoadingImpl value, $Res Function(_$SignUpLoadingImpl) then) =
+      __$$SignUpLoadingImplCopyWithImpl<$Res>;
 }
+
 /// @nodoc
-class _$SignUpFailuierCopyWithImpl<$Res>
-    implements $SignUpFailuierCopyWith<$Res> {
-  _$SignUpFailuierCopyWithImpl(this._self, this._then);
+class __$$SignUpLoadingImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res, _$SignUpLoadingImpl>
+    implements _$$SignUpLoadingImplCopyWith<$Res> {
+  __$$SignUpLoadingImplCopyWithImpl(
+      _$SignUpLoadingImpl _value, $Res Function(_$SignUpLoadingImpl) _then)
+      : super(_value, _then);
 
-  final SignUpFailuier _self;
-  final $Res Function(SignUpFailuier) _then;
-
-/// Create a copy of SignUpState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(SignUpFailuier(
-null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
+/// @nodoc
 
+class _$SignUpLoadingImpl implements SignUpLoading {
+  const _$SignUpLoadingImpl();
+
+  @override
+  String toString() {
+    return 'SignUpState.signUpLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SignUpLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signUpLoading,
+    required TResult Function() signUpSucees,
+    required TResult Function(String message) signUpFailuier,
+  }) {
+    return signUpLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signUpLoading,
+    TResult? Function()? signUpSucees,
+    TResult? Function(String message)? signUpFailuier,
+  }) {
+    return signUpLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signUpLoading,
+    TResult Function()? signUpSucees,
+    TResult Function(String message)? signUpFailuier,
+    required TResult orElse(),
+  }) {
+    if (signUpLoading != null) {
+      return signUpLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(SignUpLoading value) signUpLoading,
+    required TResult Function(SignUpSucees value) signUpSucees,
+    required TResult Function(SignUpFailuier value) signUpFailuier,
+  }) {
+    return signUpLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(SignUpLoading value)? signUpLoading,
+    TResult? Function(SignUpSucees value)? signUpSucees,
+    TResult? Function(SignUpFailuier value)? signUpFailuier,
+  }) {
+    return signUpLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(SignUpLoading value)? signUpLoading,
+    TResult Function(SignUpSucees value)? signUpSucees,
+    TResult Function(SignUpFailuier value)? signUpFailuier,
+    required TResult orElse(),
+  }) {
+    if (signUpLoading != null) {
+      return signUpLoading(this);
+    }
+    return orElse();
+  }
 }
 
-// dart format on
+abstract class SignUpLoading implements SignUpState {
+  const factory SignUpLoading() = _$SignUpLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$SignUpSuceesImplCopyWith<$Res> {
+  factory _$$SignUpSuceesImplCopyWith(
+          _$SignUpSuceesImpl value, $Res Function(_$SignUpSuceesImpl) then) =
+      __$$SignUpSuceesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SignUpSuceesImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res, _$SignUpSuceesImpl>
+    implements _$$SignUpSuceesImplCopyWith<$Res> {
+  __$$SignUpSuceesImplCopyWithImpl(
+      _$SignUpSuceesImpl _value, $Res Function(_$SignUpSuceesImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SignUpSuceesImpl implements SignUpSucees {
+  const _$SignUpSuceesImpl();
+
+  @override
+  String toString() {
+    return 'SignUpState.signUpSucees()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SignUpSuceesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signUpLoading,
+    required TResult Function() signUpSucees,
+    required TResult Function(String message) signUpFailuier,
+  }) {
+    return signUpSucees();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signUpLoading,
+    TResult? Function()? signUpSucees,
+    TResult? Function(String message)? signUpFailuier,
+  }) {
+    return signUpSucees?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signUpLoading,
+    TResult Function()? signUpSucees,
+    TResult Function(String message)? signUpFailuier,
+    required TResult orElse(),
+  }) {
+    if (signUpSucees != null) {
+      return signUpSucees();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(SignUpLoading value) signUpLoading,
+    required TResult Function(SignUpSucees value) signUpSucees,
+    required TResult Function(SignUpFailuier value) signUpFailuier,
+  }) {
+    return signUpSucees(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(SignUpLoading value)? signUpLoading,
+    TResult? Function(SignUpSucees value)? signUpSucees,
+    TResult? Function(SignUpFailuier value)? signUpFailuier,
+  }) {
+    return signUpSucees?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(SignUpLoading value)? signUpLoading,
+    TResult Function(SignUpSucees value)? signUpSucees,
+    TResult Function(SignUpFailuier value)? signUpFailuier,
+    required TResult orElse(),
+  }) {
+    if (signUpSucees != null) {
+      return signUpSucees(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignUpSucees implements SignUpState {
+  const factory SignUpSucees() = _$SignUpSuceesImpl;
+}
+
+/// @nodoc
+abstract class _$$SignUpFailuierImplCopyWith<$Res> {
+  factory _$$SignUpFailuierImplCopyWith(_$SignUpFailuierImpl value,
+          $Res Function(_$SignUpFailuierImpl) then) =
+      __$$SignUpFailuierImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$SignUpFailuierImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res, _$SignUpFailuierImpl>
+    implements _$$SignUpFailuierImplCopyWith<$Res> {
+  __$$SignUpFailuierImplCopyWithImpl(
+      _$SignUpFailuierImpl _value, $Res Function(_$SignUpFailuierImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$SignUpFailuierImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SignUpFailuierImpl implements SignUpFailuier {
+  const _$SignUpFailuierImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'SignUpState.signUpFailuier(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignUpFailuierImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignUpFailuierImplCopyWith<_$SignUpFailuierImpl> get copyWith =>
+      __$$SignUpFailuierImplCopyWithImpl<_$SignUpFailuierImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signUpLoading,
+    required TResult Function() signUpSucees,
+    required TResult Function(String message) signUpFailuier,
+  }) {
+    return signUpFailuier(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signUpLoading,
+    TResult? Function()? signUpSucees,
+    TResult? Function(String message)? signUpFailuier,
+  }) {
+    return signUpFailuier?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signUpLoading,
+    TResult Function()? signUpSucees,
+    TResult Function(String message)? signUpFailuier,
+    required TResult orElse(),
+  }) {
+    if (signUpFailuier != null) {
+      return signUpFailuier(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(SignUpLoading value) signUpLoading,
+    required TResult Function(SignUpSucees value) signUpSucees,
+    required TResult Function(SignUpFailuier value) signUpFailuier,
+  }) {
+    return signUpFailuier(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(SignUpLoading value)? signUpLoading,
+    TResult? Function(SignUpSucees value)? signUpSucees,
+    TResult? Function(SignUpFailuier value)? signUpFailuier,
+  }) {
+    return signUpFailuier?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(SignUpLoading value)? signUpLoading,
+    TResult Function(SignUpSucees value)? signUpSucees,
+    TResult Function(SignUpFailuier value)? signUpFailuier,
+    required TResult orElse(),
+  }) {
+    if (signUpFailuier != null) {
+      return signUpFailuier(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignUpFailuier implements SignUpState {
+  const factory SignUpFailuier(final String message) = _$SignUpFailuierImpl;
+
+  String get message;
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SignUpFailuierImplCopyWith<_$SignUpFailuierImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

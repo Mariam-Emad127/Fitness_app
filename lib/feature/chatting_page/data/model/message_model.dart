@@ -1,21 +1,38 @@
-class MessageModel {
-final String type;
-final String msgContent;
-final String sender;
-final String reciver;
-final String time;//=DateTime.now().toUtc().toString().substring(0, 16);
-  MessageModel( {required this.type, required this.msgContent,required this.sender,required this.reciver, required this.time });
+ 
+import 'package:hive_flutter/hive_flutter.dart';
 
-   // Factory method لتحويل الـ Map إلى كائن MessagesModel
-  factory MessageModel.fromJson(Map<String, dynamic> json) {
+part 'message_model.g.dart';
+ 
+
+@HiveType(typeId: 0)
+class MessageModel extends HiveObject   {
+  @HiveField(0)
+  final String type;
+  @HiveField(1)
+  final String msgContent;
+  @HiveField(2)
+  final String sender;
+  @HiveField(3)
+  final String reciver;
+  @HiveField(4)
+  final String time;
+  MessageModel({
+    required this.type,
+    required this.msgContent,
+    required this.sender,
+    required this.reciver,
+    required this.time,
+  });
+
+  // Factory method لتحويل الـ Map إلى كائن MessagesModel
+  
+}
+/*factory MessageModel.fromJson(Map<String, dynamic> json) {
     return MessageModel(
       type: json["type"] ?? "",
       msgContent: json["message"] ?? "",
       sender: json["sender"] ?? "",
       reciver: json["reciver"] ?? "",
-      time:json["time"]??"" 
+      time: json["time"] ?? "",
     );
-  } 
-
-
-}
+  }*/ 
