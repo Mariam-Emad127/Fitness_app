@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
  
 class OwnMessageCard extends StatelessWidget {
   final String time;
- // final String message;
-   final TextEditingController textEditingController;
+  final TextEditingController textEditingController;
 
   const OwnMessageCard({
     super.key,
@@ -14,8 +13,7 @@ class OwnMessageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //messageBloc.textEditingController ??
-    return Container(
+     return Container(
       padding: EdgeInsets.all(12),
       margin: EdgeInsets.symmetric(vertical: 6),
       constraints: BoxConstraints(
@@ -30,8 +28,6 @@ class OwnMessageCard extends StatelessWidget {
         children: [
           Text(
             textEditingController.text,
-            // messageBloc.textEditingController.toString()??"",
-            //"messageText",
             style: TextStyle(color: Colors.black),
           ),
           Text("1:30", style: TextStyle(fontSize: 10, color: Colors.black)),

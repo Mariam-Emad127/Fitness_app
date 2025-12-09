@@ -34,14 +34,18 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.2.0
  
-  freezed: ^3.0.6
-  freezed_annotation: ^3.1.0
+  #freezed: ^3.0.6 #2.4.7 #3.0.6
+  #freezed_annotation: ^3.1.0
   #get_it: ^8.0.3
   json_annotation: ^4.9.0
   json_serializable: ^6.3.1
   retrofit: ^4.4.2
-  retrofit_generator: ^10.0.5
-
+#  retrofit_generator: ^10.0.5  #8.2.1 #10.0.5
+  freezed: ^2.4.7 # استخدم إصدار 2.x لضمان التوافق الأوسع
+  freezed_annotation: ^2.4.1 
+  
+  # 3. Update/Verify Hive Generator (Should support newer source_gen versions)
+  hive_generator: ^2.0.1
   #retrofit_generator: ^8.0.6
 
   build_runner: ^2.4.14
@@ -60,10 +64,12 @@ dependencies:
 
 
   shimmer: ^3.0.0
-  #zego_uikit_prebuilt_call: ^4.19.0
-  #zego_uikit_signaling_plugin: ^2.8.18
-  #zego_uikit_prebuilt_call: ^4.19.2
-  #zego_uikit_signaling_plugin: ^2.8.11
+  hive_flutter: ^1.1.0
+  hive: ^2.2.3
+  #hive_generator: ^2.0.1 
+  #hive_generator_plus: ^5.0.0
+  #source_gen: ^1.0.0 #4.1.1
+
   zego_uikit_prebuilt_call: ^4.16.24
   zego_uikit_signaling_plugin: ^2.8.11
   #firebase_messaging: ^16.0.3

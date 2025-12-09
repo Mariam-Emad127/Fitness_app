@@ -5,16 +5,21 @@ import 'package:fitness/core/di/dependency_injection.dart';
 import 'package:fitness/core/helper/constant.dart';
 import 'package:fitness/core/routing/app_router.dart';
 import 'package:fitness/core/widgets/string.dart';
-import 'package:fitness/firebase_options.dart';
+import 'package:fitness/feature/chatting_page/data/model/message_model.dart';
+ import 'package:fitness/firebase_options.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await setupGetIt();
+  await Hive.initFlutter();
+//await Hive.deleteBoxFromDisk(AppStrings.boxname);
 
+  Hive.registerAdapter<MessageModel>(MessageModelAdapter());
+  await Hive.openBox<MessageModel>(hiveNam );
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   await Supabase.initialize(

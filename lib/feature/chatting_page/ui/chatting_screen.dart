@@ -59,7 +59,12 @@ _textEditingController;
                 flex: 1,
                 child: SendBubble(
                    messageController: _textEditingController,
-                 onPressed:(){_textEditingController; },//
+                 onPressed:(){
+                  _textEditingController.clear(); 
+                 setState(() {
+                   
+                 });
+                 },//
             
                 ),
               ),
