@@ -14,15 +14,19 @@ class ChattingScreen extends StatefulWidget {
   @override
   State<ChattingScreen> createState() => _ChattingScreenState();
 }
-
+  int ?len=0;
 class _ChattingScreenState extends State<ChattingScreen> {
   final TextEditingController _textEditingController = TextEditingController();
   // final ScrollController _controller = ScrollController();
 @override
   void initState() {
 _textEditingController;
- 
+Future<void>boxlength()async{
+ len=await context.read<MessageBloc>().boxlength();}
     super.initState();
+    setState(() {
+      
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -35,26 +39,33 @@ _textEditingController;
           child: Column(
             children: [
               ChattingAppbar(name: widget.name, id: widget.id,),
+          
               Expanded(
                 flex: 6,
-                child: ListView(
-                  children: [
+                child: ListView.builder(
+                  itemCount:2,
+                  itemBuilder: (BuildContext context, int index) {
+                    return len==0?  Align(
+                      alignment: Alignment.topRight,
+                      child: OwnMessageCard(textEditingController:_textEditingController ,
+                      //textEditingController: context.read<MessageBloc>().textEditingController
+                       time: "time"),
+                    ) :Text( "no data");
+                    },
+                 
+                 /* children: [
                   /*
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: ReplyCard(message: "message", time: "time"),
                     ),
           */
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: OwnMessageCard(textEditingController:_textEditingController ,
-                      //textEditingController: context.read<MessageBloc>().textEditingController
-                       time: "time"),
-                    ),
+                  
                   ],
+  */
                 ),
               ),
-          
+         
               Expanded(
                 flex: 1,
                 child: SendBubble(

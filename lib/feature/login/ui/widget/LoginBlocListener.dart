@@ -34,7 +34,7 @@ class Loginbloclistener extends StatelessWidget {
 
           FirebaseAuth.instance.currentUser!.reload();
           String userID = await SharedPrefHelper.getString("user");
-
+/*
           ZegoUIKitPrebuiltCallInvitationService().init(
             appID: appID, // من Zego Console
             appSign: appSignin, // من Zego Console
@@ -43,6 +43,7 @@ class Loginbloclistener extends StatelessWidget {
             config: ZegoCallInvitationConfig(),
             plugins: [ZegoUIKitSignalingPlugin()],
           );
+          */
           Navigator.pushNamed(context, Routes.frindScreen);
 
           //  Navigator.pop(context);

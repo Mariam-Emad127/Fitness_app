@@ -8,11 +8,13 @@ import 'package:fitness/core/widgets/string.dart';
 import 'package:fitness/feature/chatting_page/data/model/message_model.dart';
  import 'package:fitness/firebase_options.dart';
 import 'package:flutter/material.dart';
+ import 'package:hive_flutter/hive_flutter.dart';
  import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   await setupGetIt();
   await Hive.initFlutter();
@@ -20,18 +22,18 @@ void main() async {
 
   Hive.registerAdapter<MessageModel>(MessageModelAdapter());
   await Hive.openBox<MessageModel>(hiveNam );
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
+ 
   await Supabase.initialize(
     url: 'https://zsbjdsxlzxhtkqmjwwmm.supabase.co',
     anonKey: AppStrings.supabaseKey,
     authOptions: FlutterAuthClientOptions(detectSessionInUri: false),
   );
-  await checkIfLoggedInUser();
+ 
+  //await checkIfLoggedInUser();
 
   runApp(MyApp(appRouter: AppRouter()));
 }
-
+/*
 checkIfLoggedInUser() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   String? user = FirebaseAuth.instance.currentUser?.uid;
@@ -43,4 +45,6 @@ checkIfLoggedInUser() async {
   } else {
     isLoggedInUser = true;
   }
+  
 }
+*/
