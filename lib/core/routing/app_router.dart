@@ -130,10 +130,11 @@ class AppRouter {
         final username = args["name"];
         final uid = args["id"];
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => MessageBloc(),
-            child: ChattingScreen(name: username, id: uid),
-          ),
+          builder: (_) => //BlocProvider(
+           // create: (context) => MessageBloc(),
+            //child: 
+            ChattingScreen(name: username, id: uid),
+          //),
         );
       case Routes.frindScreen:
         return MaterialPageRoute(

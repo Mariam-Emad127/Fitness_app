@@ -43,7 +43,8 @@ class _FrindScreenState extends State<FrindScreen> {
                            "id":user[index].uid });
                         },
                         child: ListTile(
-                          leading: CirImageWidget(photo: unknownImage),
+                          leading:Text(""),//Image.asset("assets\Screenshot 2025-07-10 021942.png"),
+                           //CirImageWidget(photo:  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg"),
                           title: Text(
                             user[index].username ?? "000",
                             style: TextStyles.font16WhiteMedium,
