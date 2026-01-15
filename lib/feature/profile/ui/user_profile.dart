@@ -31,6 +31,7 @@ if(state is GetUserInfoFailure){
 }
 else if(state is GetUserInfoSucess){  
 
+
               return Center(
                       child: Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -39,7 +40,7 @@ else if(state is GetUserInfoSucess){
                          Column(
                       children: [
                         AppbarWidget(),
-                        ImageWidget(image: state.user.photo??"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg",), 
+                        //ImageWidget(image: state.user.photo??"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg",), 
                         SizedBox(
                           height: 5,
                         ),

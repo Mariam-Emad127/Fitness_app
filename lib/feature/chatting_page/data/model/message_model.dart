@@ -25,7 +25,15 @@ class MessageModel extends HiveObject   {
   });
 
   // Factory method لتحويل الـ Map إلى كائن MessagesModel
-  
+  factory MessageModel.fromJson(Map<String, dynamic> json) {
+    return MessageModel(
+      type: json["type"] ?? "",
+      msgContent: json["message"] ?? "",
+      sender: json["sender"] ?? "",
+      reciver: json["reciver"] ?? "",
+      time: json["time"] ?? "",
+    );
+  }
 }
 /*factory MessageModel.fromJson(Map<String, dynamic> json) {
     return MessageModel(

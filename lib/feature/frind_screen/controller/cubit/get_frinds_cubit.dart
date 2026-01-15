@@ -21,6 +21,7 @@ for(var i in usersj.docs){
   users.add(UserModel.fromJson( i.data()) );
 }
 emit(GetFrindsState.getFrindSucess(users));
+print("eeeeeeee${users.first.username}");
 return users;
 }catch(e){
  emit(GetFrindsState.getFrindsFailure(e.toString())); 

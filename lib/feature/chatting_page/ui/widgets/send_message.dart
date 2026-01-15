@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class SendBubble extends StatefulWidget {
   final TextEditingController messageController;
-  final VoidCallback onPressed;
+  final Function onbressed;
   const SendBubble({
     super.key,
     required this.messageController,
-    required this.onPressed,
+    required this.onbressed,
   });
 
   @override
@@ -23,7 +23,8 @@ class _SendBubbleState extends State<SendBubble> {
   @override
   Widget build(BuildContext context) {
     //   Size size = MediaQuery.maybeOf(context)!.size;
-    return Padding(
+    return 
+    Padding(
       padding: const EdgeInsets.only(left: 8, bottom: 8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -57,12 +58,16 @@ class _SendBubbleState extends State<SendBubble> {
           IconButton(
             icon: Icon(Icons.send, color: ColorsManager.mainYellow),
             onPressed: () {
-              widget.onPressed;
+              widget.messageController.clear();
+                            widget.onbressed;
               setState(() {});
             },
           ),
         ],
       ),
     );
+ 
+ 
   }
+  
 }
