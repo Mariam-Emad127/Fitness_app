@@ -18,8 +18,7 @@ void main() async {
 
   await setupGetIt();
   await Hive.initFlutter();
-//await Hive.deleteBoxFromDisk(AppStrings.boxname);
-
+ 
   Hive.registerAdapter<MessageModel>(MessageModelAdapter());
   await Hive.openBox<MessageModel>(hiveNam );
  
