@@ -1,14 +1,14 @@
 // ignore_for_file: file_names
 
 import 'package:fitness/core/theming/color.dart';
+import 'package:fitness/feature/chatting_page/data/model/message_model.dart';
 import 'package:flutter/material.dart';
 
 class ReplyCard extends StatelessWidget {
-  const ReplyCard({super.key, required this.message, required this.time});
-  final String message;
-  final String time;
+  const ReplyCard({super.key, required this.messageModel });
+ 
 
-  //final MessageModel message;
+final MessageModel messageModel;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +25,8 @@ class ReplyCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("messageText", style: TextStyle(color: Colors.black)),
-          Text("1:30", style: TextStyle(fontSize: 10, color: Colors.black)),
+          Text(messageModel.msgContent , style: TextStyle(color: Colors.black)),
+          Text(messageModel.time, style: TextStyle(fontSize: 10, color: Colors.black)),
         ],
       ),
     );

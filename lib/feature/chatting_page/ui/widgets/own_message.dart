@@ -1,15 +1,13 @@
 import 'package:fitness/core/theming/color.dart';
+import 'package:fitness/feature/chatting_page/data/model/message_model.dart';
 import 'package:flutter/material.dart';
  
 class OwnMessageCard extends StatelessWidget {
-  final String time;
-  final TextEditingController textEditingController;
-
+ final MessageModel messageModel;
   const OwnMessageCard({
     super.key,
-    required this.time,
-    required this.textEditingController,  
-  });
+    required this.messageModel
+   });
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +25,10 @@ class OwnMessageCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            textEditingController.text,
+         messageModel.msgContent,
             style: TextStyle(color: Colors.black),
           ),
-          Text("1:30", style: TextStyle(fontSize: 10, color: Colors.black)),
+          Text(messageModel.time, style: TextStyle(fontSize: 10, color: Colors.black)),
         ],
       ),
     );
