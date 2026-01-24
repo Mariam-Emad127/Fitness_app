@@ -40,13 +40,13 @@ dependencies:
   json_annotation: ^4.9.0
   json_serializable: ^6.3.1
   retrofit: ^4.4.2
-#  retrofit_generator: ^10.0.5  #8.2.1 #10.0.5
+  #retrofit_generator: ^10.0.5  #8.2.1 #10.0.5
   freezed: ^2.4.7 # استخدم إصدار 2.x لضمان التوافق الأوسع
   freezed_annotation: ^2.4.1 
   
   # 3. Update/Verify Hive Generator (Should support newer source_gen versions)
-  hive_generator: ^2.0.1
-  #retrofit_generator: ^8.0.6
+  #hive_generator: ^2.0.1
+  retrofit_generator: ^8.0.6
 
   build_runner: ^2.4.14
   #google_sign_in: ^6.3.0
@@ -64,8 +64,8 @@ dependencies:
 
 
   shimmer: ^3.0.0
-  hive_flutter: ^1.1.0
-  hive: ^2.2.3
+  #hive_flutter: ^1.1.0
+  #hive: ^2.2.3
   #hive_generator: ^2.0.1 
   #hive_generator_plus: ^5.0.0
   #source_gen: ^1.0.0 #4.1.1

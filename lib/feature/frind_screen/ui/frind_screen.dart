@@ -1,9 +1,7 @@
-import 'package:fitness/core/helper/constant.dart';
 import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
-import 'package:fitness/core/widgets/image_widget.dart';
-import 'package:fitness/feature/frind_screen/controller/cubit/get_frinds_cubit.dart';
+ import 'package:fitness/feature/frind_screen/controller/cubit/get_frinds_cubit.dart';
 import 'package:fitness/feature/frind_screen/ui/wedgits/appbar_wedgit.dart';
 import 'package:fitness/feature/frind_screen/ui/wedgits/loading_feind.dart';
 import 'package:fitness/feature/frind_screen/ui/wedgits/search_wedgit.dart';

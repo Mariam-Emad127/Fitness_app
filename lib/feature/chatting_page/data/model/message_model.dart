@@ -1,20 +1,20 @@
  
-import 'package:hive_flutter/hive_flutter.dart';
+//import 'package:hive_flutter/hive_flutter.dart';
 
-part 'message_model.g.dart';
+//part 'message_model.g.dart';
  
 
-@HiveType(typeId: 0)
+//@HiveType(typeId: 0)
 class MessageModel     {
-  @HiveField(0)
+  //@HiveField(0)
   final String type;
-  @HiveField(1)
+ // @HiveField(1)
   final String msgContent;
-  @HiveField(2)
+  //@HiveField(2)
   final String sender;
-  @HiveField(3)
+  //@HiveField(3)
   final String reciver;
-  @HiveField(4)
+  //@HiveField(4)
   final String time;
   MessageModel({
     required this.type,

@@ -19,32 +19,47 @@ mixin _$MessageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String sender, String message, String reciver)
+        sendMessageEvent,
+    required TResult Function() initialEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String sender, String message, String reciver)?
+        sendMessageEvent,
+    TResult? Function()? initialEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String sender, String message, String reciver)?
+        sendMessageEvent,
+    TResult Function()? initialEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(SendMessageEvent value) sendMessageEvent,
+    required TResult Function(InitialEvent value) initialEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(SendMessageEvent value)? sendMessageEvent,
+    TResult? Function(InitialEvent value)? initialEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(SendMessageEvent value)? sendMessageEvent,
+    TResult Function(InitialEvent value)? initialEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +128,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String sender, String message, String reciver)
+        sendMessageEvent,
+    required TResult Function() initialEvent,
   }) {
     return started();
   }
@@ -121,6 +139,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String sender, String message, String reciver)?
+        sendMessageEvent,
+    TResult? Function()? initialEvent,
   }) {
     return started?.call();
   }
@@ -129,6 +150,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String sender, String message, String reciver)?
+        sendMessageEvent,
+    TResult Function()? initialEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -141,6 +165,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(SendMessageEvent value) sendMessageEvent,
+    required TResult Function(InitialEvent value) initialEvent,
   }) {
     return started(this);
   }
@@ -149,6 +175,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(SendMessageEvent value)? sendMessageEvent,
+    TResult? Function(InitialEvent value)? initialEvent,
   }) {
     return started?.call(this);
   }
@@ -157,6 +185,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(SendMessageEvent value)? sendMessageEvent,
+    TResult Function(InitialEvent value)? initialEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -168,6 +198,290 @@ class _$StartedImpl implements _Started {
 
 abstract class _Started implements MessageEvent {
   const factory _Started() = _$StartedImpl;
+}
+
+/// @nodoc
+abstract class _$$SendMessageEventImplCopyWith<$Res> {
+  factory _$$SendMessageEventImplCopyWith(_$SendMessageEventImpl value,
+          $Res Function(_$SendMessageEventImpl) then) =
+      __$$SendMessageEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String sender, String message, String reciver});
+}
+
+/// @nodoc
+class __$$SendMessageEventImplCopyWithImpl<$Res>
+    extends _$MessageEventCopyWithImpl<$Res, _$SendMessageEventImpl>
+    implements _$$SendMessageEventImplCopyWith<$Res> {
+  __$$SendMessageEventImplCopyWithImpl(_$SendMessageEventImpl _value,
+      $Res Function(_$SendMessageEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MessageEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? sender = null,
+    Object? message = null,
+    Object? reciver = null,
+  }) {
+    return _then(_$SendMessageEventImpl(
+      null == sender
+          ? _value.sender
+          : sender // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == reciver
+          ? _value.reciver
+          : reciver // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SendMessageEventImpl implements SendMessageEvent {
+  const _$SendMessageEventImpl(this.sender, this.message, this.reciver);
+
+  @override
+  final String sender;
+  @override
+  final String message;
+  @override
+  final String reciver;
+
+  @override
+  String toString() {
+    return 'MessageEvent.sendMessageEvent(sender: $sender, message: $message, reciver: $reciver)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SendMessageEventImpl &&
+            (identical(other.sender, sender) || other.sender == sender) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.reciver, reciver) || other.reciver == reciver));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, sender, message, reciver);
+
+  /// Create a copy of MessageEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SendMessageEventImplCopyWith<_$SendMessageEventImpl> get copyWith =>
+      __$$SendMessageEventImplCopyWithImpl<_$SendMessageEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String sender, String message, String reciver)
+        sendMessageEvent,
+    required TResult Function() initialEvent,
+  }) {
+    return sendMessageEvent(sender, message, reciver);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String sender, String message, String reciver)?
+        sendMessageEvent,
+    TResult? Function()? initialEvent,
+  }) {
+    return sendMessageEvent?.call(sender, message, reciver);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String sender, String message, String reciver)?
+        sendMessageEvent,
+    TResult Function()? initialEvent,
+    required TResult orElse(),
+  }) {
+    if (sendMessageEvent != null) {
+      return sendMessageEvent(sender, message, reciver);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(SendMessageEvent value) sendMessageEvent,
+    required TResult Function(InitialEvent value) initialEvent,
+  }) {
+    return sendMessageEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(SendMessageEvent value)? sendMessageEvent,
+    TResult? Function(InitialEvent value)? initialEvent,
+  }) {
+    return sendMessageEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(SendMessageEvent value)? sendMessageEvent,
+    TResult Function(InitialEvent value)? initialEvent,
+    required TResult orElse(),
+  }) {
+    if (sendMessageEvent != null) {
+      return sendMessageEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SendMessageEvent implements MessageEvent {
+  const factory SendMessageEvent(
+          final String sender, final String message, final String reciver) =
+      _$SendMessageEventImpl;
+
+  String get sender;
+  String get message;
+  String get reciver;
+
+  /// Create a copy of MessageEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SendMessageEventImplCopyWith<_$SendMessageEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InitialEventImplCopyWith<$Res> {
+  factory _$$InitialEventImplCopyWith(
+          _$InitialEventImpl value, $Res Function(_$InitialEventImpl) then) =
+      __$$InitialEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitialEventImplCopyWithImpl<$Res>
+    extends _$MessageEventCopyWithImpl<$Res, _$InitialEventImpl>
+    implements _$$InitialEventImplCopyWith<$Res> {
+  __$$InitialEventImplCopyWithImpl(
+      _$InitialEventImpl _value, $Res Function(_$InitialEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MessageEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$InitialEventImpl implements InitialEvent {
+  const _$InitialEventImpl();
+
+  @override
+  String toString() {
+    return 'MessageEvent.initialEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitialEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String sender, String message, String reciver)
+        sendMessageEvent,
+    required TResult Function() initialEvent,
+  }) {
+    return initialEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String sender, String message, String reciver)?
+        sendMessageEvent,
+    TResult? Function()? initialEvent,
+  }) {
+    return initialEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String sender, String message, String reciver)?
+        sendMessageEvent,
+    TResult Function()? initialEvent,
+    required TResult orElse(),
+  }) {
+    if (initialEvent != null) {
+      return initialEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(SendMessageEvent value) sendMessageEvent,
+    required TResult Function(InitialEvent value) initialEvent,
+  }) {
+    return initialEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(SendMessageEvent value)? sendMessageEvent,
+    TResult? Function(InitialEvent value)? initialEvent,
+  }) {
+    return initialEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(SendMessageEvent value)? sendMessageEvent,
+    TResult Function(InitialEvent value)? initialEvent,
+    required TResult orElse(),
+  }) {
+    if (initialEvent != null) {
+      return initialEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InitialEvent implements MessageEvent {
+  const factory InitialEvent() = _$InitialEventImpl;
 }
 
 /// @nodoc
