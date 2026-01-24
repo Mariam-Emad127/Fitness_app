@@ -1,10 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness/core/theming/color.dart';
+import 'package:fitness/feature/chatting_page/controller/bloc/message_bloc.dart';
 import 'package:fitness/feature/chatting_page/data/model/message_model.dart';
 import 'package:fitness/feature/chatting_page/ui/widgets/ReplyCard.dart';
 import 'package:fitness/feature/chatting_page/ui/widgets/own_message.dart';
 import 'package:fitness/feature/chatting_page/ui/widgets/send_message.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class ChattingScreen extends StatefulWidget {
@@ -34,8 +36,9 @@ class _ChattingScreenState extends State<ChattingScreen> {
       'timeout': 50000,
     },
   );
-  final key = GlobalKey<FormState>();
 
+  final key = GlobalKey<FormState>();
+  /*
   @override
   void initState() {
     _textEditingController = TextEditingController();
@@ -73,6 +76,12 @@ class _ChattingScreenState extends State<ChattingScreen> {
       },
     );
   }
+*/
+  @override
+  void initState() {
+    _textEditingController = TextEditingController();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,21 +96,27 @@ class _ChattingScreenState extends State<ChattingScreen> {
               //ChattingAppbar(name: widget.name, id: widget.id,),
               Expanded(
                 flex: 6,
-                child: ListView.builder(
-                  itemCount: messageList.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return messageList[index].sender ==
-                            FirebaseAuth.instance.currentUser!.uid
-                        ? Align(
-                            alignment: Alignment.topRight,
-                            child: OwnMessageCard(
-                              messageModel: messageList[index],
-                            ),
-                          )
-                        : Align(
-                            alignment: Alignment.bottomLeft,
-                            child: ReplyCard(messageModel: messageList[index]),
-                          );
+                child: BlocBuilder<MessageBloc, MessageState>(
+                  builder: (context, state) {
+                    return ListView.builder(
+                      itemCount: messageList.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return messageList[index].sender ==
+                                FirebaseAuth.instance.currentUser!.uid
+                            ? Align(
+                                alignment: Alignment.topRight,
+                                child: OwnMessageCard(
+                                  messageModel: messageList[index],
+                                ),
+                              )
+                            : Align(
+                                alignment: Alignment.bottomLeft,
+                                child: ReplyCard(
+                                  messageModel: messageList[index],
+                                ),
+                              );
+                      },
+                    );
                   },
                 ),
               ),
@@ -109,23 +124,26 @@ class _ChattingScreenState extends State<ChattingScreen> {
               SendBubble(
                 messageController: _textEditingController,
                 onPressed: () async {
-                  await sendMessage(
+                    context.read<MessageBloc>().add(SendMessageEvent( FirebaseAuth.instance.currentUser!.uid,
+                   _textEditingController.text, widget.id));
+                  /*
+                  sendMessage(
                     FirebaseAuth.instance.currentUser!.uid,
                     _textEditingController.text,
                     widget.id,
                   );
+                  */
                   setState(() {});
                   _textEditingController.clear();
                 }, //
               ),
-
             ],
           ),
         ),
       ),
     );
   }
-
+  /*
   Future<void> sendMessage(
     String sender,
     String message,
@@ -142,4 +160,5 @@ class _ChattingScreenState extends State<ChattingScreen> {
     socket.emit("message", {messageModel.toJson()});
     messageList.add(messageModel);
   }
+*/
 }
