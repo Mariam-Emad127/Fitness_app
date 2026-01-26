@@ -1,6 +1,7 @@
 import 'package:fitness/core/di/dependency_injection.dart';
 import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/feature/chatting_page/controller/bloc/message_bloc.dart';
+import 'package:fitness/feature/chatting_page/data/model/message_model.dart';
 import 'package:fitness/feature/chatting_page/ui/chatting_screen.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/get_image/cubit/get_image_cubit.dart';
@@ -22,8 +23,11 @@ import 'package:fitness/feature/ui/signup_screen.dart';
 import 'package:fitness/feature/vediocall/ui/vediocall_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class AppRouter {
+      // MessageModel message_model;
+ 
   Route? onGenerateRoute(RouteSettings setting) {
     // Route? onGenerateRoute(RouteSettings settings) {
     switch (setting.name) {
@@ -132,7 +136,17 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-                    create: (context) => MessageBloc()..add(InitialEvent()),
+                    create: (context) => MessageBloc( IO.io(
+    //"http://10.0.2.2:3000",
+    "http://192.168.1.4:3000",
+    //"http://127.0.0.1:3000"
+    <String, dynamic>{
+      "transports": ["websocket"],
+      "autoConnect": true,
+      'reconnection': true, 
+      'timeout': 50000,
+    },
+  ))..add(InitSocket()), 
                     child: ChattingScreen(name: username, id: uid),
                   ),
         

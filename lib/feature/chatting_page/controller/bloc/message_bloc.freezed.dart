@@ -21,7 +21,8 @@ mixin _$MessageEvent {
     required TResult Function() started,
     required TResult Function(String sender, String message, String reciver)
         sendMessageEvent,
-    required TResult Function() initialEvent,
+    required TResult Function() initSocket,
+    required TResult Function(MessageModel message_model) newMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +30,8 @@ mixin _$MessageEvent {
     TResult? Function()? started,
     TResult? Function(String sender, String message, String reciver)?
         sendMessageEvent,
-    TResult? Function()? initialEvent,
+    TResult? Function()? initSocket,
+    TResult? Function(MessageModel message_model)? newMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +39,8 @@ mixin _$MessageEvent {
     TResult Function()? started,
     TResult Function(String sender, String message, String reciver)?
         sendMessageEvent,
-    TResult Function()? initialEvent,
+    TResult Function()? initSocket,
+    TResult Function(MessageModel message_model)? newMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,21 +48,24 @@ mixin _$MessageEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(SendMessageEvent value) sendMessageEvent,
-    required TResult Function(InitialEvent value) initialEvent,
+    required TResult Function(InitSocket value) initSocket,
+    required TResult Function(NewMessage value) newMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(SendMessageEvent value)? sendMessageEvent,
-    TResult? Function(InitialEvent value)? initialEvent,
+    TResult? Function(InitSocket value)? initSocket,
+    TResult? Function(NewMessage value)? newMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(SendMessageEvent value)? sendMessageEvent,
-    TResult Function(InitialEvent value)? initialEvent,
+    TResult Function(InitSocket value)? initSocket,
+    TResult Function(NewMessage value)? newMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -130,7 +136,8 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function(String sender, String message, String reciver)
         sendMessageEvent,
-    required TResult Function() initialEvent,
+    required TResult Function() initSocket,
+    required TResult Function(MessageModel message_model) newMessage,
   }) {
     return started();
   }
@@ -141,7 +148,8 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function(String sender, String message, String reciver)?
         sendMessageEvent,
-    TResult? Function()? initialEvent,
+    TResult? Function()? initSocket,
+    TResult? Function(MessageModel message_model)? newMessage,
   }) {
     return started?.call();
   }
@@ -152,7 +160,8 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function(String sender, String message, String reciver)?
         sendMessageEvent,
-    TResult Function()? initialEvent,
+    TResult Function()? initSocket,
+    TResult Function(MessageModel message_model)? newMessage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -166,7 +175,8 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(SendMessageEvent value) sendMessageEvent,
-    required TResult Function(InitialEvent value) initialEvent,
+    required TResult Function(InitSocket value) initSocket,
+    required TResult Function(NewMessage value) newMessage,
   }) {
     return started(this);
   }
@@ -176,7 +186,8 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(SendMessageEvent value)? sendMessageEvent,
-    TResult? Function(InitialEvent value)? initialEvent,
+    TResult? Function(InitSocket value)? initSocket,
+    TResult? Function(NewMessage value)? newMessage,
   }) {
     return started?.call(this);
   }
@@ -186,7 +197,8 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(SendMessageEvent value)? sendMessageEvent,
-    TResult Function(InitialEvent value)? initialEvent,
+    TResult Function(InitSocket value)? initSocket,
+    TResult Function(NewMessage value)? newMessage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -288,7 +300,8 @@ class _$SendMessageEventImpl implements SendMessageEvent {
     required TResult Function() started,
     required TResult Function(String sender, String message, String reciver)
         sendMessageEvent,
-    required TResult Function() initialEvent,
+    required TResult Function() initSocket,
+    required TResult Function(MessageModel message_model) newMessage,
   }) {
     return sendMessageEvent(sender, message, reciver);
   }
@@ -299,7 +312,8 @@ class _$SendMessageEventImpl implements SendMessageEvent {
     TResult? Function()? started,
     TResult? Function(String sender, String message, String reciver)?
         sendMessageEvent,
-    TResult? Function()? initialEvent,
+    TResult? Function()? initSocket,
+    TResult? Function(MessageModel message_model)? newMessage,
   }) {
     return sendMessageEvent?.call(sender, message, reciver);
   }
@@ -310,7 +324,8 @@ class _$SendMessageEventImpl implements SendMessageEvent {
     TResult Function()? started,
     TResult Function(String sender, String message, String reciver)?
         sendMessageEvent,
-    TResult Function()? initialEvent,
+    TResult Function()? initSocket,
+    TResult Function(MessageModel message_model)? newMessage,
     required TResult orElse(),
   }) {
     if (sendMessageEvent != null) {
@@ -324,7 +339,8 @@ class _$SendMessageEventImpl implements SendMessageEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(SendMessageEvent value) sendMessageEvent,
-    required TResult Function(InitialEvent value) initialEvent,
+    required TResult Function(InitSocket value) initSocket,
+    required TResult Function(NewMessage value) newMessage,
   }) {
     return sendMessageEvent(this);
   }
@@ -334,7 +350,8 @@ class _$SendMessageEventImpl implements SendMessageEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(SendMessageEvent value)? sendMessageEvent,
-    TResult? Function(InitialEvent value)? initialEvent,
+    TResult? Function(InitSocket value)? initSocket,
+    TResult? Function(NewMessage value)? newMessage,
   }) {
     return sendMessageEvent?.call(this);
   }
@@ -344,7 +361,8 @@ class _$SendMessageEventImpl implements SendMessageEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(SendMessageEvent value)? sendMessageEvent,
-    TResult Function(InitialEvent value)? initialEvent,
+    TResult Function(InitSocket value)? initSocket,
+    TResult Function(NewMessage value)? newMessage,
     required TResult orElse(),
   }) {
     if (sendMessageEvent != null) {
@@ -371,18 +389,18 @@ abstract class SendMessageEvent implements MessageEvent {
 }
 
 /// @nodoc
-abstract class _$$InitialEventImplCopyWith<$Res> {
-  factory _$$InitialEventImplCopyWith(
-          _$InitialEventImpl value, $Res Function(_$InitialEventImpl) then) =
-      __$$InitialEventImplCopyWithImpl<$Res>;
+abstract class _$$InitSocketImplCopyWith<$Res> {
+  factory _$$InitSocketImplCopyWith(
+          _$InitSocketImpl value, $Res Function(_$InitSocketImpl) then) =
+      __$$InitSocketImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialEventImplCopyWithImpl<$Res>
-    extends _$MessageEventCopyWithImpl<$Res, _$InitialEventImpl>
-    implements _$$InitialEventImplCopyWith<$Res> {
-  __$$InitialEventImplCopyWithImpl(
-      _$InitialEventImpl _value, $Res Function(_$InitialEventImpl) _then)
+class __$$InitSocketImplCopyWithImpl<$Res>
+    extends _$MessageEventCopyWithImpl<$Res, _$InitSocketImpl>
+    implements _$$InitSocketImplCopyWith<$Res> {
+  __$$InitSocketImplCopyWithImpl(
+      _$InitSocketImpl _value, $Res Function(_$InitSocketImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of MessageEvent
@@ -391,18 +409,18 @@ class __$$InitialEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialEventImpl implements InitialEvent {
-  const _$InitialEventImpl();
+class _$InitSocketImpl implements InitSocket {
+  const _$InitSocketImpl();
 
   @override
   String toString() {
-    return 'MessageEvent.initialEvent()';
+    return 'MessageEvent.initSocket()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialEventImpl);
+        (other.runtimeType == runtimeType && other is _$InitSocketImpl);
   }
 
   @override
@@ -414,9 +432,10 @@ class _$InitialEventImpl implements InitialEvent {
     required TResult Function() started,
     required TResult Function(String sender, String message, String reciver)
         sendMessageEvent,
-    required TResult Function() initialEvent,
+    required TResult Function() initSocket,
+    required TResult Function(MessageModel message_model) newMessage,
   }) {
-    return initialEvent();
+    return initSocket();
   }
 
   @override
@@ -425,9 +444,10 @@ class _$InitialEventImpl implements InitialEvent {
     TResult? Function()? started,
     TResult? Function(String sender, String message, String reciver)?
         sendMessageEvent,
-    TResult? Function()? initialEvent,
+    TResult? Function()? initSocket,
+    TResult? Function(MessageModel message_model)? newMessage,
   }) {
-    return initialEvent?.call();
+    return initSocket?.call();
   }
 
   @override
@@ -436,11 +456,12 @@ class _$InitialEventImpl implements InitialEvent {
     TResult Function()? started,
     TResult Function(String sender, String message, String reciver)?
         sendMessageEvent,
-    TResult Function()? initialEvent,
+    TResult Function()? initSocket,
+    TResult Function(MessageModel message_model)? newMessage,
     required TResult orElse(),
   }) {
-    if (initialEvent != null) {
-      return initialEvent();
+    if (initSocket != null) {
+      return initSocket();
     }
     return orElse();
   }
@@ -450,9 +471,10 @@ class _$InitialEventImpl implements InitialEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(SendMessageEvent value) sendMessageEvent,
-    required TResult Function(InitialEvent value) initialEvent,
+    required TResult Function(InitSocket value) initSocket,
+    required TResult Function(NewMessage value) newMessage,
   }) {
-    return initialEvent(this);
+    return initSocket(this);
   }
 
   @override
@@ -460,9 +482,10 @@ class _$InitialEventImpl implements InitialEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(SendMessageEvent value)? sendMessageEvent,
-    TResult? Function(InitialEvent value)? initialEvent,
+    TResult? Function(InitSocket value)? initSocket,
+    TResult? Function(NewMessage value)? newMessage,
   }) {
-    return initialEvent?.call(this);
+    return initSocket?.call(this);
   }
 
   @override
@@ -470,18 +493,175 @@ class _$InitialEventImpl implements InitialEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(SendMessageEvent value)? sendMessageEvent,
-    TResult Function(InitialEvent value)? initialEvent,
+    TResult Function(InitSocket value)? initSocket,
+    TResult Function(NewMessage value)? newMessage,
     required TResult orElse(),
   }) {
-    if (initialEvent != null) {
-      return initialEvent(this);
+    if (initSocket != null) {
+      return initSocket(this);
     }
     return orElse();
   }
 }
 
-abstract class InitialEvent implements MessageEvent {
-  const factory InitialEvent() = _$InitialEventImpl;
+abstract class InitSocket implements MessageEvent {
+  const factory InitSocket() = _$InitSocketImpl;
+}
+
+/// @nodoc
+abstract class _$$NewMessageImplCopyWith<$Res> {
+  factory _$$NewMessageImplCopyWith(
+          _$NewMessageImpl value, $Res Function(_$NewMessageImpl) then) =
+      __$$NewMessageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MessageModel message_model});
+}
+
+/// @nodoc
+class __$$NewMessageImplCopyWithImpl<$Res>
+    extends _$MessageEventCopyWithImpl<$Res, _$NewMessageImpl>
+    implements _$$NewMessageImplCopyWith<$Res> {
+  __$$NewMessageImplCopyWithImpl(
+      _$NewMessageImpl _value, $Res Function(_$NewMessageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MessageEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message_model = null,
+  }) {
+    return _then(_$NewMessageImpl(
+      null == message_model
+          ? _value.message_model
+          : message_model // ignore: cast_nullable_to_non_nullable
+              as MessageModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NewMessageImpl implements NewMessage {
+  const _$NewMessageImpl(this.message_model);
+
+  @override
+  final MessageModel message_model;
+
+  @override
+  String toString() {
+    return 'MessageEvent.newMessage(message_model: $message_model)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NewMessageImpl &&
+            (identical(other.message_model, message_model) ||
+                other.message_model == message_model));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message_model);
+
+  /// Create a copy of MessageEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NewMessageImplCopyWith<_$NewMessageImpl> get copyWith =>
+      __$$NewMessageImplCopyWithImpl<_$NewMessageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String sender, String message, String reciver)
+        sendMessageEvent,
+    required TResult Function() initSocket,
+    required TResult Function(MessageModel message_model) newMessage,
+  }) {
+    return newMessage(message_model);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String sender, String message, String reciver)?
+        sendMessageEvent,
+    TResult? Function()? initSocket,
+    TResult? Function(MessageModel message_model)? newMessage,
+  }) {
+    return newMessage?.call(message_model);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String sender, String message, String reciver)?
+        sendMessageEvent,
+    TResult Function()? initSocket,
+    TResult Function(MessageModel message_model)? newMessage,
+    required TResult orElse(),
+  }) {
+    if (newMessage != null) {
+      return newMessage(message_model);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(SendMessageEvent value) sendMessageEvent,
+    required TResult Function(InitSocket value) initSocket,
+    required TResult Function(NewMessage value) newMessage,
+  }) {
+    return newMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(SendMessageEvent value)? sendMessageEvent,
+    TResult? Function(InitSocket value)? initSocket,
+    TResult? Function(NewMessage value)? newMessage,
+  }) {
+    return newMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(SendMessageEvent value)? sendMessageEvent,
+    TResult Function(InitSocket value)? initSocket,
+    TResult Function(NewMessage value)? newMessage,
+    required TResult orElse(),
+  }) {
+    if (newMessage != null) {
+      return newMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NewMessage implements MessageEvent {
+  const factory NewMessage(final MessageModel message_model) = _$NewMessageImpl;
+
+  MessageModel get message_model;
+
+  /// Create a copy of MessageEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NewMessageImplCopyWith<_$NewMessageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

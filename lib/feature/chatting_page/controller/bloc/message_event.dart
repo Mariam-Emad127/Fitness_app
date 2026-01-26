@@ -7,6 +7,8 @@ class MessageEvent with _$MessageEvent {
     String sender,
     String message,
     String reciver,) = SendMessageEvent;
- const factory MessageEvent. initialEvent() = InitialEvent;
+ const factory MessageEvent.initSocket() = InitSocket;
+
+ const factory MessageEvent.newMessage(MessageModel message_model) = NewMessage;
 
 }
