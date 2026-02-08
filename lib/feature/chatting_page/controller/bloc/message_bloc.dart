@@ -33,7 +33,8 @@ Future<void>readData(ReadMessage event, Emitter<MessageState> emit)async{
   emit(const MessageState.messageLoading());
 
 try{
-var result=await   messageDatabase.readData("SELECT * FROM messages");
+  //${event.reciver}
+var result=await   messageDatabase.readData("SELECT * FROM messages where reciver ='${event.reciver}'");
 messageList= await result.map<MessageModel>((e)=>MessageModel.fromJson(e)).toList();
     //emit(MessageState.messageSucess( messageList));
     emit(MessageState.messageSucess(List.from(messageList)));

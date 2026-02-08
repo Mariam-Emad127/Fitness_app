@@ -146,7 +146,7 @@ class AppRouter {
       'reconnection': true, 
       'timeout': 50000,
     },
-  ))..add(ReadMessage( ))..add(InitSocket()), 
+  ))..add(ReadMessage(uid ))..add(InitSocket()), 
                     child: ChattingScreen(name: username, id: uid),
                   ),
         

@@ -23,7 +23,7 @@ mixin _$MessageEvent {
         sendMessageEvent,
     required TResult Function() initSocket,
     required TResult Function(MessageModel message_model) newMessage,
-    required TResult Function() readMessage,
+    required TResult Function(String reciver) readMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,7 +33,7 @@ mixin _$MessageEvent {
         sendMessageEvent,
     TResult? Function()? initSocket,
     TResult? Function(MessageModel message_model)? newMessage,
-    TResult? Function()? readMessage,
+    TResult? Function(String reciver)? readMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,7 +43,7 @@ mixin _$MessageEvent {
         sendMessageEvent,
     TResult Function()? initSocket,
     TResult Function(MessageModel message_model)? newMessage,
-    TResult Function()? readMessage,
+    TResult Function(String reciver)? readMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,7 +144,7 @@ class _$StartedImpl implements _Started {
         sendMessageEvent,
     required TResult Function() initSocket,
     required TResult Function(MessageModel message_model) newMessage,
-    required TResult Function() readMessage,
+    required TResult Function(String reciver) readMessage,
   }) {
     return started();
   }
@@ -157,7 +157,7 @@ class _$StartedImpl implements _Started {
         sendMessageEvent,
     TResult? Function()? initSocket,
     TResult? Function(MessageModel message_model)? newMessage,
-    TResult? Function()? readMessage,
+    TResult? Function(String reciver)? readMessage,
   }) {
     return started?.call();
   }
@@ -170,7 +170,7 @@ class _$StartedImpl implements _Started {
         sendMessageEvent,
     TResult Function()? initSocket,
     TResult Function(MessageModel message_model)? newMessage,
-    TResult Function()? readMessage,
+    TResult Function(String reciver)? readMessage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -314,7 +314,7 @@ class _$SendMessageEventImpl implements SendMessageEvent {
         sendMessageEvent,
     required TResult Function() initSocket,
     required TResult Function(MessageModel message_model) newMessage,
-    required TResult Function() readMessage,
+    required TResult Function(String reciver) readMessage,
   }) {
     return sendMessageEvent(sender, message, reciver);
   }
@@ -327,7 +327,7 @@ class _$SendMessageEventImpl implements SendMessageEvent {
         sendMessageEvent,
     TResult? Function()? initSocket,
     TResult? Function(MessageModel message_model)? newMessage,
-    TResult? Function()? readMessage,
+    TResult? Function(String reciver)? readMessage,
   }) {
     return sendMessageEvent?.call(sender, message, reciver);
   }
@@ -340,7 +340,7 @@ class _$SendMessageEventImpl implements SendMessageEvent {
         sendMessageEvent,
     TResult Function()? initSocket,
     TResult Function(MessageModel message_model)? newMessage,
-    TResult Function()? readMessage,
+    TResult Function(String reciver)? readMessage,
     required TResult orElse(),
   }) {
     if (sendMessageEvent != null) {
@@ -452,7 +452,7 @@ class _$InitSocketImpl implements InitSocket {
         sendMessageEvent,
     required TResult Function() initSocket,
     required TResult Function(MessageModel message_model) newMessage,
-    required TResult Function() readMessage,
+    required TResult Function(String reciver) readMessage,
   }) {
     return initSocket();
   }
@@ -465,7 +465,7 @@ class _$InitSocketImpl implements InitSocket {
         sendMessageEvent,
     TResult? Function()? initSocket,
     TResult? Function(MessageModel message_model)? newMessage,
-    TResult? Function()? readMessage,
+    TResult? Function(String reciver)? readMessage,
   }) {
     return initSocket?.call();
   }
@@ -478,7 +478,7 @@ class _$InitSocketImpl implements InitSocket {
         sendMessageEvent,
     TResult Function()? initSocket,
     TResult Function(MessageModel message_model)? newMessage,
-    TResult Function()? readMessage,
+    TResult Function(String reciver)? readMessage,
     required TResult orElse(),
   }) {
     if (initSocket != null) {
@@ -606,7 +606,7 @@ class _$NewMessageImpl implements NewMessage {
         sendMessageEvent,
     required TResult Function() initSocket,
     required TResult Function(MessageModel message_model) newMessage,
-    required TResult Function() readMessage,
+    required TResult Function(String reciver) readMessage,
   }) {
     return newMessage(message_model);
   }
@@ -619,7 +619,7 @@ class _$NewMessageImpl implements NewMessage {
         sendMessageEvent,
     TResult? Function()? initSocket,
     TResult? Function(MessageModel message_model)? newMessage,
-    TResult? Function()? readMessage,
+    TResult? Function(String reciver)? readMessage,
   }) {
     return newMessage?.call(message_model);
   }
@@ -632,7 +632,7 @@ class _$NewMessageImpl implements NewMessage {
         sendMessageEvent,
     TResult Function()? initSocket,
     TResult Function(MessageModel message_model)? newMessage,
-    TResult Function()? readMessage,
+    TResult Function(String reciver)? readMessage,
     required TResult orElse(),
   }) {
     if (newMessage != null) {
@@ -699,6 +699,8 @@ abstract class _$$ReadMessageImplCopyWith<$Res> {
   factory _$$ReadMessageImplCopyWith(
           _$ReadMessageImpl value, $Res Function(_$ReadMessageImpl) then) =
       __$$ReadMessageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String reciver});
 }
 
 /// @nodoc
@@ -711,26 +713,51 @@ class __$$ReadMessageImplCopyWithImpl<$Res>
 
   /// Create a copy of MessageEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? reciver = null,
+  }) {
+    return _then(_$ReadMessageImpl(
+      null == reciver
+          ? _value.reciver
+          : reciver // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ReadMessageImpl implements ReadMessage {
-  const _$ReadMessageImpl();
+  const _$ReadMessageImpl(this.reciver);
+
+  @override
+  final String reciver;
 
   @override
   String toString() {
-    return 'MessageEvent.readMessage()';
+    return 'MessageEvent.readMessage(reciver: $reciver)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ReadMessageImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ReadMessageImpl &&
+            (identical(other.reciver, reciver) || other.reciver == reciver));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, reciver);
+
+  /// Create a copy of MessageEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReadMessageImplCopyWith<_$ReadMessageImpl> get copyWith =>
+      __$$ReadMessageImplCopyWithImpl<_$ReadMessageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -740,9 +767,9 @@ class _$ReadMessageImpl implements ReadMessage {
         sendMessageEvent,
     required TResult Function() initSocket,
     required TResult Function(MessageModel message_model) newMessage,
-    required TResult Function() readMessage,
+    required TResult Function(String reciver) readMessage,
   }) {
-    return readMessage();
+    return readMessage(reciver);
   }
 
   @override
@@ -753,9 +780,9 @@ class _$ReadMessageImpl implements ReadMessage {
         sendMessageEvent,
     TResult? Function()? initSocket,
     TResult? Function(MessageModel message_model)? newMessage,
-    TResult? Function()? readMessage,
+    TResult? Function(String reciver)? readMessage,
   }) {
-    return readMessage?.call();
+    return readMessage?.call(reciver);
   }
 
   @override
@@ -766,11 +793,11 @@ class _$ReadMessageImpl implements ReadMessage {
         sendMessageEvent,
     TResult Function()? initSocket,
     TResult Function(MessageModel message_model)? newMessage,
-    TResult Function()? readMessage,
+    TResult Function(String reciver)? readMessage,
     required TResult orElse(),
   }) {
     if (readMessage != null) {
-      return readMessage();
+      return readMessage(reciver);
     }
     return orElse();
   }
@@ -817,7 +844,15 @@ class _$ReadMessageImpl implements ReadMessage {
 }
 
 abstract class ReadMessage implements MessageEvent {
-  const factory ReadMessage() = _$ReadMessageImpl;
+  const factory ReadMessage(final String reciver) = _$ReadMessageImpl;
+
+  String get reciver;
+
+  /// Create a copy of MessageEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ReadMessageImplCopyWith<_$ReadMessageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
