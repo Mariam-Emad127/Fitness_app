@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/feature/chatting_page/controller/bloc/message_bloc.dart';
 import 'package:fitness/feature/chatting_page/ui/widgets/messageblocconsumer.dart';
- import 'package:fitness/feature/chatting_page/ui/widgets/send_message.dart';
+import 'package:fitness/feature/chatting_page/ui/widgets/send_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,10 +37,7 @@ class _ChattingScreenState extends State<ChattingScreen> {
           child: Column(
             children: [
               //ChattingAppbar(name: widget.name, id: widget.id,),
-              Expanded(
-                flex: 6,
-                child: Messageblocconsumer()
-              ),
+              Expanded(flex: 6, child: Messageblocconsumer()),
 
               SendBubble(
                 messageController: _textEditingController,
@@ -52,7 +49,7 @@ class _ChattingScreenState extends State<ChattingScreen> {
                       widget.id,
                     ),
                   );
-     
+
                   setState(() {});
                   _textEditingController.clear();
                 },
