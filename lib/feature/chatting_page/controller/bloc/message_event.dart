@@ -10,5 +10,6 @@ class MessageEvent with _$MessageEvent {
  const factory MessageEvent.initSocket() = InitSocket;
 
  const factory MessageEvent.newMessage(MessageModel message_model) = NewMessage;
+ const factory MessageEvent.readMessage() = ReadMessage;
 
 }
