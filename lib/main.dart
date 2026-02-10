@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness/app.dart';
 import 'package:fitness/core/di/dependency_injection.dart';
+import 'package:fitness/core/helper/notification_service.dart';
 import 'package:fitness/core/routing/app_router.dart';
 import 'package:fitness/core/widgets/string.dart';
 import 'package:fitness/feature/chatting_page/data/message_database.dart';
@@ -14,12 +15,8 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   await setupGetIt();
-  messageDatabase.initalDb();
-
-//  await Hive.initFlutter();
- 
-  //Hive.registerAdapter<MessageModel>(MessageModelAdapter());
-  //await Hive.openBox<MessageModel>(hiveNam );
+ // messageDatabase.initalDb();
+await Notification_service().initFCM();
  
   await Supabase.initialize(
     url: 'https://zsbjdsxlzxhtkqmjwwmm.supabase.co',
