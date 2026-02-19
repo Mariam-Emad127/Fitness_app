@@ -11,18 +11,19 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-    MessageDatabase messageDatabase=MessageDatabase();
+    MessageDatabase messageDatabase=await MessageDatabase();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   await setupGetIt();
- // messageDatabase.initalDb();
-await Notification_service().initFCM();
+ messageDatabase.initalDb();
  
   await Supabase.initialize(
     url: 'https://zsbjdsxlzxhtkqmjwwmm.supabase.co',
     anonKey: AppStrings.supabaseKey,
     authOptions: FlutterAuthClientOptions(detectSessionInUri: false),
   );
+  
+await Notification_service().initFCM();
  
   //await checkIfLoggedInUser();
 

@@ -1,5 +1,10 @@
- import 'package:cloud_firestore/cloud_firestore.dart';
+ import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:fitness/core/helper/models/user.dart';
+import 'package:fitness/core/helper/shared_pref_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -12,11 +17,19 @@ class SignUpCubit extends Cubit<SignUpState> {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
   final TextEditingController username = TextEditingController();
+        String ?fcm;
+ 
 //final GoogleSignIn _googleSignIn = GoogleSignIn.instance ;
 
 //final GoogleSignIn _googleSignIn = GoogleSignIn.( );
     SignUpCubit() : super(SignUpState.initial());
+  Future<String> fcmToken()async{
+      fcm = await FirebaseMessaging.instance.getToken();
 
+   //  fcm=await SharedPrefHelper.getString( "fcm");
+     
+     return fcm??"";
+  }
          // final  cred =FirebaseAuth.instance.currentUser;
          
   Future<void> createUserWithEmailAndPassword({
@@ -35,6 +48,7 @@ class SignUpCubit extends Cubit<SignUpState> {
           email: email,
           password: password,
         );
+          String fcm = await fcmToken();
           await FirebaseFirestore.instance
             .collection("users")
             .doc(credential.user!.uid)
@@ -45,7 +59,8 @@ class SignUpCubit extends Cubit<SignUpState> {
           "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg",
           "weight":"_",
           "hight":"_",
-          "age":"_"
+          "age":"_",
+          "fcm":fcm
           // Add other fields if needed
         });
 

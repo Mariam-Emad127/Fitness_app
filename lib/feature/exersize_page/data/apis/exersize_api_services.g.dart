@@ -87,7 +87,7 @@ class _ExersizeApiServices implements ExersizeApiServices {
           _dio.options.baseUrl,
           baseUrl,
         )));
-    final _result = await _dio.fetch< Uint8List>(_options);
+    final _result = await _dio.fetch<Uint8List>(_options);
     late Uint8List _value;
     try {
       _value = Uint8List.fromList(_result.data!);

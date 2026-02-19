@@ -1,4 +1,6 @@
- import 'package:freezed_annotation/freezed_annotation.dart';
+ import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fitness/core/helper/shared_pref_helper.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,7 +15,7 @@ class LoginCubit extends Cubit<LoginState> {
    final formKey = GlobalKey<FormState>();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
- 
+String?fcm; 
 
    Future<void> signInWithEmailAndPassword({required String email,required String password})async {
      emit(LoginState.loginLoading()  );
@@ -22,6 +24,14 @@ class LoginCubit extends Cubit<LoginState> {
         email: email,
         password: password,
       );
+          DocumentReference userDocRef = FirebaseFirestore.instance.collection('users').doc(
+            FirebaseAuth.instance.currentUser!.uid );
+fcm=await SharedPrefHelper.getString( "fcm");
+    // Update specific fields
+    await userDocRef.update({
+ "fcm":fcm
+  // Example of using FieldValue
+    });
       emit(LoginSucess());
       } catch (e) {
        emit(LoginState.loginFailure(  e.toString()));
