@@ -26,8 +26,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class AppRouter {
-      // MessageModel message_model;
- 
+  // MessageModel message_model;
+
   Route? onGenerateRoute(RouteSettings setting) {
     // Route? onGenerateRoute(RouteSettings settings) {
     switch (setting.name) {
@@ -134,22 +134,25 @@ class AppRouter {
         final username = args["name"];
         final uid = args["id"];
         return MaterialPageRoute(
-          builder:
-              (_) => BlocProvider(
-                    create: (context) => MessageBloc( IO.io(
-    //"http://10.0.2.2:3000",
-    "http://192.168.1.4:3000",
-    //"http://127.0.0.1:3000"
-    <String, dynamic>{
-      "transports": ["websocket"],
-      "autoConnect": true,
-      'reconnection': true, 
-      'timeout': 50000,
-    },
-  ))..add(ReadMessage(uid ))..add(InitSocket()), 
-                    child: ChattingScreen(name: username, id: uid),
-                  ),
-        
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                MessageBloc(
+                    IO.io(
+                      //"http://10.0.2.2:3000",
+                      "http://192.168.1.4:3000",
+                      //"http://127.0.0.1:3000"
+                      <String, dynamic>{
+                        "transports": ["websocket"],
+                        "autoConnect": true,
+                        'reconnection': true,
+                        'timeout': 50000,
+                      },
+                    ),
+                  )
+                  ..add(ReadMessage(uid))
+                  ..add(InitSocket()),
+            child: ChattingScreen(name: username, id: uid),
+          ),
         );
       case Routes.frindScreen:
         return MaterialPageRoute(

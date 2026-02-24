@@ -16,11 +16,9 @@ class ExersizeImage extends StatelessWidget {
           size: Size.fromRadius(100.r),  
           child: CachedNetworkImage(
            imageUrl:  path,
-         //  "assets/Screenshot 2025-07-10 021942.png",
-           // "assets/7fc0e9da-f182-4d2c-a9ec-b6e494c78883.png",
+    
             fit: BoxFit.cover,
-            height: 200.h,
-            width: 90.w,
+         
           ),
         ),
       ),

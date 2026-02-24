@@ -23,55 +23,58 @@ class WorkoutListView extends StatelessWidget {
         return state.maybeWhen(
             targetListSucess: (exresizeModel) {
               return ListView.builder(
-                  physics: ScrollPhysics(),
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
+                    scrollDirection: Axis.horizontal,
                   itemCount: exresizeModel.length,
                   itemBuilder: (context, index) {
-                    return Stack(
-                      children: [
-                        ExersizeImage(path: bodyPartsImages[index]),
-                        Positioned(
-                            top: 20.h,
-                            child: Row(
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: Text(
-                                        exresizeModel[index],
-                                        style: TextStyles.font18WhiteMedium,
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 1,
+                   
+                    return AspectRatio(
+                      aspectRatio: 6/8,
+                      child: Stack(
+                        children: [
+                          ExersizeImage(path: bodyPartsImages[index]),
+                          Positioned(
+                              top: 20.h,
+                              child: Row(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: Text(
+                                          exresizeModel[index],
+                                          style: TextStyles.font18WhiteMedium,
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 1,
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                       "Training ",
-                                      style: TextStyles.font16WhiteSemiBold,
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    InfoWidget(
-                                      title: " 500 Kacl",
-                                      icon: Icons.lock_clock,
-                                    ),
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
-                                    InfoWidget(
-                                      title: "  50 min",
-                                      icon: Icons.lock_clock_sharp,
-                                    ),
-                                  ],
-                                ),
-                                StartIcon()
-                              ],
-                            ))
-                      ],
+                                      Text(
+                                         "Training ",
+                                        style: TextStyles.font16WhiteSemiBold,
+                                      ),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      InfoWidget(
+                                        title: " 500 Kacl",
+                                        icon: Icons.lock_clock,
+                                      ),
+                                      SizedBox(
+                                        height: 5.h,
+                                      ),
+                                      InfoWidget(
+                                        title: "  50 min",
+                                        icon: Icons.lock_clock_sharp,
+                                      ),
+                                    ],
+                                  ),
+                                  StartIcon()
+                                ],
+                              ))
+                        ],
+                      ),
                     );
+                 
                   }
                   );
 
