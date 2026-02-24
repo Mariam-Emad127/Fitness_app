@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness/app.dart';
 import 'package:fitness/core/di/dependency_injection.dart';
-import 'package:fitness/core/helper/notification_service.dart';
 import 'package:fitness/core/routing/app_router.dart';
 import 'package:fitness/core/widgets/string.dart';
 import 'package:fitness/feature/chatting_page/data/message_database.dart';
@@ -23,7 +22,7 @@ void main() async {
     authOptions: FlutterAuthClientOptions(detectSessionInUri: false),
   );
   
-await Notification_service().initFCM();
+//await Notification_service().initFCM();
  
   //await checkIfLoggedInUser();
 

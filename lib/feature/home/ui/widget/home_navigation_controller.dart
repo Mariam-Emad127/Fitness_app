@@ -13,7 +13,7 @@ class HomeNavigationController {
   int currentIndex = 0;
 
   final iconList = <IconData>[
-    Icons.home,
+//    Icons.home,
     Icons.videocam,
     Icons.person,
   ];

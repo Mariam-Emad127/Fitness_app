@@ -19,12 +19,80 @@ class _ExersizeHomeState extends State<ExersizeHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsManager.darkGray,
-      body: SingleChildScrollView(
-        child: SafeArea(
-            child: Padding(
-          padding: const EdgeInsets.only(left: 20.0,right: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+      body:SafeArea(
+        child: CustomScrollView(slivers: [
+          SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+                child: Text(
+                  "Home",
+                  style: TextStyles.font13GrayRegular,
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Good Morning",
+                      style: TextStyles.font18WhiteMedium,
+                    ),
+                    SizedBox(height: 10.h),
+                    CustomSearchTextField(onChanged: (s) {}),
+                    SizedBox(height: 10.h),
+                    Text(
+                      "Popular Workouts",
+                      style: TextStyles.font18WhiteMedium,
+                    ),
+                    SizedBox(height: 10.h),
+                  ],
+                ),
+              ),
+            ),
+
+SliverToBoxAdapter(
+
+child: Padding(
+  padding: const EdgeInsets.only(left: 5.0,right:5 ),
+  child: SizedBox(
+    height: 0.25.sh,
+    child: WorkoutListView()),
+),
+
+),
+// 4. عنوان Today Plan
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Text(
+                  "Today Plan",
+                  style: TextStyles.font18WhiteMedium,
+                ),
+              ),
+            ),
+
+            // 5. قائمة TodayList (لو هي قائمة رأسية)
+            // الأفضل تتحول لـ SliverList عشان تكون Performance بتاعتها عالية
+            // لكن لو هي Widget جاهزة، استخدمي SliverToBoxAdapter
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.0),
+                child: const TodayList(), // الودجت بتاعتك
+              ),
+            ),
+            
+            // مسافة في الآخر عشان الـ Scroll يكون مريح
+
+        ],),
+      ) 
+      
+    /*  
+      SafeArea(
+          child: ListView(
+            //crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "Home",
@@ -32,6 +100,7 @@ class _ExersizeHomeState extends State<ExersizeHome> {
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
+               
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -55,23 +124,28 @@ class _ExersizeHomeState extends State<ExersizeHome> {
                     SizedBox(
                       height: 10,
                     ),
-                    SizedBox(height: 200.h, child: WorkoutListView()),
+                   
+                    
+                      WorkoutListView(),
+                    
+                  
                     Text(
                       "Today Plan",
                       style: TextStyles.font18WhiteMedium,
                     ),
+                               /*
                     SizedBox(
                       height: 10.h,
                     ),
                 TodayList()
-            
+                            */
                   ],
                 ),
+              
               ),
             ],
-          ),
-        )),
-      ),
+          )),
+    */
     );
   }
 }
