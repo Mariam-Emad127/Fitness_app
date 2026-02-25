@@ -3,6 +3,7 @@ import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/custom_search_exersize.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/todat_list.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/workout_list_view.dart';
+import 'package:fitness/feature/home/ui/widget/bottonnav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,15 +22,7 @@ class _ExersizeHomeState extends State<ExersizeHome> {
       backgroundColor: ColorsManager.darkGray,
       body:SafeArea(
         child: CustomScrollView(slivers: [
-          SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
-                child: Text(
-                  "Home",
-                  style: TextStyles.font13GrayRegular,
-                ),
-              ),
-            ),
+         
             SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsets.all(15.0),
@@ -56,7 +49,7 @@ class _ExersizeHomeState extends State<ExersizeHome> {
 SliverToBoxAdapter(
 
 child: Padding(
-  padding: const EdgeInsets.only(left: 5.0,right:5 ),
+  padding: const EdgeInsets.only(left: 15.0,right:15 ),
   child: SizedBox(
     height: 0.25.sh,
     child: WorkoutListView()),
@@ -73,79 +66,19 @@ child: Padding(
                 ),
               ),
             ),
-
-            // 5. قائمة TodayList (لو هي قائمة رأسية)
-            // الأفضل تتحول لـ SliverList عشان تكون Performance بتاعتها عالية
-            // لكن لو هي Widget جاهزة، استخدمي SliverToBoxAdapter
-            SliverToBoxAdapter(
+ 
+             SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15.0),
                 child: const TodayList(), // الودجت بتاعتك
               ),
             ),
             
-            // مسافة في الآخر عشان الـ Scroll يكون مريح
-
+ 
         ],),
-      ) 
+      ) ,
       
-    /*  
-      SafeArea(
-          child: ListView(
-            //crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Home",
-                style: TextStyles.font13GrayRegular,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-               
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Good Morning",
-                      style: TextStyles.font18WhiteMedium,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CustomSearchTextField(
-                      onChanged: (s) {},
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Popular Workouts ",
-                      style: TextStyles.font18WhiteMedium,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                   
-                    
-                      WorkoutListView(),
-                    
-                  
-                    Text(
-                      "Today Plan",
-                      style: TextStyles.font18WhiteMedium,
-                    ),
-                               /*
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                TodayList()
-                            */
-                  ],
-                ),
-              
-              ),
-            ],
-          )),
-    */
+   bottomNavigationBar: Bottonnav(), 
     );
   }
 }

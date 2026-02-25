@@ -6,15 +6,16 @@ class StartIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 35,
-      width: 35,
-      decoration: BoxDecoration(
-          color: ColorsManager.mainYellow,
-          borderRadius: BorderRadius.circular(20)),
-      child: Icon(
-        Icons.play_circle_filled_sharp,
-        color: Colors.black,
+    return FittedBox(
+      child: Container(
+       
+        decoration: BoxDecoration(
+            color: ColorsManager.mainYellow,
+            borderRadius: BorderRadius.circular(20)),
+        child: Icon(
+          Icons.play_circle_filled_sharp,
+          color: Colors.black,
+        ),
       ),
     );
   }

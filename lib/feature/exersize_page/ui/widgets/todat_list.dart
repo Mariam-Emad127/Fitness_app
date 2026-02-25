@@ -4,8 +4,7 @@ import 'package:fitness/feature/exersize_page/ui/widgets/shimmer_widget.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/today_itemList.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+ 
 class TodayList extends StatelessWidget {
   const TodayList({super.key});
 
@@ -15,29 +14,27 @@ class TodayList extends StatelessWidget {
         builder: (context, state) {
       return state.maybeWhen(
           exersizeSucess: (exersizeModel) {
-            return SizedBox(
-                height: 230.h,
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    physics: ScrollPhysics(),
-                    itemCount: exersizeModel.length,
-                    itemBuilder: (contex, index) {
-                      return InkWell(
-                        onTap: () async {
-                          Navigator.pushNamed(
-                            context,
-                            Routes.exersizeDetail,
-                            arguments: exersizeModel[index].id,
-                          );
-
-                         },
-                        child: TodayItemlist(
-                          index: index,
-                          equipment: exersizeModel[index].equipment ?? "",
-                          difficulty: exersizeModel[index].difficulty ?? "",
-                        ),
+            return ListView.builder(
+                shrinkWrap: true,
+                physics: ScrollPhysics(),
+                itemCount: exersizeModel.length,
+                itemBuilder: (contex, index) {
+                  return InkWell(
+                    onTap: () async {
+                      Navigator.pushNamed(
+                        context,
+                        Routes.exersizeDetail,
+                        arguments: exersizeModel[index].id,
                       );
-                    }));
+            
+                     },
+                    child: TodayItemlist(
+                      index: index,
+                      equipment: exersizeModel[index].equipment ?? "",
+                      difficulty: exersizeModel[index].difficulty ?? "",
+                    ),
+                  );
+                });
           },
           exersizeFailure: (message) {
             return Text(message);

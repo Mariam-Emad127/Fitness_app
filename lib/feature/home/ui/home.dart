@@ -1,11 +1,9 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:fitness/core/theming/color.dart';
-import 'package:fitness/feature/home/ui/widget/floating_widget.dart';
+ import 'package:fitness/core/routing/routes.dart';
+import 'package:fitness/feature/exersize_page/ui/exersize_home.dart';
 import 'package:fitness/feature/home/ui/widget/home_animation_manager.dart';
 import 'package:fitness/feature/home/ui/widget/home_navigation_controller.dart';
 import 'package:flutter/material.dart';
- 
+ import 'package:google_nav_bar/google_nav_bar.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -14,10 +12,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
-  final _autoSizeGroup = AutoSizeGroup();
-  final _navController = HomeNavigationController();
+   //final _navController = HomeNavigationController();
   late final HomeAnimationManager _animationManager;
+int _selectedIndex = 0;
 
+  // القوائم أو الصفحات اللي هتظهر عند التنقل
+ /*
+  static const List<Widget> _pages = [
+   //ExersizeHome(),
+    //Center(child: Text('Home Page', style: TextStyle(fontSize: 24))),
+    Center(child: Text('Exercises', style: TextStyle(fontSize: 24))),
+    Center(child: Text('Search', style: TextStyle(fontSize: 24))),
+    Center(child: Text('Profile', style: TextStyle(fontSize: 24))),
+  ];
+ */
   @override
   void initState() {
     super.initState();
@@ -37,6 +45,65 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
+     // body: _pages[_selectedIndex], // الصفحة اللي بتتعرض حالياً
+      
+      // هنا الـ Animated Navigation Bar
+      bottomNavigationBar: 
+      Padding(
+        padding: const EdgeInsets.only(bottom: 12,right: 5,left: 5),
+        child: Container(
+          decoration: BoxDecoration(
+             borderRadius: BorderRadius.circular(25),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(blurRadius: 20, color: Colors.black.withOpacity(.1))
+            ],
+          ),
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+              child: GNav(
+                rippleColor: Colors.grey[300]!, // تأثير الموجة عند الضغط
+                hoverColor: Colors.grey[100]!, 
+                gap: 5, // المسافة بين الأيقونة والنص
+                activeColor: Colors.deepPurple, // لون الأيقونة المختارة
+                iconSize: 24,
+               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                duration: Duration(milliseconds: 400), // سرعة الأنيميشن
+                tabBackgroundColor: Colors.deepPurple.withOpacity(0.1), // لون خلفية الزر المختار
+                color: Colors.black, // لون الأيقونات غير المختارة
+                tabs: const [
+                  GButton(icon: Icons.home, text: 'Home'),
+                  GButton(icon: Icons.fitness_center, text: 'Exercises'),
+                  GButton(icon: Icons.search, text: 'Search'),
+                  GButton(icon: Icons.person, text: 'Profile'),
+                ],
+                selectedIndex: _selectedIndex,
+                onTabChange: (index) {
+                  switch(_selectedIndex){
+                 case 0:
+                 Navigator.pushNamed(context, Routes.exersizeHome);
+
+
+
+                  }
+                 
+                  setState(() {
+                    _selectedIndex = index;
+                  });
+                },
+              ),
+            ),
+          ),
+        ),
+      ),
+   
+   
+    );
+ 
+    /*
+    Scaffold(
       backgroundColor: ColorsManager.darkGray,
       extendBody: true,
       body: NotificationListener<ScrollNotification>(
@@ -56,12 +123,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             children: [
               Icon(_navController.iconList[index], size: 24, color: color),
               const SizedBox(height: 10),
-              AutoSizeText(
-                "Tab $index",
-                maxLines: 1,
-                style: TextStyle(color: color),
-                group: _autoSizeGroup,
-              ),
+            
             ],
           );
         },
@@ -74,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         gapLocation: GapLocation.center,
         leftCornerRadius: 15,
         rightCornerRadius: 15,
-        onTap: (index) => setState(() => _navController.navigate(context, index)),
+       // onTap: (index) => setState(() => _navController.navigate(context, index)),
         hideAnimationController: _animationManager.hideBottomBarController,
         shadow: const BoxShadow(
           offset: Offset(0, 1),
@@ -83,5 +145,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         ),
       ),
     );
+  */
   }
 }
