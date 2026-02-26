@@ -1,8 +1,7 @@
+ /*
  import 'package:fitness/core/routing/routes.dart';
-import 'package:fitness/feature/exersize_page/ui/exersize_home.dart';
-import 'package:fitness/feature/home/ui/widget/home_animation_manager.dart';
-import 'package:fitness/feature/home/ui/widget/home_navigation_controller.dart';
-import 'package:flutter/material.dart';
+ import 'package:fitness/feature/home/ui/widget/home_animation_manager.dart';
+ import 'package:flutter/material.dart';
  import 'package:google_nav_bar/google_nav_bar.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -148,3 +147,4 @@ int _selectedIndex = 0;
   */
   }
 }
+*/

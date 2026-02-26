@@ -1,5 +1,4 @@
- import 'package:fitness/core/theming/color.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
  
 class ExersizeImage extends StatelessWidget {
   final String path;
@@ -12,7 +11,7 @@ class ExersizeImage extends StatelessWidget {
       padding: const EdgeInsets.only(right: 8.0),
       child: Container(decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: ColorsManager.mainYellow),
+       // border: Border.all(color: ColorsManager.mainYellow),
         image: DecorationImage(image: NetworkImage(  path, ),
         fit: BoxFit.cover
         ) ),

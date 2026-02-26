@@ -1,9 +1,9 @@
-
- import 'package:fitness/core/theming/color.dart';
+import 'package:fitness/core/helper/text_respiratory.dart';
+import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/font_weight_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
- 
+  
 
 class TextStyles {
   static TextStyle font24BlackBold = TextStyle(
@@ -130,12 +130,14 @@ static TextStyle font13DarkBRedRegular = TextStyle(
     color: ColorsManager.mainBlue,
   );
 
-  static TextStyle font15DarkBlueMedium = TextStyle(
-    fontSize: 15.sp,
+  static TextStyle font15DarkBlueMedium(Context) 
+{
+ return  TextStyle(
+    fontSize:TextRespiratory.getResponsiveFontSize(  Context, 15.sp) ,
     fontWeight: FontWeightHelper.medium,
     color: ColorsManager.darkBlue,
   );
-
+}
   static TextStyle font16DarkBlueMedium = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.semiBold,
