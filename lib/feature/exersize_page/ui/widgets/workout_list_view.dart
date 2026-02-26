@@ -1,8 +1,7 @@
 import 'package:fitness/core/helper/exersize_image.dart';
 import 'package:fitness/core/helper/text_respiratory.dart';
 import 'package:fitness/core/theming/color.dart';
-import 'package:fitness/core/theming/style.dart';
-import 'package:fitness/feature/exersize_page/controller/cubit/target_exersize/cubit/target_exersize_cubit.dart';
+ import 'package:fitness/feature/exersize_page/controller/cubit/target_exersize/cubit/target_exersize_cubit.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/exersize_image.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/info_widget.dart';
 import 'package:fitness/feature/exersize_page/ui/widgets/shimmer_widget.dart';
@@ -35,44 +34,44 @@ class WorkoutListView extends StatelessWidget {
                       ExersizeImage(
                         path: bodyPartsImages[index],
 
-                        widget: Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(10.0),
-                                    child: FittedBox(
-                                      fit: BoxFit.scaleDown,
-                                      child: Text(
-                                        exresizeModel[index],
-                                        style:TextStyle(
-                                          color: Colors.white,
-                                          fontSize: TextRespiratory.getResponsiveFontSize(context, 17)) 
-                                        
+                        widget: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: Text(
+                                          exresizeModel[index],
+                                          style:TextStyle(
+                                            color: Colors.white,
+                                            fontSize: TextRespiratory.getResponsiveFontSize(context, 17)) 
+                                          
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Text(
-                                    "Training ",
-                                    style: TextStyles.font16WhiteSemiBold,
-                                  ),
-                                  SizedBox(height: 5),
-                                  InfoWidget(
-                                    title: " 500 Kacl",
-                                    icon: Icons.lock_clock,
-                                  ),
-                                  SizedBox(height: 5.h),
-                                  InfoWidget(
-                                    title: "  50 min",
-                                    icon: Icons.lock_clock_sharp,
-                                  ),
-                                ],
+                                  
+                                    SizedBox(height: 5),
+                                    InfoWidget(
+                                      title: " 500 Kacl",
+                                      icon: Icons.lock_clock,
+                                    ),
+                                    SizedBox(height: 5.h),
+                                    InfoWidget(
+                                      title: "  50 min",
+                                      icon: Icons.lock_clock_sharp,
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            StartIcon(),
-                          ],
+                              StartIcon(),
+                            ],
+                          ),
                         ),
                       ),
                     ],

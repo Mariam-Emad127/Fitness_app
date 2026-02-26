@@ -26,11 +26,11 @@ class Loginbloclistener extends StatelessWidget {
             ),
           );
         } else if (state is LoginSucess) {
-           Navigator.pushNamed(context,Routes.home);
+           Navigator.pushNamed(context,Routes.exersizeHome);
 
           FirebaseAuth.instance.currentUser!.reload();
  /*
-          ZegoUIKitPrebuiltCallInvitationService().init(
+          ZegoUIKitPrebuiltCallInv0itationService().init(
             appID: appID, // من Zego Console
             appSign: appSignin, // من Zego Console
             userID: userID, //irebaseAuth.instance.currentUser!.uid,

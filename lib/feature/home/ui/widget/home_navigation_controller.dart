@@ -1,4 +1,5 @@
-import 'package:fitness/core/di/dependency_injection.dart';
+
+/*import 'package:fitness/core/di/dependency_injection.dart';
 import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/target_exersize/cubit/target_exersize_cubit.dart';
@@ -64,3 +65,4 @@ class HomeNavigationController {
  // }
 
 }
+*/

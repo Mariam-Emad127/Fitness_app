@@ -1,8 +1,7 @@
 import 'package:fitness/core/di/dependency_injection.dart';
 import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/feature/chatting_page/controller/bloc/message_bloc.dart';
-import 'package:fitness/feature/chatting_page/data/model/message_model.dart';
-import 'package:fitness/feature/chatting_page/ui/chatting_screen.dart';
+ import 'package:fitness/feature/chatting_page/ui/chatting_screen.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/exersizes_cubit.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/get_image/cubit/get_image_cubit.dart';
 import 'package:fitness/feature/exersize_page/controller/cubit/target_exersize/cubit/target_exersize_cubit.dart';
@@ -10,7 +9,6 @@ import 'package:fitness/feature/exersize_page/exersize_details/ui/exersize_detai
 import 'package:fitness/feature/exersize_page/ui/exersize_home.dart';
 import 'package:fitness/feature/frind_screen/controller/cubit/get_frinds_cubit.dart';
 import 'package:fitness/feature/frind_screen/ui/frind_screen.dart';
-import 'package:fitness/feature/home/ui/home.dart';
 import 'package:fitness/feature/login/controller/cubit/login_cubit.dart';
 import 'package:fitness/feature/login/ui/login.dart';
 import 'package:fitness/feature/login/ui/login_with_email.dart';
@@ -75,7 +73,8 @@ class AppRouter {
         );
 
       ///home
-      case Routes.home:
+    
+    /*  case Routes.home:
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
             providers: [
@@ -84,10 +83,10 @@ class AppRouter {
               ),
               BlocProvider(create: (context) => EditProfileCubit()),
             ],
-            child: HomeScreen(),
+           // child: HomeScreen(),
           ),
         );
-
+*/
       case Routes.exersizeHome:
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
