@@ -132,6 +132,7 @@ class AppRouter {
 
         final username = args["name"];
         final uid = args["id"];
+        final photo=args["photo"];
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) =>
@@ -150,7 +151,7 @@ class AppRouter {
                   )
                   ..add(ReadMessage(uid))
                   ..add(InitSocket()),
-            child: ChattingScreen(name: username, id: uid),
+            child: ChattingScreen(name: username, id: uid,photo: photo,),
           ),
         );
       case Routes.frindScreen:

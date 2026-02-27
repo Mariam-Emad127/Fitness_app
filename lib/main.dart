@@ -22,8 +22,7 @@ void main() async {
     authOptions: FlutterAuthClientOptions(detectSessionInUri: false),
   );
   
-//await Notification_service().initFCM();
- 
+  
   //await checkIfLoggedInUser();
 
   runApp(MyApp(appRouter: AppRouter()));

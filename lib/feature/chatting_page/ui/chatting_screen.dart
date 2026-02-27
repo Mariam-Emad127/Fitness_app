@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fitness/core/helper/notification_fun.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/feature/chatting_page/controller/bloc/message_bloc.dart';
 import 'package:fitness/feature/chatting_page/ui/widgets/chatting_appbar.dart';
@@ -11,7 +10,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ChattingScreen extends StatefulWidget {
   final String name;
   final String id;
-  const ChattingScreen({super.key, required this.name, required this.id});
+    final String photo;
+  const ChattingScreen({super.key, required this.name, required this.id, required this.photo});
 
   @override
   State<ChattingScreen> createState() => _ChattingScreenState();
@@ -38,15 +38,13 @@ class _ChattingScreenState extends State<ChattingScreen> {
           key: key,
           child: Column(
             children: [
-              ChattingAppbar(name: widget.name, id: widget.id,),
+              ChattingAppbar(name: widget.name, id: widget.id,photo: widget.photo,),
               Expanded(flex: 6, child: Messageblocconsumer()),
 
               SendBubble(
                 messageController: _textEditingController,
                 onPressed: () async {
-await NotificationFunction().sendnotification();
-
-                  context.read<MessageBloc>().add(
+                    context.read<MessageBloc>().add(
                     SendMessageEvent(
                       FirebaseAuth.instance.currentUser!.uid,
                       _textEditingController.text,

@@ -20,75 +20,86 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsManager.darkGray,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: Form(
-              key: context.read<LoginCubit>().formKey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(height: 20.h),
-                  Image.asset(
-                    "assets/Screenshot 2025-07-10 021942.png",
-                    height: 200,
-                    width: 300,
+      body: Expanded(
+        child: Form(
+          key: context.read<LoginCubit>().formKey,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(height: 20.h),
+                Expanded(
+                  flex: 2,
+                  child: Image.asset("assets/Screenshot 2025-07-10 021942.png"),
+                ),
+                Text("Let's login you in", style: TextStyles.font20WhiteMedium),
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    children: [
+                      AppTextFormField(
+                        hintText: "Email",
+                        inputTextStyle: TextStyle(color: Colors.white),
+                        controller: context.read<LoginCubit>().email,
+                        validator: (val) {
+                          if (val == null || val.isEmpty) {
+                            return 'Please enter a valid email';
+                          }
+                        },
+                      ),
+                      SizedBox(height: 20.h),
+                      AppTextFormField(
+                        hintText: "Password",
+                        controller: context.read<LoginCubit>().password,
+                        validator: (val) {
+                          if (val == null || val.isEmpty) {
+                            return 'Please enter a valid password';
+                          }
+                        },
+                      ),
+                      SizedBox(height: 15),
+                      Text(
+                        "Forget Password",
+                        style: TextStyles.font13DarkBlueMedium,
+                      ),
+                      SizedBox(height: 20.h),
+                  
+                      BottonWidget(
+                        onTap: () {
+                          if (context
+                              .read<LoginCubit>()
+                              .formKey
+                              .currentState!
+                              .validate()) {
+                            try {
+                              context
+                                  .read<LoginCubit>()
+                                  .signInWithEmailAndPassword(
+                                    email: context
+                                        .read<LoginCubit>()
+                                        .email
+                                        .text,
+                                    password: context
+                                        .read<LoginCubit>()
+                                        .password
+                                        .text,
+                                  );
+                            } catch (e) {
+                              Text("$e");
+                            }
+                          }
+                        },
+                        title: "Login ",
+                        width: 345,
+                      ),
+                                      Loginbloclistener(),
+                  
+                    ],
                   ),
-                  Text(
-                    "Let's login you in",
-                    style: TextStyles.font20WhiteMedium,
-                  ),
-                  AppTextFormField(
-                    hintText: "Email",
-                    inputTextStyle: TextStyle(color: Colors.white),
-                    controller: context.read<LoginCubit>().email,
-                    validator: (val) {
-                      if (val == null || val.isEmpty) {
-                        return 'Please enter a valid email';
-                      }
-                    },
-                  ),
-                  SizedBox(height: 20.h),
-                  AppTextFormField(
-                    hintText: "Password",
-                    controller: context.read<LoginCubit>().password,
-                    validator: (val) {
-                      if (val == null || val.isEmpty) {
-                        return 'Please enter a valid password';
-                      }
-                    },
-                  ),
-                  SizedBox(height: 15),
-                  Text(
-                    "Forget Password",
-                    style: TextStyles.font13DarkBlueMedium,
-                  ),
-                  SizedBox(height: 20.h),
-
-                  BottonWidget(
-                    onTap: () {
-                      if (context
-                          .read<LoginCubit>()
-                          .formKey
-                          .currentState!
-                          .validate()) {
-                        try {
-                          context.read<LoginCubit>().signInWithEmailAndPassword(
-                            email: context.read<LoginCubit>().email.text,
-                            password: context.read<LoginCubit>().password.text,
-                          );
-                        } catch (e) {
-                          Text("$e");
-                        }
-                      }
-                    },
-                    title: "Login ",
-                    width: 345,
-                  ),
-                  Loginbloclistener(),
-                ],
-              ),
+                ),
+                  
+              ],
             ),
           ),
         ),
