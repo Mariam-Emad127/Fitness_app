@@ -27,7 +27,9 @@ class TodayItemlist extends StatelessWidget {
      Padding(
       padding: const EdgeInsets.all(5.0),
       child: Container(
+        //height: 200.h,
         decoration: BoxDecoration(
+
             color: ColorsManager.darkBlue,
             borderRadius: BorderRadius.circular(12)),
         child: Row(
@@ -35,7 +37,7 @@ class TodayItemlist extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12), // Image border
               child: SizedBox.fromSize(
-                size: Size.fromRadius(40),
+                size: Size.fromRadius(60),
                 child: CachedNetworkImage(
                   imageUrl: exerciseImages[index],
            

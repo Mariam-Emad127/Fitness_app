@@ -1,5 +1,5 @@
 import 'package:fitness/core/helper/constant.dart';
-import 'package:fitness/core/routing/routes.dart';
+ import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/feature/profile/controller/get_user_Info/get_user_info_cubit.dart';
@@ -37,8 +37,7 @@ class _UserProfileState extends State<UserProfile> {
                   children: [
                      AppbarWidget(),
                     ImageWidget(image: state.user.photo ?? unknownImage),
-                              
-                    Text(
+                     Text(
                       state.user.username ?? "",
                       style: TextStyles.font18WhiteMedium ,
                     ),
@@ -48,8 +47,10 @@ class _UserProfileState extends State<UserProfile> {
                     ),
                     UsernumberInfo(userModel: state.user),
                    
-                   Expanded(child: Padding(
-                     padding: const EdgeInsets.only(top:  15.0),
+                   Expanded(
+                    //flex: ,
+                    child: Padding(
+                     padding: const EdgeInsets.only(top:  15.0,bottom: 10),
                      child: ListView(
                       
                       children: [    InkWell(
@@ -61,12 +62,15 @@ class _UserProfileState extends State<UserProfile> {
                           iconData: Icons.person,
                         ),
                       ),
-                      const SizedBox(height: 12),
+                     // const SizedBox(height: 5),
                       Notifcationbutton(),
-                     const SizedBox(height: 12),
+                     //const SizedBox(height: 5),
                       SettingWedgit(title: 'Setting', iconData: Icons.settings),
-                     const SizedBox(height: 12),           
-                           Logoutbutton()],),
+                     //const SizedBox(height: 12),           
+                           Padding(
+                             padding: const EdgeInsets.all(10.0),
+                             child: Logoutbutton(),
+                           )],),
                    ))
                         
                   ],

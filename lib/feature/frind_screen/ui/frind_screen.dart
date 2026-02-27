@@ -1,4 +1,4 @@
-import 'package:fitness/core/helper/shared_pref_helper.dart';
+import 'package:fitness/core/helper/constant.dart';
 import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
@@ -40,13 +40,16 @@ class _FrindScreenState extends State<FrindScreen> {
                           Navigator.of(
                             context,
                           ).pushReplacementNamed(Routes.chatScreen,arguments:{"name": user[index].username,
-                           "id":user[index].uid });
+                           "id":user[index].uid ,"photo":user[index].photo}
+                           
+                           );
 
-                           SharedPrefHelper.setData("fcm",  user[index].fcm);
+                           
                         },
                         child: ListTile(
-                          leading://Text(""),//Image.asset("assets\Screenshot 2025-07-10 021942.png"),
-                           CirImageWidget(photo:  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg"),
+         
+                          leading:  CirImageWidget(photo:  unknownImage,radious: 20,),
+                      
                           title: Text(
                             user[index].username ?? "000",
                             style: TextStyles.font16WhiteMedium,
