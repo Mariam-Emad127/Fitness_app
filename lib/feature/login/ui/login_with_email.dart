@@ -20,24 +20,25 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsManager.darkGray,
-      body: Expanded(
-        child: Form(
-          key: context.read<LoginCubit>().formKey,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(height: 20.h),
-                Expanded(
-                  flex: 2,
-                  child: Image.asset("assets/Screenshot 2025-07-10 021942.png"),
-                ),
-                Text("Let's login you in", style: TextStyles.font20WhiteMedium),
-                Expanded(
-                  flex: 2,
+      body: Form(
+        key: context.read<LoginCubit>().formKey,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+          //  mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(height: 20.h),
+              Expanded(
+                flex: 2,
+                child: Image.asset("assets/Screenshot 2025-07-10 021942.png"),
+              ),
+              
+              Expanded(
+                flex: 2,
+                child: SingleChildScrollView(
                   child: Column(
                     children: [
+                                Text("Let's login you in", style: TextStyles.font20WhiteMedium),
                       AppTextFormField(
                         hintText: "Email",
                         inputTextStyle: TextStyle(color: Colors.white),
@@ -98,9 +99,9 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                     ],
                   ),
                 ),
-                  
-              ],
-            ),
+              ),
+                
+            ],
           ),
         ),
       ),

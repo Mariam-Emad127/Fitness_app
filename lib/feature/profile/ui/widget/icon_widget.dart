@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class IconWidget extends StatelessWidget {
  final IconData icon;
-final Function onPressed;
+final  Function()  onPressed;
     const IconWidget({super.key, required this.icon, required this.onPressed});
 
   @override
@@ -13,7 +13,7 @@ final Function onPressed;
       color:ColorsManager.lightBlue ,
       borderRadius: BorderRadius.circular(15 )
       ),
-    child: IconButton(  onPressed:(){onPressed;}, icon: Icon(icon)),
+    child: IconButton(onPressed: onPressed , icon: Icon(icon), ),
    );
   }
 }

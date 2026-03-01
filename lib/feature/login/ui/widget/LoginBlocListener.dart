@@ -26,7 +26,7 @@ class Loginbloclistener extends StatelessWidget {
             ),
           );
         } else if (state is LoginSucess) {
-           Navigator.pushNamed(context,Routes.exersizeHome);
+           Navigator.pushReplacementNamed(context,Routes.exersizeHome);
 
           FirebaseAuth.instance.currentUser!.reload();
  /*

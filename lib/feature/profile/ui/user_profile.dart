@@ -77,7 +77,7 @@ class _UserProfileState extends State<UserProfile> {
                 ),
               );
             } else {
-              return CircularProgressIndicator();
+              return Center(child: CircularProgressIndicator());
             }
           },
         ),

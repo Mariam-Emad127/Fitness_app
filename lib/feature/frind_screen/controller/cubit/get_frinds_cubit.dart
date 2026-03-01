@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fitness/core/helper/models/user.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+ import 'package:fitness/core/helper/models/user.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,14 +16,12 @@ List<UserModel>users=[];
 Future<List<UserModel>>getFrind()async{
  emit(GetFrindsState.getFrindsLoading());
   try{
-final usersj= await FirebaseFirestore.instance.collection("users").get();
+final usersj= await FirebaseFirestore.instance.collection("users").where("uid",isNotEqualTo:   FirebaseAuth.instance.currentUser!.uid ).get();
 for(var i in usersj.docs){
-//  print("2222222222${i.data()}");
-  users.add(UserModel.fromJson( i.data()) );
+   users.add(UserModel.fromJson( i.data()) );
 }
 emit(GetFrindsState.getFrindSucess(users));
-print("eeeeeeee${users.first.username}");
-return users;
+ return users;
 }catch(e){
  emit(GetFrindsState.getFrindsFailure(e.toString())); 
  return [];

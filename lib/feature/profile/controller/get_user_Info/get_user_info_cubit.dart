@@ -23,7 +23,7 @@ class GetUserInfoCubit extends Cubit<GetUserInfoState> {
         .where("uid", isEqualTo: FirebaseAuth.instance.currentUser!.uid)
         .snapshots()
         .listen((snap) {
-      final UserModel user = snap.docs.map((e) => UserModel.fromJson(e.data())).first;//.single;
+      final UserModel user = snap.docs.map((e) => UserModel.fromJson(e.data())).single;//first;//.single;
       emit(GetUserInfoState.getUserInfoSucess(user));
     });
   }
