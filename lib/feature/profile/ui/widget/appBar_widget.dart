@@ -15,7 +15,7 @@ class AppbarWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
         
-       IconWidget(icon: Icons.arrow_back_ios_new, onPressed: () {Navigator.of(context).pop();},),
+       IconWidget(icon: Icons.arrow_back_ios_new, onPressed:() {Navigator.of(context).pop();},),
        Text("Account",style: TextStyles.font18WhiteMedium),
        IconWidget(icon: Icons.settings, onPressed: () {},)
          

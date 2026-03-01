@@ -40,7 +40,7 @@ class ChattingAppbar extends StatelessWidget {
                     ZegoUIKitPrebuiltCallInvitationService().send(
                       resourceID: "mmm",
                       invitees: [ZegoCallUser(id, name)],
-                      isVideoCall: true,
+                      isVideoCall: false,
                     );
                     Navigator.push(
                       context,

@@ -41,9 +41,9 @@ int _selectedIndex = 0;
                 color: Colors.black, // لون الأيقونات غير المختارة
                 tabs: const [
                   GButton(icon: Icons.home, text: 'Home' ,iconColor: Colors.white,),
-                  GButton(icon: Icons.fitness_center, text: 'Exercises',iconColor: Colors.white,),
+                   GButton(icon: Icons.person, text: 'Profile',iconColor: Colors.white,),
+                  GButton(icon: Icons.fitness_center, text: 'chatting',iconColor: Colors.white,),
                   GButton(icon: Icons.search, text: 'Search',iconColor: Colors.white,),
-                  GButton(icon: Icons.person, text: 'Profile',iconColor: Colors.white,),
                 ],
                 selectedIndex: _selectedIndex,
                 onTabChange: (index) {

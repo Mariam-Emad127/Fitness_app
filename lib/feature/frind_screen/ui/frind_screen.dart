@@ -3,7 +3,7 @@ import 'package:fitness/core/routing/routes.dart';
 import 'package:fitness/core/theming/color.dart';
 import 'package:fitness/core/theming/style.dart';
 import 'package:fitness/core/widgets/image_widget.dart';
- import 'package:fitness/feature/frind_screen/controller/cubit/get_frinds_cubit.dart';
+import 'package:fitness/feature/frind_screen/controller/cubit/get_frinds_cubit.dart';
 import 'package:fitness/feature/frind_screen/ui/wedgits/appbar_wedgit.dart';
 import 'package:fitness/feature/frind_screen/ui/wedgits/loading_feind.dart';
 import 'package:fitness/feature/frind_screen/ui/wedgits/search_wedgit.dart';
@@ -25,9 +25,9 @@ class _FrindScreenState extends State<FrindScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-     AppbarWedgit(),
-     SearchWedgit(),
-      Expanded(
+          AppbarWedgit(),
+          SearchWedgit(),
+          Expanded(
             flex: 8,
             child: BlocBuilder<GetFrindsCubit, GetFrindsState>(
               builder: (context, state) => state.maybeWhen(
@@ -37,19 +37,21 @@ class _FrindScreenState extends State<FrindScreen> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          Navigator.of(
-                            context,
-                          ).pushReplacementNamed(Routes.chatScreen,arguments:{"name": user[index].username,
-                           "id":user[index].uid ,"photo":user[index].photo}
-                           
-                           );
-
-                           
+                          Navigator.of(context).pushReplacementNamed(
+                            Routes.chatScreen,
+                            arguments: {
+                              "name": user[index].username,
+                              "id": user[index].uid,
+                              "photo": user[index].photo,
+                            },
+                          );
                         },
                         child: ListTile(
-         
-                          leading:  CirImageWidget(photo:  unknownImage,radious: 20,),
-                      
+                          leading: CirImageWidget(
+                            photo: unknownImage,
+                            radious: 20,
+                          ),
+
                           title: Text(
                             user[index].username ?? "000",
                             style: TextStyles.font16WhiteMedium,
@@ -61,7 +63,7 @@ class _FrindScreenState extends State<FrindScreen> {
                 },
                 getFrindsLoading: () => LoadingFrind(),
                 getFrindsFailure: (message) {
-                   return Text(message, style: TextStyle(color: Colors.white));
+                  return Text(message, style: TextStyle(color: Colors.white));
                 },
                 orElse: () {
                   return CircularProgressIndicator();
@@ -69,7 +71,6 @@ class _FrindScreenState extends State<FrindScreen> {
               ),
             ),
           ),
-      
         ],
       ),
     );
